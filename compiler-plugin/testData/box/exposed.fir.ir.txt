@@ -140,7 +140,8 @@ FILE fqName:my.test fileName:/exposed.kt
   FUN name:box visibility:public modality:FINAL <> () returnType:kotlin.String
     BLOCK_BODY
       RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in my.test'
-        CONST String type=kotlin.String value="OK"
+        CALL 'public final fun toUser (): kotlin.String declared in my.test' type=kotlin.String origin=null
+          $receiver: CALL 'public final fun johnResultRow (): org.jetbrains.kotlin.compiler.plugin.template.ResultRow declared in org.jetbrains.kotlin.compiler.plugin.template' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow origin=null
 FILE fqName:foo.bar fileName:__GENERATED DECLARATIONS__.kt
   CLASS GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.SimpleClassGenerator.Key] CLASS name:MyClass modality:FINAL visibility:public superTypes:[kotlin.Any]
     $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:foo.bar.MyClass
@@ -167,8 +168,8 @@ FILE fqName:foo.bar fileName:__GENERATED DECLARATIONS__.kt
         RETURN type=kotlin.Nothing from='public final fun foo (): kotlin.String declared in foo.bar.MyClass'
           CONST String type=kotlin.String value="Hello world"
 FILE fqName:my.test fileName:__GENERATED DECLARATIONS__.kt
-  FUN GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.MyCodeGenerationExtension.Key] name:toUser visibility:public modality:FINAL <> ($receiver:org.jetbrains.exposed.sql.ResultRow) returnType:kotlin.String
-    $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.ResultRow
+  FUN GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.MyCodeGenerationExtension.Key] name:toUser visibility:public modality:FINAL <> ($receiver:org.jetbrains.kotlin.compiler.plugin.template.ResultRow) returnType:kotlin.String
+    $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.kotlin.compiler.plugin.template.ResultRow
     BLOCK_BODY
-      TYPE_OP type=kotlin.Unit origin=IMPLICIT_COERCION_TO_UNIT typeOperand=kotlin.Unit
+      RETURN type=kotlin.Nothing from='public final fun toUser (): kotlin.String declared in my.test'
         CONST String type=kotlin.String value="OK"

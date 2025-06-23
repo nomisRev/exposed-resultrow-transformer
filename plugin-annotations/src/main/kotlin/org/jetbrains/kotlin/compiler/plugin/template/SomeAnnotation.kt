@@ -1,7 +1,7 @@
 package org.jetbrains.kotlin.compiler.plugin.template
 
 import org.jetbrains.exposed.sql.Column
-import org.jetbrains.exposed.sql.ResultRow
+import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.Table
 import kotlin.reflect.KClass
 

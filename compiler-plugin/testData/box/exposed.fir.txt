@@ -20,7 +20,7 @@ FILE: exposed.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        ^box String(OK)
+        ^box R|org/jetbrains/kotlin/compiler/plugin/template/johnResultRow|().R|my/test/toUser|()
     }
 FILE: __GENERATED DECLARATIONS__.kt
     package foo.bar
@@ -34,6 +34,4 @@ FILE: __GENERATED DECLARATIONS__.kt
 FILE: __GENERATED DECLARATIONS__.kt
     package my.test
 
-    public final fun R|org/jetbrains/exposed/sql/ResultRow|.toUser(): R|kotlin/String| {
-        String(OK)
-    }
+    public final fun R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow|.toUser(): R|kotlin/String|
