@@ -34,6 +34,6 @@ FILE: __GENERATED DECLARATIONS__.kt
 FILE: __GENERATED DECLARATIONS__.kt
     package my.test
 
-    public final fun toUser(): R|kotlin/String| {
-        String(Hello, world!)
+    public final fun R|org/jetbrains/exposed/sql/ResultRow|.toUser(): R|kotlin/String| {
+        String(OK)
     }

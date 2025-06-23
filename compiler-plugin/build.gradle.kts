@@ -28,6 +28,7 @@ val testDependenciesRuntimeClasspath: Configuration by configurations.creating {
 
 dependencies {
     compileOnly(kotlin("compiler"))
+    compileOnly(project(":plugin-annotations"))
 
     testFixturesApi(kotlin("test-junit5"))
     testFixturesApi(kotlin("compiler-internal-test-framework"))

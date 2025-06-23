@@ -167,7 +167,8 @@ FILE fqName:foo.bar fileName:__GENERATED DECLARATIONS__.kt
         RETURN type=kotlin.Nothing from='public final fun foo (): kotlin.String declared in foo.bar.MyClass'
           CONST String type=kotlin.String value="Hello world"
 FILE fqName:my.test fileName:__GENERATED DECLARATIONS__.kt
-  FUN name:toUser visibility:public modality:FINAL <> () returnType:kotlin.String
+  FUN GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.MyCodeGenerationExtension.Key] name:toUser visibility:public modality:FINAL <> ($receiver:org.jetbrains.exposed.sql.ResultRow) returnType:kotlin.String
+    $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.ResultRow
     BLOCK_BODY
       TYPE_OP type=kotlin.Unit origin=IMPLICIT_COERCION_TO_UNIT typeOperand=kotlin.Unit
-        CONST String type=kotlin.String value="Hello, world!"
+        CONST String type=kotlin.String value="OK"

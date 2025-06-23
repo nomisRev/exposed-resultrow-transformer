@@ -34,6 +34,8 @@ import org.jetbrains.kotlin.fir.analysis.checkers.declaration.primaryConstructor
 import org.jetbrains.kotlin.fir.declarations.builder.buildReceiverParameter
 import org.jetbrains.kotlin.fir.declarations.builder.buildValueParameter
 import org.jetbrains.kotlin.fir.expressions.FirGetClassCall
+import org.jetbrains.kotlin.fir.extensions.predicate.LookupPredicate
+import org.jetbrains.kotlin.fir.extensions.predicateBasedProvider
 import org.jetbrains.kotlin.fir.resolve.toRegularClassSymbol
 import org.jetbrains.kotlin.fir.types.resolvedType
 
@@ -42,9 +44,6 @@ import org.jetbrains.kotlin.fir.types.resolvedType
 private val MY_CODE_GENERATE_ANNOTATION: AnnotationFqn
     get() = FqName("org.jetbrains.kotlin.compiler.plugin.template.SomeAnnotation")
 
-private val classId
-    get() = ClassId.topLevel(MY_CODE_GENERATE_ANNOTATION)
-
 private val RESULT_ROW_CLASS_ID = ClassId(
     packageFqName = FqName("org.jetbrains.exposed.sql"),
     relativeClassName = FqName("ResultRow"),
@@ -52,6 +51,15 @@ private val RESULT_ROW_CLASS_ID = ClassId(
 )
 
 class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationExtension(session) {
+    companion object {
+        private val PREDICATE =
+            LookupPredicate.create { annotated(FqName("org.jetbrains.kotlin.compiler.plugin.template.SomeAnnotation")) }
+    }
+
+    private val predicateBasedProvider = session.predicateBasedProvider
+    private val matchedClasses by lazy {
+        predicateBasedProvider.getSymbolsByPredicate(PREDICATE).filterIsInstance<FirRegularClassSymbol>()
+    }
 
     // Key for generated declarations
     object Key : GeneratedDeclarationKey()
@@ -65,56 +73,18 @@ class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationE
     //     that are annotated with @MyCodeGenerate.
     override fun FirDeclarationPredicateRegistrar.registerPredicates() {
         println("registerPredicates()")
-        val predicate = DeclarationPredicate.AnnotatedWith(setOf(MY_CODE_GENERATE_ANNOTATION))
-        register(predicate)
-        println("Registered predicate: $predicate")
-    }
-
-    override fun generateNestedClassLikeDeclaration(
-        owner: FirClassSymbol<*>,
-        name: Name,
-        context: NestedClassGenerationContext
-    ): FirClassLikeSymbol<*>? {
-        println("generateNestedClassLikeDeclaration(owner=$owner, name=$name)")
-        return super.generateNestedClassLikeDeclaration(owner, name, context)
-    }
-
-    override fun generateConstructors(context: MemberGenerationContext): List<FirConstructorSymbol> {
-        println("generateConstructors(context=$context)")
-        return super.generateConstructors(context)
-    }
-
-    // 3
-    override fun generateProperties(
-        callableId: CallableId,
-        context: MemberGenerationContext?
-    ): List<FirPropertySymbol> {
-        println("generateProperties(callableId=$callableId, context=$context) returning emptyList()")
-        return emptyList()
-    }
-
-    @ExperimentalTopLevelDeclarationsGenerationApi
-    override fun generateTopLevelClassLikeDeclaration(classId: ClassId): FirClassLikeSymbol<*>? {
-        println("generateTopLevelClassLikeDeclaration(classId=$classId)")
-        return super.generateTopLevelClassLikeDeclaration(classId)
-    }
-
-    override fun getNestedClassifiersNames(
-        classSymbol: FirClassSymbol<*>,
-        context: NestedClassGenerationContext
-    ): Set<Name> {
-        annotatedClasses.add(classSymbol)
-        callableIds.add(classSymbol.callableId())
-        return emptySet()
+        register(PREDICATE)
+        println("Registered predicate: $PREDICATE")
     }
 
     private val annotatedClasses: MutableList<FirClassSymbol<*>> = mutableListOf()
-    private var callableIds: MutableList<CallableId> = mutableListOf()
 
-    @ExperimentalTopLevelDeclarationsGenerationApi
-    override fun getTopLevelClassIds(): Set<ClassId> {
-        println("getTopLevelClassIds: emptySet()")
-        return emptySet()
+    @OptIn(ExperimentalTopLevelDeclarationsGenerationApi::class)
+    override fun getTopLevelCallableIds(): Set<CallableId> {
+        println("getTopLevelCallableIds() called")
+        val newGeneratedIds = matchedClasses.mapTo(mutableSetOf()) { it.callableId() }
+        println("getTopLevelCallableIds returning: $newGeneratedIds")
+        return newGeneratedIds
     }
 
     override fun generateFunctions(
@@ -122,79 +92,73 @@ class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationE
         context: MemberGenerationContext?
     ): List<FirNamedFunctionSymbol> {
         println("Generating function for callableId: $callableId, context: MemberGenerationContext?: $context") // Debug log
-        val owner = annotatedClasses.firstOrNull { it.callableId() == callableId }
-        if (owner == null) {
-            println("CallableId not found in generatedCallableIds") // Debug log
-            return emptyList()
-        }
+//        val owner = annotatedClasses.firstOrNull { it.callableId() == callableId }
+//        if (owner == null) {
+//            println("CallableId not found in generatedCallableIds") // Debug log
+//            return emptyList()
+//        }
+        val functions = matchedClasses.map { owner ->
+            val annotation =
+                owner.annotations.first().argumentMapping.mapping.entries.first().value
+            val classSymbol = (annotation as FirGetClassCall).argument.resolvedType.toRegularClassSymbol(session)
+            val columns = classSymbol?.declarationSymbols.orEmpty()
 
+            val paramToColumn = owner.primaryConstructorSymbol(session)?.valueParameterSymbols
+                ?.groupBy { parameter ->
+                    columns.single { (it as? FirPropertySymbol)?.name == parameter.name }
+                }
 
-        val annotation =
-            owner.annotations.first().argumentMapping.mapping.entries.first().value
-
-        val classSymbol = (annotation as FirGetClassCall).argument.resolvedType.toRegularClassSymbol(session)
-        val columns = classSymbol?.declarationSymbols.orEmpty()
-
-        val paramToColumn = owner.primaryConstructorSymbol(session)?.valueParameterSymbols
-            ?.groupBy { parameter ->
-                columns.single { (it as? FirPropertySymbol)?.name == parameter.name }
-            }
-
-        val function = buildSimpleFunction {
-            // Don't use the owner's source, create a new one
-            source = null
-            moduleData = session.moduleData
-            origin = FirDeclarationOrigin.Plugin(Key)
-            symbol = FirNamedFunctionSymbol(callableId)
-//            dispatchReceiverType = RESULT_ROW_CLASS_ID.defaultType(emptyList())
-            receiverParameter = buildReceiverParameter {
+            buildSimpleFunction {
+                // Don't use the owner's source, create a new one
                 source = null
-                resolvePhase = FirResolvePhase.RAW_FIR
-                origin = FirDeclarationOrigin.Plugin(Key)
                 moduleData = session.moduleData
-                typeRef = RESULT_ROW_CLASS_ID.defaultType(emptyList()).toFirResolvedTypeRef()
-                symbol = FirReceiverParameterSymbol()
-                containingDeclarationSymbol = this@buildSimpleFunction.symbol
-            }
+                origin = FirDeclarationOrigin.Plugin(Key)
+                symbol = FirNamedFunctionSymbol(callableId)
+//            dispatchReceiverType = RESULT_ROW_CLASS_ID.defaultType(emptyList())
+                receiverParameter = buildReceiverParameter {
+                    source = null
+                    resolvePhase = FirResolvePhase.RAW_FIR
+                    origin = FirDeclarationOrigin.Plugin(Key)
+                    moduleData = session.moduleData
+                    typeRef = RESULT_ROW_CLASS_ID.defaultType(emptyList()).toFirResolvedTypeRef()
+                    symbol = FirReceiverParameterSymbol()
+                    containingDeclarationSymbol = this@buildSimpleFunction.symbol
+                }
 
-            returnTypeRef = session.builtinTypes.stringType.coneType.toFirResolvedTypeRef()
+                returnTypeRef = session.builtinTypes.stringType.coneType.toFirResolvedTypeRef()
 //            returnTypeRef = owner.defaultType().toFirResolvedTypeRef()
-            name = callableId.callableName
-            status = FirResolvedDeclarationStatusImpl(Visibilities.Public, Modality.FINAL, EffectiveVisibility.Public)
-            resolvePhase = FirResolvePhase.RAW_FIR
+                name = callableId.callableName
+                status =
+                    FirResolvedDeclarationStatusImpl(Visibilities.Public, Modality.FINAL, EffectiveVisibility.Public)
+                resolvePhase = FirResolvePhase.RAW_FIR
 
-            body = buildBlock {
-                statements += buildLiteralExpression(
-                    source = null,
-                    kind = ConstantValueKind.String,
-                    value = "OK",
-                    setType = true
-                )
+                body = buildBlock {
+                    statements += buildLiteralExpression(
+                        source = null,
+                        kind = ConstantValueKind.String,
+                        value = "OK",
+                        setType = true
+                    )
+                }
             }
         }
 
-        println("Generated function: ${function.symbol}") // Debug log
-        return listOf(function.symbol)
-    }
 
-    @ExperimentalTopLevelDeclarationsGenerationApi
-    override fun getTopLevelCallableIds(): Set<CallableId> {
-        val discovered = callableIds.toList()
-        callableIds.removeAll(discovered)
-        println("getTopLevelCallableIds returning: $discovered")
-        return discovered.toSet()
+        println("Generated functions: ${functions.joinToString { it.symbol.toString() }}") // Debug log
+        return functions.map { it.symbol }
     }
 
     fun FirClassSymbol<*>.callableId(): CallableId {
         val packageName = classId.packageFqName
         val functionName = Name.identifier("to${classId.shortClassName}")
-        return CallableId(packageName, null, functionName)
+        return CallableId(packageName = packageName, className = null, callableName = functionName)
     }
 
     override fun hasPackage(packageFqName: FqName): Boolean {
         println("hasPackage(packageFqName=$packageFqName)")
         return packageFqName == MY_CODE_GENERATE_ANNOTATION.parent() ||
                 packageFqName == FqName("foo.bar") ||
+                packageFqName == FqName("my.test.toUser") ||
                 packageFqName == FqName.ROOT
     }
 }
