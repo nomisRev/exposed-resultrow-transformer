@@ -15,7 +15,7 @@ public object UsersTable : Table("users") {
     override val primaryKey: PrimaryKey = PrimaryKey(id)
 }
 
-public val JohnResultRow: ResultRow =
+public fun johnResultRow(): ResultRow =
     ResultRow.createAndFillValues(
         mapOf(
             UsersTable.id to 1,
