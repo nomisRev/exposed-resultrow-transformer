@@ -1,9 +1,9 @@
 package my.test
 
 import org.jetbrains.kotlin.compiler.plugin.template.SomeAnnotation
-import org.jetbrains.kotlin.compiler.plugin.template.UserTable
+import org.jetbrains.kotlin.compiler.plugin.template.UsersTable
 
-@SomeAnnotation(UserTable::class)
+@SomeAnnotation(UsersTable::class)
 data class User(val name: String, val age: Int)
 
 fun box(): String {

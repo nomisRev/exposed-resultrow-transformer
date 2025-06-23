@@ -139,14 +139,17 @@ class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationE
             return emptyList()
         }
 
-        // Create a function that returns a string literal with a return type of User
-        // This matches the expected output in the test
+
+        val annotation =
+            owner.annotations.first().argumentMapping.mapping.entries.first().value
+
         val function = buildSimpleFunction {
             // Don't use the owner's source, create a new one
             source = null
             moduleData = session.moduleData
             origin = FirDeclarationOrigin.Source
-            returnTypeRef = owner.defaultType().toFirResolvedTypeRef()
+            returnTypeRef = session.builtinTypes.stringType.coneType.toFirResolvedTypeRef()
+//            returnTypeRef = owner.defaultType().toFirResolvedTypeRef()
             name = callableId.callableName
             symbol = FirNamedFunctionSymbol(callableId)
             status = FirResolvedDeclarationStatusImpl(Visibilities.Public, Modality.FINAL, EffectiveVisibility.Public)

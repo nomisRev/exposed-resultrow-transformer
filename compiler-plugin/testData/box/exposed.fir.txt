@@ -1,7 +1,7 @@
 FILE: exposed.kt
     package my.test
 
-    @R|org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation|() public final data class User : R|kotlin/Any| {
+    @R|org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation|(kClass = <getClass>(Q|org/jetbrains/kotlin/compiler/plugin/template/UsersTable|)) public final data class User : R|kotlin/Any| {
         public constructor(name: R|kotlin/String|, age: R|kotlin/Int|): R|my/test/User| {
             super<R|kotlin/Any|>()
         }
@@ -34,6 +34,6 @@ FILE: __GENERATED DECLARATIONS__.kt
 FILE: __GENERATED DECLARATIONS__.kt
     package my.test
 
-    public final fun toUser(): R|my/test/User| {
+    public final fun toUser(): R|kotlin/String| {
         String(Hello, world!)
     }

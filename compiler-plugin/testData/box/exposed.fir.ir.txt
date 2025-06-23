@@ -1,7 +1,7 @@
 FILE fqName:my.test fileName:/exposed.kt
   CLASS CLASS name:User modality:FINAL visibility:public [data] superTypes:[kotlin.Any]
     annotations:
-      SomeAnnotation
+      SomeAnnotation(kClass = CLASS_REFERENCE 'CLASS IR_EXTERNAL_DECLARATION_STUB OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.sql.Table]' type=kotlin.reflect.KClass<org.jetbrains.kotlin.compiler.plugin.template.UsersTable>)
     $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:my.test.User
     PROPERTY name:name visibility:public modality:FINAL [val]
       FIELD PROPERTY_BACKING_FIELD name:name type:kotlin.String visibility:private [final]
@@ -167,7 +167,7 @@ FILE fqName:foo.bar fileName:__GENERATED DECLARATIONS__.kt
         RETURN type=kotlin.Nothing from='public final fun foo (): kotlin.String declared in foo.bar.MyClass'
           CONST String type=kotlin.String value="Hello world"
 FILE fqName:my.test fileName:__GENERATED DECLARATIONS__.kt
-  FUN name:toUser visibility:public modality:FINAL <> () returnType:my.test.User
+  FUN name:toUser visibility:public modality:FINAL <> () returnType:kotlin.String
     BLOCK_BODY
       TYPE_OP type=kotlin.Unit origin=IMPLICIT_COERCION_TO_UNIT typeOperand=kotlin.Unit
         CONST String type=kotlin.String value="Hello, world!"
