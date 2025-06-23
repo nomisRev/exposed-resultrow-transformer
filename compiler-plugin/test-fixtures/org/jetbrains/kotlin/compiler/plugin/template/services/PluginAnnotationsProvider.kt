@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.cli.jvm.config.addJvmClasspathRoots
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.test.model.TestModule
 import org.jetbrains.kotlin.test.services.EnvironmentConfigurator
+import org.jetbrains.kotlin.test.services.RuntimeClasspathProvider
 import org.jetbrains.kotlin.test.services.TestServices
 import java.io.File
 
@@ -20,4 +21,9 @@ class PluginAnnotationsProvider(testServices: TestServices) : EnvironmentConfigu
         val all = annotationsRuntimeClasspath + testDependenciesRuntimeClasspath
         configuration.addJvmClasspathRoots(all)
     }
+}
+
+class RuntimeClassPathProvider(testServices: TestServices) : RuntimeClasspathProvider(testServices) {
+    override fun runtimeClassPaths(module: TestModule): List<File> =
+        annotationsRuntimeClasspath + testDependenciesRuntimeClasspath
 }

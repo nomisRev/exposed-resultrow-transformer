@@ -1,5 +1,6 @@
 package org.jetbrains.kotlin.compiler.plugin.template.runners
 
+import org.jetbrains.kotlin.compiler.plugin.template.services.RuntimeClassPathProvider
 import org.jetbrains.kotlin.compiler.plugin.template.services.ExtensionRegistrarConfigurator
 import org.jetbrains.kotlin.compiler.plugin.template.services.PluginAnnotationsProvider
 import org.jetbrains.kotlin.test.FirParser
@@ -36,10 +37,8 @@ open class AbstractJvmDiagnosticTest : AbstractFirPhasedDiagnosticTest(FirParser
                 +CodegenTestDirectives.IGNORE_DEXING // Avoids loading R8 from the classpath.
             }
 
-            useConfigurators(
-                ::PluginAnnotationsProvider,
-                ::ExtensionRegistrarConfigurator
-            )
+            useConfigurators(::PluginAnnotationsProvider, ::ExtensionRegistrarConfigurator)
+            useCustomRuntimeClasspathProviders(::RuntimeClassPathProvider)
         }
     }
 }
