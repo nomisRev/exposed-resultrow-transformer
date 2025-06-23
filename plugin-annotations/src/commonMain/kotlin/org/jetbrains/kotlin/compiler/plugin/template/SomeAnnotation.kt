@@ -1,3 +1,3 @@
 package org.jetbrains.kotlin.compiler.plugin.template
 
-public annotation class SomeAnnotation
+public annotation class SomeAnnotation(val text: String)
