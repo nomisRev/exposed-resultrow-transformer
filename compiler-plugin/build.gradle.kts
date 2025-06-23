@@ -24,6 +24,7 @@ idea {
 }
 
 val annotationsRuntimeClasspath: Configuration by configurations.creating { isTransitive = false }
+val testDependenciesRuntimeClasspath: Configuration by configurations.creating { }
 
 dependencies {
     compileOnly(kotlin("compiler"))
@@ -33,6 +34,11 @@ dependencies {
     testFixturesApi(kotlin("compiler"))
 
     annotationsRuntimeClasspath(project(":plugin-annotations"))
+    testDependenciesRuntimeClasspath("org.jetbrains.exposed:exposed-jdbc:0.61.0")
+    testDependenciesRuntimeClasspath("org.jetbrains.exposed:exposed-core:0.61.0")
+    testDependenciesRuntimeClasspath("org.testcontainers:testcontainers:1.19.3")
+    testDependenciesRuntimeClasspath("org.testcontainers:postgresql:1.19.3")
+    testDependenciesRuntimeClasspath("org.postgresql:postgresql:42.7.1")
 
     // Dependencies required to run the internal test framework.
     testRuntimeOnly("junit:junit:4.13.2")
@@ -53,11 +59,13 @@ buildConfig {
 
 tasks.test {
     dependsOn(annotationsRuntimeClasspath)
+    dependsOn(testDependenciesRuntimeClasspath)
 
     useJUnitPlatform()
     workingDir = rootDir
 
     systemProperty("annotationsRuntime.classpath", annotationsRuntimeClasspath.asPath)
+    systemProperty("testDependenciesRuntime.classpath", testDependenciesRuntimeClasspath.asPath)
 
     // Properties required to run the internal test framework.
     setLibraryProperty("org.jetbrains.kotlin.test.kotlin-stdlib", "kotlin-stdlib")
