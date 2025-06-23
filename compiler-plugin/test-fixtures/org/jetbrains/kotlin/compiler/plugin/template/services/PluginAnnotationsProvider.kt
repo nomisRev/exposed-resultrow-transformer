@@ -7,16 +7,17 @@ import org.jetbrains.kotlin.test.services.EnvironmentConfigurator
 import org.jetbrains.kotlin.test.services.TestServices
 import java.io.File
 
-private val annotationsRuntimeClasspath =
+private val annotationsRuntimeClasspath: List<File> =
     System.getProperty("annotationsRuntime.classpath")?.split(File.pathSeparator)?.map(::File)
         ?: error("Unable to get a valid classpath from 'annotationsRuntime.classpath' property")
 
-private val testDependenciesRuntimeClasspath =
+private val testDependenciesRuntimeClasspath: List<File> =
     System.getProperty("testDependenciesRuntime.classpath")?.split(File.pathSeparator)?.map(::File)
         ?: error("Unable to get a valid classpath from 'testDependenciesRuntime.classpath' property")
 
 class PluginAnnotationsProvider(testServices: TestServices) : EnvironmentConfigurator(testServices) {
     override fun configureCompilerConfiguration(configuration: CompilerConfiguration, module: TestModule) {
-        configuration.addJvmClasspathRoots(annotationsRuntimeClasspath + testDependenciesRuntimeClasspath)
+        val all = annotationsRuntimeClasspath + testDependenciesRuntimeClasspath
+        configuration.addJvmClasspathRoots(all)
     }
 }

@@ -53,7 +53,7 @@ private val RESULT_ROW_CLASS_ID = ClassId(
 class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationExtension(session) {
     companion object {
         private val PREDICATE =
-            LookupPredicate.create { annotated(FqName("org.jetbrains.kotlin.compiler.plugin.template.SomeAnnotation")) }
+            LookupPredicate.create { annotated(MY_CODE_GENERATE_ANNOTATION) }
     }
 
     private val predicateBasedProvider = session.predicateBasedProvider
