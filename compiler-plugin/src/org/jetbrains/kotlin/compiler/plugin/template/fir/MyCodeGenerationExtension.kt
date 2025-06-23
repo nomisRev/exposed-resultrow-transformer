@@ -35,7 +35,10 @@ import org.jetbrains.kotlin.fir.resolve.defaultType
 import org.jetbrains.kotlin.fir.toFirResolvedTypeRef
 import org.jetbrains.kotlin.fir.plugin.createMemberFunction
 import org.jetbrains.kotlin.GeneratedDeclarationKey
+import org.jetbrains.kotlin.fir.expressions.FirGetClassCall
 import org.jetbrains.kotlin.fir.plugin.createTopLevelFunction
+import org.jetbrains.kotlin.fir.resolve.toRegularClassSymbol
+import org.jetbrains.kotlin.fir.types.resolvedType
 
 
 class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationExtension(session) {
@@ -46,7 +49,7 @@ class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationE
 
     private val classId
         get() = ClassId.topLevel(MY_CODE_GENERATE_ANNOTATION)
-        
+
     // Key for generated declarations
     object Key : GeneratedDeclarationKey()
 
@@ -105,6 +108,12 @@ class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationE
 
     private var callableIds: MutableMap<CallableId, FirClassSymbol<*>> = mutableMapOf()
 
+    private fun getTableColumns(tableClass: Any): List<String> {
+        // TODO: Extract column information from Table class
+        // This requires resolving the actual Table class and its columns
+        return emptyList() // Placeholder implementation
+    }
+
     // 1
     // TODO can be ued to generate getTopLevelCallableIds
     //    `context.owner.classId`
@@ -143,6 +152,11 @@ class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationE
         val annotation =
             owner.annotations.first().argumentMapping.mapping.entries.first().value
 
+        val classSymbol = (annotation as FirGetClassCall).argument.resolvedType.toRegularClassSymbol(session)
+        val columns = classSymbol?.declarationSymbols
+
+
+
         val function = buildSimpleFunction {
             // Don't use the owner's source, create a new one
             source = null
@@ -154,7 +168,7 @@ class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationE
             symbol = FirNamedFunctionSymbol(callableId)
             status = FirResolvedDeclarationStatusImpl(Visibilities.Public, Modality.FINAL, EffectiveVisibility.Public)
             resolvePhase = FirResolvePhase.RAW_FIR
-            
+
             body = buildBlock {
                 statements += buildLiteralExpression(
                     source = null, // Use null for the source element to avoid line number mapping issues
