@@ -25,6 +25,7 @@ import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IdTable
 import org.jetbrains.exposed.sql.Alias
 import org.jetbrains.exposed.sql.ResultRow.ResultRowCache
+import org.jetbrains.exposed.sql.StringColumnType
 import org.jetbrains.exposed.sql.transactions.TransactionManager
 
 /** A row of data representing a single record retrieved from a database result set. */
@@ -114,7 +115,9 @@ public class ResultRow(
             raw == NotInitializedValue -> error("$expression is not initialized yet")
             expression is ExpressionWithColumnTypeAlias<T> -> rawToColumnValue(raw, expression.delegate)
             expression is ExpressionAlias<T> -> rawToColumnValue(raw, expression.delegate)
-            expression is ExpressionWithColumnType<T> -> expression.columnType.valueFromDB(raw)
+            expression is ExpressionWithColumnType<T> ->
+                if (expression.columnType is StringColumnType) raw.toString() as T
+                else expression.columnType.valueFromDB(raw)
 //            expression is Op<Boolean> -> BooleanColumnType.INSTANCE.valueFromDB(raw)
             else -> raw
         } as T

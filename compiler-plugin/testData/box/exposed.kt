@@ -10,5 +10,7 @@ import org.jetbrains.kotlin.compiler.plugin.template.johnResultRow
 data class User(val name: String, val age: Int)
 
 fun box(): String {
-    return johnResultRow().toUser()
+    val actual = johnResultRow().toUser()
+    val expected = User("John", 20)
+    return if (actual == expected) { "OK" } else { "Fail: $actual" }
 }

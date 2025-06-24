@@ -14,13 +14,6 @@ import org.jetbrains.kotlin.fir.symbols.impl.FirConstructorSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirNamedFunctionSymbol
 import org.jetbrains.kotlin.name.*
 
-/*
- * Generates top level class
- *
- * public final class foo.bar.MyClass {
- *     fun foo(): String = "Hello world"
- * }
- */
 class SimpleClassGenerator(session: FirSession) : FirDeclarationGenerationExtension(session) {
     companion object {
         val MY_CLASS_ID = ClassId(FqName.fromSegments(listOf("foo", "bar")), Name.identifier("MyClass"))
@@ -38,7 +31,7 @@ class SimpleClassGenerator(session: FirSession) : FirDeclarationGenerationExtens
     override fun generateConstructors(context: MemberGenerationContext): List<FirConstructorSymbol> {
         val classId = context.owner.classId
         require(classId == MY_CLASS_ID)
-        val constructor = createConstructor(context.owner, Key, /*generateDelegatedNoArgConstructorCall = true*/)
+        val constructor = createConstructor(context.owner, Key /*generateDelegatedNoArgConstructorCall = true*/)
         return listOf(constructor.symbol)
     }
 
@@ -47,7 +40,12 @@ class SimpleClassGenerator(session: FirSession) : FirDeclarationGenerationExtens
         context: MemberGenerationContext?
     ): List<FirNamedFunctionSymbol> {
         val owner = context?.owner ?: return emptyList()
-        val function = createMemberFunction(owner, Key, callableId.callableName, returnType = session.builtinTypes.stringType.coneType)
+        val function = createMemberFunction(
+            owner,
+            Key,
+            callableId.callableName,
+            returnType = session.builtinTypes.stringType.coneType
+        )
         return listOf(function.symbol)
     }
 

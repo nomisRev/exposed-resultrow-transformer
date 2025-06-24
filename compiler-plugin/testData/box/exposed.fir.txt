@@ -20,7 +20,17 @@ FILE: exposed.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        ^box R|org/jetbrains/kotlin/compiler/plugin/template/johnResultRow|().R|my/test/toUser|()
+        lval actual: R|my/test/User| = R|org/jetbrains/kotlin/compiler/plugin/template/johnResultRow|().R|my/test/toUser|()
+        lval expected: R|my/test/User| = R|my/test/User.User|(String(John), Int(20))
+        ^box when () {
+            ==(R|<local>/actual|, R|<local>/expected|) ->  {
+                String(OK)
+            }
+            else ->  {
+                <strcat>(String(Fail: ), R|<local>/actual|)
+            }
+        }
+
     }
 FILE: __GENERATED DECLARATIONS__.kt
     package foo.bar
@@ -34,4 +44,4 @@ FILE: __GENERATED DECLARATIONS__.kt
 FILE: __GENERATED DECLARATIONS__.kt
     package my.test
 
-    public final fun R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow|.toUser(): R|kotlin/String|
+    public final fun R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow|.toUser(): R|my/test/User|

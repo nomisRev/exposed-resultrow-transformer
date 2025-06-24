@@ -42,7 +42,7 @@ class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationE
         predicateBasedProvider.getSymbolsByPredicate(PREDICATE).filterIsInstance<FirRegularClassSymbol>()
     }
 
-    class Key(val mappings: Map<FirBasedSymbol<*>, FirValueParameterSymbol>) : GeneratedDeclarationKey()
+    class Key(val annotated: FirRegularClassSymbol, val table: FirRegularClassSymbol) : GeneratedDeclarationKey()
 
     override fun FirDeclarationPredicateRegistrar.registerPredicates() {
         register(PREDICATE)
@@ -62,33 +62,12 @@ class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationE
     ): List<FirNamedFunctionSymbol> =
         matchedClasses.map { owner ->
             val annotation =
-                owner.annotations.first().argumentMapping.mapping.entries.first().value
-            val classSymbol = (annotation as FirGetClassCall).argument.resolvedType.toRegularClassSymbol(session)
-            val columns = classSymbol?.declarationSymbols.orEmpty()
-
-            val paramToColumn: Map<FirBasedSymbol<*>, FirValueParameterSymbol>? =
-                owner.primaryConstructorSymbol(session)?.valueParameterSymbols
-                    ?.associate { parameter ->
-                        Pair(columns.single { (it as? FirPropertySymbol)?.name == parameter.name }, parameter)
-                    }
-
-            require(paramToColumn?.isNotEmpty() == true)
+                owner.annotations.first().argumentMapping.mapping.entries.first().value as FirGetClassCall
+            val classSymbol = requireNotNull(annotation.argument.resolvedType.toRegularClassSymbol(session))
 
             @OptIn(ExperimentalTopLevelDeclarationsGenerationApi::class)
-            createTopLevelFunction(
-                Key(paramToColumn),
-                callableId,
-                session.builtinTypes.stringType.coneType, // owner.defaultType().toFirResolvedTypeRef()
-            ) {
+            createTopLevelFunction(Key(owner, classSymbol), callableId, owner.defaultType()) {
                 extensionReceiverType(RESULT_ROW_CLASS_ID.defaultType(emptyList()))
             }.symbol
         }
-
-    override fun hasPackage(packageFqName: FqName): Boolean {
-        println("hasPackage(packageFqName=$packageFqName)")
-        return packageFqName == MY_CODE_GENERATE_ANNOTATION.parent() ||
-                packageFqName == FqName("foo.bar") ||
-                packageFqName == FqName("my.test.toUser") ||
-                packageFqName == FqName.ROOT
-    }
 }
