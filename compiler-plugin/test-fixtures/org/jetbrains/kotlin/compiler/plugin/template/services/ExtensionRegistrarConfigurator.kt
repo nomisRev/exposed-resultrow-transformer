@@ -3,7 +3,7 @@ package org.jetbrains.kotlin.compiler.plugin.template.services
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar
 import org.jetbrains.kotlin.compiler.plugin.template.SimplePluginRegistrar
-import org.jetbrains.kotlin.compiler.plugin.template.ir.SimpleIrGenerationExtension
+import org.jetbrains.kotlin.compiler.plugin.template.ir.MyCodeIrGenerationExtension
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.fir.extensions.FirExtensionRegistrarAdapter
 import org.jetbrains.kotlin.test.model.TestModule
@@ -16,6 +16,6 @@ class ExtensionRegistrarConfigurator(testServices: TestServices) : EnvironmentCo
         configuration: CompilerConfiguration
     ) {
         FirExtensionRegistrarAdapter.registerExtension(SimplePluginRegistrar())
-        IrGenerationExtension.registerExtension(SimpleIrGenerationExtension())
+        IrGenerationExtension.registerExtension(MyCodeIrGenerationExtension())
     }
 }

@@ -1,7 +1,7 @@
-FILE: exposed.kt
+FILE: exposedArgumentNotTable.kt
     package my.test
 
-    @R|org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation|(kClass = <getClass>(Q|org/jetbrains/kotlin/compiler/plugin/template/UsersTable|)) public final data class User : R|kotlin/Any| {
+    @R|org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation|(kClass = <getClass>(Q|kotlin/String|)) public final data class User : R|kotlin/Any| {
         public constructor(name: R|kotlin/String|, age: R|kotlin/Int|): R|my/test/User| {
             super<R|kotlin/Any|>()
         }
@@ -17,19 +17,6 @@ FILE: exposed.kt
         public final operator fun component2(): R|kotlin/Int|
 
         public final fun copy(name: R|kotlin/String| = this@R|my/test/User|.R|my/test/User.name|, age: R|kotlin/Int| = this@R|my/test/User|.R|my/test/User.age|): R|my/test/User|
-
-    }
-    public final fun box(): R|kotlin/String| {
-        lval actual: R|my/test/User| = R|org/jetbrains/kotlin/compiler/plugin/template/johnResultRow|().R|my/test/toUser|()
-        lval expected: R|my/test/User| = R|my/test/User.User|(String(John), Int(20))
-        ^box when () {
-            ==(R|<local>/actual|, R|<local>/expected|) ->  {
-                String(OK)
-            }
-            else ->  {
-                <strcat>(String(Fail: ), R|<local>/actual|)
-            }
-        }
 
     }
 FILE: __GENERATED DECLARATIONS__.kt

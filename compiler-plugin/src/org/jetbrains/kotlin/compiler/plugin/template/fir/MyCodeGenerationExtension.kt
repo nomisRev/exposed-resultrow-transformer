@@ -36,6 +36,12 @@ private val RESULT_ROW_CLASS_ID = ClassId(
     isLocal = false
 )
 
+val TABLE_CLASS_ID = ClassId(
+    packageFqName = FqName("org.jetbrains.exposed.sql"),
+    relativeClassName = FqName("Table"),
+    isLocal = false
+)
+
 class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationExtension(session) {
     companion object {
         private val PREDICATE =

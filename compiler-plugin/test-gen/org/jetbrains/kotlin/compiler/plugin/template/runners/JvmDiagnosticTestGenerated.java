@@ -22,14 +22,20 @@ public class JvmDiagnosticTestGenerated extends AbstractJvmDiagnosticTest {
   }
 
   @Test
-  @TestMetadata("anotherDiagnosticTest.kt")
-  public void testAnotherDiagnosticTest() {
-    runTest("compiler-plugin/testData/diagnostics/anotherDiagnosticTest.kt");
+  @TestMetadata("exposedArgumentNotTable.kt")
+  public void testExposedArgumentNotTable() {
+    runTest("compiler-plugin/testData/diagnostics/exposedArgumentNotTable.kt");
   }
 
   @Test
-  @TestMetadata("simple.kt")
-  public void testSimple() {
-    runTest("compiler-plugin/testData/diagnostics/simple.kt");
+  @TestMetadata("exposedDataClassExpected.kt")
+  public void testExposedDataClassExpected() {
+    runTest("compiler-plugin/testData/diagnostics/exposedDataClassExpected.kt");
+  }
+
+  @Test
+  @TestMetadata("exposedPropNotFound.kt")
+  public void testExposedPropNotFound() {
+    runTest("compiler-plugin/testData/diagnostics/exposedPropNotFound.kt");
   }
 }

@@ -1,0 +1,19 @@
+FILE: exposedDataClassExpected.kt
+    package my.test
+
+    @R|org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation|(kClass = <getClass>(Q|org/jetbrains/kotlin/compiler/plugin/template/UsersTable|)) public final class User : R|kotlin/Any| {
+        public constructor(name: R|kotlin/String|, age: R|kotlin/Int|): R|my/test/User| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val name: R|kotlin/String| = R|<local>/name|
+            public get(): R|kotlin/String|
+
+        public final val age: R|kotlin/Int| = R|<local>/age|
+            public get(): R|kotlin/Int|
+
+    }
+FILE: __GENERATED DECLARATIONS__.kt
+    package my.test
+
+    public final fun R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow|.toUser(): R|my/test/User|
