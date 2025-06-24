@@ -49,7 +49,7 @@ object ConstructorToTableChecker : FirClassChecker(MppCheckerKind.Common) {
             val supers = if (superTypes.isEmpty()) "found no super types"
             else superTypes.joinToString { it.renderReadableWithFqNames() }
             reporter.reportOn(
-                annotation.source ?: declaration.source,
+                annotation.source,
                 Errors.ANNOTATION_ARGUMENT_NOT_TABLE,
                 supers,
                 context,
@@ -57,7 +57,7 @@ object ConstructorToTableChecker : FirClassChecker(MppCheckerKind.Common) {
             return
         }
 
-        val columns = annotationClass?.declarationSymbols?.filterIsInstance<FirPropertySymbol>().orEmpty()
+        val columns = annotationClass.declarationSymbols.filterIsInstance<FirPropertySymbol>()
 
         if (!declaration.status.isData) {
             reporter.reportOn(
@@ -77,7 +77,7 @@ object ConstructorToTableChecker : FirClassChecker(MppCheckerKind.Common) {
                         parameter.source,
                         Errors.DATA_CLASS_PROPERTY_NOT_FOUND,
                         parameter.name.asString(),
-                        annotationClass!!.name.asString(),
+                        annotationClass.name.asString(),
                         columns.map { it.name.asString() },
                         context,
                     )

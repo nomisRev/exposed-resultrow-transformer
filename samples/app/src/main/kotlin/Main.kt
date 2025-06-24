@@ -1,7 +1,9 @@
 import org.jetbrains.exposed.dao.id.LongIdTable
 import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.insertAndGetId
 import org.jetbrains.exposed.sql.selectAll
+import org.jetbrains.exposed.sql.transactions.transaction
 import org.jetbrains.kotlin.compiler.plugin.template.SomeAnnotation
 
 @SomeAnnotation(Users::class)
@@ -15,11 +17,15 @@ object Users : LongIdTable("users", "user_id") {
 
 fun main() {
     val db = Database.connect("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1", driver = "org.h2.Driver")
-    val id = Users.insertAndGetId {
-        it[name] = "Simon"
-        it[age] = 20
-        it[email] = "<EMAIL>"
-    }.value
-    Users.selectAll()
-        .where { Users.id eq id }
+    transaction(db) {
+        SchemaUtils.create(Users)
+        val id = Users.insertAndGetId {
+            it[name] = "Simon"
+            it[age] = 20
+            it[email] = "<EMAIL>"
+        }.value
+        Users.selectAll()
+            .where { Users.id eq id }
+            .toUser()
+    }
 }

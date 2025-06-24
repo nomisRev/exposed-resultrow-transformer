@@ -3,7 +3,15 @@
 package my.test
 
 import org.jetbrains.kotlin.compiler.plugin.template.SomeAnnotation
-import org.jetbrains.kotlin.compiler.plugin.template.UsersTable
+import org.jetbrains.exposed.sql.Table
+
+public object UsersTable : Table("users") {
+    public val id = integer("id").autoIncrement().uniqueIndex()
+    public val name = varchar("name", length = 50)
+    public val age = integer("age")
+    public val email = varchar("email", length = 255).nullable()
+    override val primaryKey: PrimaryKey = PrimaryKey(id)
+}
 
 @SomeAnnotation(UsersTable::class)
 data class User(

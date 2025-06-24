@@ -11,37 +11,29 @@ import org.jetbrains.kotlin.diagnostics.SourceElementPositioningStrategies
 import org.jetbrains.kotlin.diagnostics.rendering.BaseDiagnosticRendererFactory
 import org.jetbrains.kotlin.diagnostics.rendering.RootDiagnosticRendererFactory
 import org.jetbrains.kotlin.name.ClassId
-
-/**
- * The compiler and the IDE use a different version of this class, so use reflection to find the available version.
- * https://github.com/TadeasKriz/K2PluginBase/blob/main/kotlin-plugin/src/main/kotlin/com/tadeaskriz/example/ExamplePluginErrors.kt#L8
- */
-private val psiElementClass by lazy {
-    try {
-        Class.forName("org.jetbrains.kotlin.com.intellij.psi.PsiElement")
-    } catch (_: ClassNotFoundException) {
-        Class.forName("com.intellij.psi.PsiElement")
-    }.kotlin
-}
+import org.jetbrains.kotlin.psi.KtAnnotation
+import org.jetbrains.kotlin.psi.KtClass
+import org.jetbrains.kotlin.psi.KtParameter
+import org.jetbrains.kotlin.psi.KtProperty
 
 object Errors : BaseDiagnosticRendererFactory() {
 
     val DATA_CLASS_PROPERTY_NOT_FOUND by DiagnosticFactory3DelegateProvider<String, String, List<String>>(
         severity = Severity.ERROR,
         positioningStrategy = SourceElementPositioningStrategies.DEFAULT,
-        psiType = psiElementClass,
+        psiType = KtProperty::class,
     )
 
     val DATA_CLASS_EXPECTED by DiagnosticFactory1DelegateProvider<ClassId>(
         severity = Severity.ERROR,
         positioningStrategy = SourceElementPositioningStrategies.DEFAULT,
-        psiType = psiElementClass,
+        psiType = KtClass::class,
     )
 
     val ANNOTATION_ARGUMENT_NOT_TABLE by DiagnosticFactory1DelegateProvider<String>(
         severity = Severity.ERROR,
         positioningStrategy = SourceElementPositioningStrategies.DEFAULT,
-        psiType = psiElementClass,
+        psiType = KtAnnotation::class,
     )
 
     override val MAP: KtDiagnosticFactoryToRendererMap =

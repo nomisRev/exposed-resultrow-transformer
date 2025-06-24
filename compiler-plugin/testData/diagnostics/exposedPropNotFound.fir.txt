@@ -1,7 +1,28 @@
 FILE: exposedPropNotFound.kt
     package my.test
 
-    @R|org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation|(kClass = <getClass>(Q|org/jetbrains/kotlin/compiler/plugin/template/UsersTable|)) public final data class User : R|kotlin/Any| {
+    public final object UsersTable : R|org/jetbrains/exposed/sql/Table| {
+        private constructor(): R|my/test/UsersTable| {
+            super<R|org/jetbrains/exposed/sql/Table|>(String(users))
+        }
+
+        public final val id: R|org/jetbrains/exposed/sql/Column<kotlin/Int>| = (this@R|my/test/UsersTable|, (this@R|my/test/UsersTable|, this@R|my/test/UsersTable|.R|org/jetbrains/exposed/sql/Table.integer|(String(id))).R|org/jetbrains/exposed/sql/Table.autoIncrement|<R|kotlin/Int|>()).R|org/jetbrains/exposed/sql/Table.uniqueIndex|<R|kotlin/Int|>()
+            public get(): R|org/jetbrains/exposed/sql/Column<kotlin/Int>|
+
+        public final val name: R|org/jetbrains/exposed/sql/Column<kotlin/String>| = this@R|my/test/UsersTable|.R|org/jetbrains/exposed/sql/Table.varchar|(String(name), Int(50))
+            public get(): R|org/jetbrains/exposed/sql/Column<kotlin/String>|
+
+        public final val age: R|org/jetbrains/exposed/sql/Column<kotlin/Int>| = this@R|my/test/UsersTable|.R|org/jetbrains/exposed/sql/Table.integer|(String(age))
+            public get(): R|org/jetbrains/exposed/sql/Column<kotlin/Int>|
+
+        public final val email: R|org/jetbrains/exposed/sql/Column<kotlin/String?>| = (this@R|my/test/UsersTable|, this@R|my/test/UsersTable|.R|org/jetbrains/exposed/sql/Table.varchar|(String(email), Int(255))).R|org/jetbrains/exposed/sql/Table.nullable|<R|kotlin/String|>()
+            public get(): R|org/jetbrains/exposed/sql/Column<kotlin/String?>|
+
+        public open override val primaryKey: R|org/jetbrains/exposed/sql/Table.PrimaryKey| = this@R|my/test/UsersTable|.R|org/jetbrains/exposed/sql/Table.PrimaryKey.PrimaryKey|(this@R|my/test/UsersTable|.R|my/test/UsersTable.id|)
+            public get(): R|org/jetbrains/exposed/sql/Table.PrimaryKey|
+
+    }
+    @R|org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation|(kClass = <getClass>(Q|my/test/UsersTable|)) public final data class User : R|kotlin/Any| {
         public constructor(name: R|kotlin/String|, notExisting: R|kotlin/Int|, notExisting2: R|kotlin/String|): R|my/test/User| {
             super<R|kotlin/Any|>()
         }

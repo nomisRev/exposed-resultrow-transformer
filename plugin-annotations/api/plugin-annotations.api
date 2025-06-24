@@ -9,23 +9,10 @@ public final class org/jetbrains/kotlin/compiler/plugin/template/ResultRow {
 }
 
 public final class org/jetbrains/kotlin/compiler/plugin/template/ResultRow$Companion {
-	public final fun createAndFillValues (Ljava/util/Map;)Lorg/jetbrains/kotlin/compiler/plugin/template/ResultRow;
+	public final fun createAndFillValues ([Lkotlin/Pair;)Lorg/jetbrains/kotlin/compiler/plugin/template/ResultRow;
 }
 
 public abstract interface annotation class org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation : java/lang/annotation/Annotation {
 	public abstract fun kClass ()Ljava/lang/Class;
-}
-
-public final class org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotationKt {
-	public static final fun johnResultRow ()Lorg/jetbrains/kotlin/compiler/plugin/template/ResultRow;
-}
-
-public final class org/jetbrains/kotlin/compiler/plugin/template/UsersTable : org/jetbrains/exposed/sql/Table {
-	public static final field INSTANCE Lorg/jetbrains/kotlin/compiler/plugin/template/UsersTable;
-	public final fun getAge ()Lorg/jetbrains/exposed/sql/Column;
-	public final fun getEmail ()Lorg/jetbrains/exposed/sql/Column;
-	public final fun getId ()Lorg/jetbrains/exposed/sql/Column;
-	public final fun getName ()Lorg/jetbrains/exposed/sql/Column;
-	public fun getPrimaryKey ()Lorg/jetbrains/exposed/sql/Table$PrimaryKey;
 }
 

@@ -19,10 +19,13 @@ FILE: exposed.kt
         public final fun copy(name: R|kotlin/String| = this@R|my/test/User|.R|my/test/User.name|, age: R|kotlin/Int| = this@R|my/test/User|.R|my/test/User.age|): R|my/test/User|
 
     }
-    public final object UsersTable : R|org/jetbrains/exposed/dao/id/LongIdTable| {
+    public final object UsersTable : R|org/jetbrains/exposed/sql/Table| {
         private constructor(): R|my/test/UsersTable| {
-            super<R|org/jetbrains/exposed/dao/id/LongIdTable|>(String(users), String(user_id))
+            super<R|org/jetbrains/exposed/sql/Table|>(String(users))
         }
+
+        public final val id: R|org/jetbrains/exposed/sql/Column<kotlin/Int>| = (this@R|my/test/UsersTable|, (this@R|my/test/UsersTable|, this@R|my/test/UsersTable|.R|org/jetbrains/exposed/sql/Table.integer|(String(id))).R|org/jetbrains/exposed/sql/Table.autoIncrement|<R|kotlin/Int|>()).R|org/jetbrains/exposed/sql/Table.uniqueIndex|<R|kotlin/Int|>()
+            public get(): R|org/jetbrains/exposed/sql/Column<kotlin/Int>|
 
         public final val name: R|org/jetbrains/exposed/sql/Column<kotlin/String>| = this@R|my/test/UsersTable|.R|org/jetbrains/exposed/sql/Table.varchar|(String(name), Int(50))
             public get(): R|org/jetbrains/exposed/sql/Column<kotlin/String>|
@@ -30,12 +33,15 @@ FILE: exposed.kt
         public final val age: R|org/jetbrains/exposed/sql/Column<kotlin/Int>| = this@R|my/test/UsersTable|.R|org/jetbrains/exposed/sql/Table.integer|(String(age))
             public get(): R|org/jetbrains/exposed/sql/Column<kotlin/Int>|
 
-        public final val email: R|org/jetbrains/exposed/sql/Column<kotlin/String?>| = (this@R|my/test/UsersTable|, this@R|my/test/UsersTable|.R|org/jetbrains/exposed/sql/Table.varchar|(String(email), Int(255))).R|SubstitutionOverride<org/jetbrains/exposed/dao/id/LongIdTable.nullable: R|org/jetbrains/exposed/sql/Column<T?>|>|<R|kotlin/String|>()
+        public final val email: R|org/jetbrains/exposed/sql/Column<kotlin/String?>| = (this@R|my/test/UsersTable|, this@R|my/test/UsersTable|.R|org/jetbrains/exposed/sql/Table.varchar|(String(email), Int(255))).R|org/jetbrains/exposed/sql/Table.nullable|<R|kotlin/String|>()
             public get(): R|org/jetbrains/exposed/sql/Column<kotlin/String?>|
+
+        public open override val primaryKey: R|org/jetbrains/exposed/sql/Table.PrimaryKey| = this@R|my/test/UsersTable|.R|org/jetbrains/exposed/sql/Table.PrimaryKey.PrimaryKey|(this@R|my/test/UsersTable|.R|my/test/UsersTable.id|)
+            public get(): R|org/jetbrains/exposed/sql/Table.PrimaryKey|
 
     }
     public final fun box(): R|kotlin/String| {
-        lval row: R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow| = Q|org/jetbrains/kotlin/compiler/plugin/template/ResultRow|.R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow.Companion.createAndFillValues|(vararg(Q|my/test/UsersTable|.R|org/jetbrains/exposed/dao/id/LongIdTable.id|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<org/jetbrains/exposed/dao/id/EntityID<kotlin/Long>>|, R|kotlin/Int|>(Int(1)), Q|my/test/UsersTable|.R|my/test/UsersTable.name|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/String>|, R|kotlin/String|>(String(John)), Q|my/test/UsersTable|.R|my/test/UsersTable.age|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/Int>|, R|kotlin/Int|>(Int(20)), Q|my/test/UsersTable|.R|my/test/UsersTable.email|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/String?>|, R|kotlin/String|>(String(<EMAIL>))))
+        lval row: R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow| = Q|org/jetbrains/kotlin/compiler/plugin/template/ResultRow|.R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow.Companion.createAndFillValues|(vararg(Q|my/test/UsersTable|.R|my/test/UsersTable.id|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/Int>|, R|kotlin/Int|>(Int(1)), Q|my/test/UsersTable|.R|my/test/UsersTable.name|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/String>|, R|kotlin/String|>(String(John)), Q|my/test/UsersTable|.R|my/test/UsersTable.age|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/Int>|, R|kotlin/Int|>(Int(20)), Q|my/test/UsersTable|.R|my/test/UsersTable.email|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/String?>|, R|kotlin/String|>(String(<EMAIL>))))
         lval actual: R|my/test/User| = R|<local>/row|.R|my/test/toUser|()
         lval expected: R|my/test/User| = R|my/test/User.User|(String(John), Int(20))
         ^box when () {
