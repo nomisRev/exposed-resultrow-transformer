@@ -6,12 +6,19 @@ import org.jetbrains.kotlin.compiler.plugin.template.ir.MyCodeIrGenerationExtens
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.fir.extensions.FirExtensionRegistrarAdapter
 
-class SimplePluginComponentRegistrar: CompilerPluginRegistrar() {
+class SimplePluginComponentRegistrar : CompilerPluginRegistrar() {
     override val supportsK2: Boolean = true
 
     override fun ExtensionStorage.registerExtensions(configuration: CompilerConfiguration) {
         val options = Options(configuration)
-        FirExtensionRegistrarAdapter.registerExtension(SimplePluginRegistrar())
+        val logger = Logger(options.debug)
+        val module = Module(
+            classIds = ClassIds(),
+            options = options,
+            logger = logger,
+        )
+        logger.log { "SimplePluginComponentRegistrar loaded" }
+        FirExtensionRegistrarAdapter.registerExtension(SimplePluginRegistrar(module))
         IrGenerationExtension.registerExtension(MyCodeIrGenerationExtension())
     }
 }

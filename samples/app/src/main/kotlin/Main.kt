@@ -24,9 +24,10 @@ fun main() {
             it[age] = 20
             it[email] = "<EMAIL>"
         }.value
-        Users.selectAll()
+        val row = Users.selectAll()
             .where { Users.id eq id }
-            .toUser()
-        println("POOOP")
+            .single()
+        val user = row.toUser()
+        println("Generated user: $user")
     }
 }

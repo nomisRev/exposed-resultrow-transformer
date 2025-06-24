@@ -24,7 +24,7 @@ class Option<A : Any>(
             description = "Debug mode",
             required = false,
             allowMultipleOccurrences = false,
-            defaultValue = false,
+            defaultValue = true,
             convertValue = { it.toBoolean() },
         )
     }

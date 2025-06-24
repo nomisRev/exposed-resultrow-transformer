@@ -1,5 +1,6 @@
 package org.jetbrains.kotlin.compiler.plugin.template.fir
 
+import org.jetbrains.kotlin.compiler.plugin.template.Module
 import org.jetbrains.kotlin.diagnostics.DiagnosticReporter
 import org.jetbrains.kotlin.diagnostics.reportOn
 import org.jetbrains.kotlin.fir.FirSession
@@ -20,28 +21,30 @@ import org.jetbrains.kotlin.fir.symbols.impl.FirPropertySymbol
 import org.jetbrains.kotlin.fir.types.renderReadableWithFqNames
 import org.jetbrains.kotlin.fir.types.resolvedType
 import org.jetbrains.kotlin.name.ClassId
+import kotlin.math.log
 
-class FirCheckers(session: FirSession) : FirAdditionalCheckersExtension(session) {
+class FirCheckers(session: FirSession, private val module: Module) : FirAdditionalCheckersExtension(session) {
     override val declarationCheckers: DeclarationCheckers = object : DeclarationCheckers() {
-        override val classCheckers: Set<FirClassChecker> = setOf(ConstructorToTableChecker)
+        override val classCheckers: Set<FirClassChecker> = setOf(ConstructorToTableChecker(module))
     }
 }
 
-object ConstructorToTableChecker : FirClassChecker(MppCheckerKind.Common) {
+class ConstructorToTableChecker(private val module: Module) : FirClassChecker(MppCheckerKind.Common) {
     override fun check(declaration: FirClass, context: CheckerContext, reporter: DiagnosticReporter) {
         val annotation =
-            declaration.getAnnotationByClassId(ClassId.topLevel(MY_CODE_GENERATE_ANNOTATION), context.session)
+            declaration.getAnnotationByClassId(ClassId.topLevel(module.classIds.annotation), context.session)
         if (annotation == null) return
 
         val annotationClass =
             (annotation.argumentMapping.mapping.entries.firstOrNull()?.value as? FirGetClassCall)
                 ?.argument
                 ?.resolvedType
+                // This is covered by `ANNOTATION_ARGUMENT_NOT_TABLE` diagnostic
                 ?.toRegularClassSymbol(context.session)
 
         val superTypes = annotationClass?.resolvedSuperTypes.orEmpty()
         val isTable = annotationClass?.isSubclassOf(
-            TABLE_CLASS_ID.defaultType(emptyList()).lookupTag, context.session,
+            module.classIds.table.defaultType(emptyList()).lookupTag, context.session,
             isStrict = false,
             lookupInterfaces = false
         ) == true
@@ -73,6 +76,7 @@ object ConstructorToTableChecker : FirClassChecker(MppCheckerKind.Common) {
             .forEach { parameter ->
                 val column = columns.firstOrNull { it.name == parameter.name }
                 if (column == null) {
+                    module.logger.log { "Parameter ${parameter.name} not found in columns for ${declaration.classId}" }
                     reporter.reportOn(
                         parameter.source,
                         Errors.DATA_CLASS_PROPERTY_NOT_FOUND,
