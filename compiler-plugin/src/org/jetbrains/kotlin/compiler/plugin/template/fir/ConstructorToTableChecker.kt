@@ -14,6 +14,7 @@ import org.jetbrains.kotlin.fir.declarations.primaryConstructorIfAny
 import org.jetbrains.kotlin.fir.declarations.utils.classId
 import org.jetbrains.kotlin.fir.expressions.FirGetClassCall
 import org.jetbrains.kotlin.fir.resolve.defaultType
+import org.jetbrains.kotlin.fir.resolve.isSubclassOf
 import org.jetbrains.kotlin.fir.resolve.toRegularClassSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirPropertySymbol
 import org.jetbrains.kotlin.fir.types.renderReadableWithFqNames
@@ -39,16 +40,18 @@ object ConstructorToTableChecker : FirClassChecker(MppCheckerKind.Common) {
                 ?.toRegularClassSymbol(context.session)
 
         val superTypes = annotationClass?.resolvedSuperTypes.orEmpty()
-        val isTable = superTypes.contains(TABLE_CLASS_ID.defaultType(emptyList()))
+        val isTable = annotationClass?.isSubclassOf(
+            TABLE_CLASS_ID.defaultType(emptyList()).lookupTag, context.session,
+            isStrict = false,
+            lookupInterfaces = false
+        ) == true
         if (!isTable) {
-            val postfix = if (superTypes.isEmpty()) "found no super types"
+            val supers = if (superTypes.isEmpty()) "found no super types"
             else superTypes.joinToString { it.renderReadableWithFqNames() }
-            val message =
-                "Required declaration must have super typed org.jetbrains.exposed.sql.Table, but found $postfix"
             reporter.reportOn(
                 annotation.source ?: declaration.source,
                 Errors.ANNOTATION_ARGUMENT_NOT_TABLE,
-                message,
+                supers,
                 context,
             )
             return

@@ -159,10 +159,10 @@ public class ResultRow(
 
     public companion object {
         /** Creates a [ResultRow] using the expressions and values provided by [data]. */
-        public fun createAndFillValues(data: Map<Expression<*>, Any?>): ResultRow {
+        public fun createAndFillValues(vararg data: Pair<Expression<*>, Any?>): ResultRow {
             val fieldIndex = HashMap<Expression<*>, Int>(data.size)
             val values = arrayOfNulls<Any?>(data.size)
-            data.entries.forEachIndexed { i, columnAndValue ->
+            data.forEachIndexed { i, columnAndValue ->
                 val (column, value) = columnAndValue
                 fieldIndex[column] = i
                 values[i] = value

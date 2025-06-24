@@ -1,0 +1,1047 @@
+FILE fqName:my.test fileName:/exposedLongIdTable.kt
+  CLASS CLASS name:User modality:FINAL visibility:public [data] superTypes:[kotlin.Any]
+    annotations:
+      SomeAnnotation(kClass = CLASS_REFERENCE 'CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.dao.id.LongIdTable]' type=kotlin.reflect.KClass<my.test.UsersTable>)
+    $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:my.test.User
+    PROPERTY name:name visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:name type:kotlin.String visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'name: kotlin.String declared in my.test.User.<init>' type=kotlin.String origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-name> visibility:public modality:FINAL <> ($this:my.test.User) returnType:kotlin.String
+        correspondingProperty: PROPERTY name:name visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:my.test.User
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-name> (): kotlin.String declared in my.test.User'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:name type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: my.test.User declared in my.test.User.<get-name>' type=my.test.User origin=null
+    PROPERTY name:age visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:age type:kotlin.Int visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'age: kotlin.Int declared in my.test.User.<init>' type=kotlin.Int origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-age> visibility:public modality:FINAL <> ($this:my.test.User) returnType:kotlin.Int
+        correspondingProperty: PROPERTY name:age visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:my.test.User
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-age> (): kotlin.Int declared in my.test.User'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:age type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: my.test.User declared in my.test.User.<get-age>' type=my.test.User origin=null
+    CONSTRUCTOR visibility:public <> (name:kotlin.String, age:kotlin.Int) returnType:my.test.User [primary]
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:age index:1 type:kotlin.Int
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:User modality:FINAL visibility:public [data] superTypes:[kotlin.Any]' type=kotlin.Unit
+    FUN GENERATED_DATA_CLASS_MEMBER name:component1 visibility:public modality:FINAL <> ($this:my.test.User) returnType:kotlin.String [operator]
+      $this: VALUE_PARAMETER name:<this> type:my.test.User
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component1 (): kotlin.String declared in my.test.User'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:name type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+            receiver: GET_VAR '<this>: my.test.User declared in my.test.User.component1' type=my.test.User origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:component2 visibility:public modality:FINAL <> ($this:my.test.User) returnType:kotlin.Int [operator]
+      $this: VALUE_PARAMETER name:<this> type:my.test.User
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component2 (): kotlin.Int declared in my.test.User'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:age type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+            receiver: GET_VAR '<this>: my.test.User declared in my.test.User.component2' type=my.test.User origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:copy visibility:public modality:FINAL <> ($this:my.test.User, name:kotlin.String, age:kotlin.Int) returnType:my.test.User
+      $this: VALUE_PARAMETER name:<this> type:my.test.User
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:name type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+            receiver: GET_VAR '<this>: my.test.User declared in my.test.User.copy' type=my.test.User origin=null
+      VALUE_PARAMETER name:age index:1 type:kotlin.Int
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:age type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+            receiver: GET_VAR '<this>: my.test.User declared in my.test.User.copy' type=my.test.User origin=null
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun copy (name: kotlin.String, age: kotlin.Int): my.test.User declared in my.test.User'
+          CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, age: kotlin.Int) declared in my.test.User' type=my.test.User origin=null
+            name: GET_VAR 'name: kotlin.String declared in my.test.User.copy' type=kotlin.String origin=null
+            age: GET_VAR 'age: kotlin.Int declared in my.test.User.copy' type=kotlin.Int origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:equals visibility:public modality:OPEN <> ($this:my.test.User, other:kotlin.Any?) returnType:kotlin.Boolean [operator]
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:my.test.User
+      VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              arg0: GET_VAR '<this>: my.test.User declared in my.test.User.equals' type=my.test.User origin=null
+              arg1: GET_VAR 'other: kotlin.Any? declared in my.test.User.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in my.test.User'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=my.test.User
+              GET_VAR 'other: kotlin.Any? declared in my.test.User.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in my.test.User'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:my.test.User [val]
+          TYPE_OP type=my.test.User origin=CAST typeOperand=my.test.User
+            GET_VAR 'other: kotlin.Any? declared in my.test.User.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:name type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                  receiver: GET_VAR '<this>: my.test.User declared in my.test.User.equals' type=my.test.User origin=null
+                arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:name type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                  receiver: GET_VAR 'val tmp_0: my.test.User declared in my.test.User.equals' type=my.test.User origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in my.test.User'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:age type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  receiver: GET_VAR '<this>: my.test.User declared in my.test.User.equals' type=my.test.User origin=null
+                arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:age type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  receiver: GET_VAR 'val tmp_0: my.test.User declared in my.test.User.equals' type=my.test.User origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in my.test.User'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in my.test.User'
+          CONST Boolean type=kotlin.Boolean value=true
+    FUN GENERATED_DATA_CLASS_MEMBER name:hashCode visibility:public modality:OPEN <> ($this:my.test.User) returnType:kotlin.Int
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:my.test.User
+      BLOCK_BODY
+        VAR name:result type:kotlin.Int [var]
+          CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.String' type=kotlin.Int origin=null
+            $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:name type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: my.test.User declared in my.test.User.hashCode' type=my.test.User origin=null
+        SET_VAR 'var result: kotlin.Int declared in my.test.User.hashCode' type=kotlin.Unit origin=EQ
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            $this: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              $this: GET_VAR 'var result: kotlin.Int declared in my.test.User.hashCode' type=kotlin.Int origin=null
+              other: CONST Int type=kotlin.Int value=31
+            other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:age type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                receiver: GET_VAR '<this>: my.test.User declared in my.test.User.hashCode' type=my.test.User origin=null
+        RETURN type=kotlin.Nothing from='public open fun hashCode (): kotlin.Int declared in my.test.User'
+          GET_VAR 'var result: kotlin.Int declared in my.test.User.hashCode' type=kotlin.Int origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:toString visibility:public modality:OPEN <> ($this:my.test.User) returnType:kotlin.String
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:my.test.User
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun toString (): kotlin.String declared in my.test.User'
+          STRING_CONCATENATION type=kotlin.String
+            CONST String type=kotlin.String value="User("
+            CONST String type=kotlin.String value="name="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:name type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: my.test.User declared in my.test.User.toString' type=my.test.User origin=null
+            CONST String type=kotlin.String value=", "
+            CONST String type=kotlin.String value="age="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:age type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: my.test.User declared in my.test.User.toString' type=my.test.User origin=null
+            CONST String type=kotlin.String value=")"
+  CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.dao.id.LongIdTable]
+    $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:my.test.UsersTable
+    PROPERTY name:name visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:name type:org.jetbrains.exposed.sql.Column<kotlin.String> visibility:private [final]
+        EXPRESSION_BODY
+          CALL 'public final fun varchar (name: kotlin.String, length: kotlin.Int, collate: kotlin.String?): org.jetbrains.exposed.sql.Column<kotlin.String> declared in my.test.UsersTable' type=org.jetbrains.exposed.sql.Column<kotlin.String> origin=null
+            $this: GET_VAR '<this>: my.test.UsersTable declared in my.test.UsersTable' type=my.test.UsersTable origin=null
+            name: CONST String type=kotlin.String value="name"
+            length: CONST Int type=kotlin.Int value=50
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-name> visibility:public modality:FINAL <> ($this:my.test.UsersTable) returnType:org.jetbrains.exposed.sql.Column<kotlin.String>
+        correspondingProperty: PROPERTY name:name visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:my.test.UsersTable
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-name> (): org.jetbrains.exposed.sql.Column<kotlin.String> declared in my.test.UsersTable'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:name type:org.jetbrains.exposed.sql.Column<kotlin.String> visibility:private [final]' type=org.jetbrains.exposed.sql.Column<kotlin.String> origin=null
+              receiver: GET_VAR '<this>: my.test.UsersTable declared in my.test.UsersTable.<get-name>' type=my.test.UsersTable origin=null
+    PROPERTY name:age visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:age type:org.jetbrains.exposed.sql.Column<kotlin.Int> visibility:private [final]
+        EXPRESSION_BODY
+          CALL 'public final fun integer (name: kotlin.String, checkConstraintName: kotlin.String?): org.jetbrains.exposed.sql.Column<kotlin.Int> declared in my.test.UsersTable' type=org.jetbrains.exposed.sql.Column<kotlin.Int> origin=null
+            $this: GET_VAR '<this>: my.test.UsersTable declared in my.test.UsersTable' type=my.test.UsersTable origin=null
+            name: CONST String type=kotlin.String value="age"
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-age> visibility:public modality:FINAL <> ($this:my.test.UsersTable) returnType:org.jetbrains.exposed.sql.Column<kotlin.Int>
+        correspondingProperty: PROPERTY name:age visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:my.test.UsersTable
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-age> (): org.jetbrains.exposed.sql.Column<kotlin.Int> declared in my.test.UsersTable'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:age type:org.jetbrains.exposed.sql.Column<kotlin.Int> visibility:private [final]' type=org.jetbrains.exposed.sql.Column<kotlin.Int> origin=null
+              receiver: GET_VAR '<this>: my.test.UsersTable declared in my.test.UsersTable.<get-age>' type=my.test.UsersTable origin=null
+    PROPERTY name:email visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:email type:org.jetbrains.exposed.sql.Column<kotlin.String?> visibility:private [final]
+        EXPRESSION_BODY
+          CALL 'public final fun nullable <T> (): org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.nullable?> declared in my.test.UsersTable' type=org.jetbrains.exposed.sql.Column<kotlin.String?> origin=null
+            <T>: kotlin.String
+            $this: GET_VAR '<this>: my.test.UsersTable declared in my.test.UsersTable' type=my.test.UsersTable origin=null
+            $receiver: CALL 'public final fun varchar (name: kotlin.String, length: kotlin.Int, collate: kotlin.String?): org.jetbrains.exposed.sql.Column<kotlin.String> declared in my.test.UsersTable' type=org.jetbrains.exposed.sql.Column<kotlin.String> origin=null
+              $this: GET_VAR '<this>: my.test.UsersTable declared in my.test.UsersTable' type=my.test.UsersTable origin=null
+              name: CONST String type=kotlin.String value="email"
+              length: CONST Int type=kotlin.Int value=255
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-email> visibility:public modality:FINAL <> ($this:my.test.UsersTable) returnType:org.jetbrains.exposed.sql.Column<kotlin.String?>
+        correspondingProperty: PROPERTY name:email visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:my.test.UsersTable
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-email> (): org.jetbrains.exposed.sql.Column<kotlin.String?> declared in my.test.UsersTable'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:email type:org.jetbrains.exposed.sql.Column<kotlin.String?> visibility:private [final]' type=org.jetbrains.exposed.sql.Column<kotlin.String?> origin=null
+              receiver: GET_VAR '<this>: my.test.UsersTable declared in my.test.UsersTable.<get-email>' type=my.test.UsersTable origin=null
+    CONSTRUCTOR visibility:private <> () returnType:my.test.UsersTable [primary]
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, columnName: kotlin.String) declared in org.jetbrains.exposed.dao.id.LongIdTable'
+          name: CONST String type=kotlin.String value="users"
+          columnName: CONST String type=kotlin.String value="user_id"
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.dao.id.LongIdTable]' type=kotlin.Unit
+    FUN FAKE_OVERRIDE name:addIdColumn visibility:protected modality:FINAL <S> ($this:org.jetbrains.exposed.dao.id.IdTable<kotlin.Long>, newColumn:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<S of my.test.UsersTable.addIdColumn>>) returnType:kotlin.Unit [fake_override]
+      overridden:
+        protected final fun addIdColumn <S> (newColumn: org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<S of org.jetbrains.exposed.dao.id.LongIdTable.addIdColumn>>): kotlin.Unit declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:S index:0 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.IdTable<kotlin.Long>
+      VALUE_PARAMETER name:newColumn index:0 type:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<S of my.test.UsersTable.addIdColumn>>
+    FUN FAKE_OVERRIDE name:array visibility:public modality:FINAL <E, R> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Table, name:kotlin.String, columnType:org.jetbrains.exposed.sql.ColumnType<{E of my.test.UsersTable.array & Any}>, maximumCardinality:kotlin.collections.List<kotlin.Int>?, dimensions:kotlin.Int) returnType:org.jetbrains.exposed.sql.Column<R of my.test.UsersTable.array> [fake_override]
+      overridden:
+        public final fun array <E, R> (name: kotlin.String, columnType: org.jetbrains.exposed.sql.ColumnType<{E of org.jetbrains.exposed.dao.id.LongIdTable.array & Any}>, maximumCardinality: kotlin.collections.List<kotlin.Int>?, dimensions: kotlin.Int): org.jetbrains.exposed.sql.Column<R of org.jetbrains.exposed.dao.id.LongIdTable.array> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:E index:0 variance: superTypes:[kotlin.Any?] reified:false
+      TYPE_PARAMETER name:R index:1 variance: superTypes:[kotlin.collections.List<kotlin.Any?>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:columnType index:1 type:org.jetbrains.exposed.sql.ColumnType<{E of my.test.UsersTable.array & Any}>
+      VALUE_PARAMETER name:maximumCardinality index:2 type:kotlin.collections.List<kotlin.Int>?
+      VALUE_PARAMETER name:dimensions index:3 type:kotlin.Int
+    FUN FAKE_OVERRIDE name:array visibility:public modality:FINAL <E> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, columnType:org.jetbrains.exposed.sql.ColumnType<{E of my.test.UsersTable.array & Any}>, maximumCardinality:kotlin.Int?) returnType:org.jetbrains.exposed.sql.Column<kotlin.collections.List<E of my.test.UsersTable.array>> [fake_override]
+      overridden:
+        public final fun array <E> (name: kotlin.String, columnType: org.jetbrains.exposed.sql.ColumnType<{E of org.jetbrains.exposed.dao.id.LongIdTable.array & Any}>, maximumCardinality: kotlin.Int?): org.jetbrains.exposed.sql.Column<kotlin.collections.List<E of org.jetbrains.exposed.dao.id.LongIdTable.array>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:E index:0 variance: superTypes:[kotlin.Any?] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:columnType index:1 type:org.jetbrains.exposed.sql.ColumnType<{E of my.test.UsersTable.array & Any}>
+      VALUE_PARAMETER name:maximumCardinality index:2 type:kotlin.Int?
+    FUN FAKE_OVERRIDE name:array visibility:public modality:FINAL <E> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, maximumCardinality:kotlin.Int?) returnType:org.jetbrains.exposed.sql.Column<kotlin.collections.List<E of my.test.UsersTable.array>> [inline,fake_override]
+      overridden:
+        public final fun array <E> (name: kotlin.String, maximumCardinality: kotlin.Int?): org.jetbrains.exposed.sql.Column<kotlin.collections.List<E of org.jetbrains.exposed.dao.id.LongIdTable.array>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:E index:0 variance: superTypes:[kotlin.Any] reified:true
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:maximumCardinality index:1 type:kotlin.Int?
+    FUN FAKE_OVERRIDE name:array visibility:public modality:FINAL <T, R> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Table, name:kotlin.String, maximumCardinality:kotlin.collections.List<kotlin.Int>?, dimensions:kotlin.Int) returnType:org.jetbrains.exposed.sql.Column<R of my.test.UsersTable.array> [inline,fake_override]
+      overridden:
+        public final fun array <T, R> (name: kotlin.String, maximumCardinality: kotlin.collections.List<kotlin.Int>?, dimensions: kotlin.Int): org.jetbrains.exposed.sql.Column<R of org.jetbrains.exposed.dao.id.LongIdTable.array> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:true
+      TYPE_PARAMETER name:R index:1 variance: superTypes:[kotlin.collections.List<kotlin.Any>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:maximumCardinality index:1 type:kotlin.collections.List<kotlin.Int>?
+      VALUE_PARAMETER name:dimensions index:2 type:kotlin.Int
+    FUN FAKE_OVERRIDE name:autoGenerate visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<java.util.UUID>) returnType:org.jetbrains.exposed.sql.Column<java.util.UUID> [fake_override]
+      overridden:
+        public final fun autoGenerate (): org.jetbrains.exposed.sql.Column<java.util.UUID> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<java.util.UUID>
+    FUN FAKE_OVERRIDE name:autoIncrement visibility:public modality:FINAL <N> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<N of my.test.UsersTable.autoIncrement>, idSeqName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<N of my.test.UsersTable.autoIncrement> [fake_override]
+      overridden:
+        public final fun autoIncrement <N> (idSeqName: kotlin.String?): org.jetbrains.exposed.sql.Column<N of org.jetbrains.exposed.dao.id.LongIdTable.autoIncrement> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:N index:0 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<N of my.test.UsersTable.autoIncrement>
+      VALUE_PARAMETER name:idSeqName index:0 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:autoIncrement visibility:public modality:FINAL <N> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<N of my.test.UsersTable.autoIncrement>, sequence:org.jetbrains.exposed.sql.Sequence) returnType:org.jetbrains.exposed.sql.Column<N of my.test.UsersTable.autoIncrement> [fake_override]
+      overridden:
+        public final fun autoIncrement <N> (sequence: org.jetbrains.exposed.sql.Sequence): org.jetbrains.exposed.sql.Column<N of org.jetbrains.exposed.dao.id.LongIdTable.autoIncrement> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:N index:0 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<N of my.test.UsersTable.autoIncrement>
+      VALUE_PARAMETER name:sequence index:0 type:org.jetbrains.exposed.sql.Sequence
+    FUN FAKE_OVERRIDE name:autoinc visibility:public modality:FINAL <N> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<N of my.test.UsersTable.autoinc>>, idSeqName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<N of my.test.UsersTable.autoinc>> [fake_override]
+      annotations:
+        Deprecated(message = "This function will be removed in future releases.", replaceWith = ReplaceWith(expression = "autoIncrement(idSeqName)", imports = [] type=kotlin.Array<out kotlin.String> varargElementType=kotlin.String), level = GET_ENUM 'ENUM_ENTRY IR_EXTERNAL_DECLARATION_STUB name:WARNING' type=kotlin.DeprecationLevel)
+      overridden:
+        public final fun autoinc <N> (idSeqName: kotlin.String?): org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<N of org.jetbrains.exposed.dao.id.LongIdTable.autoinc>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:N index:0 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<N of my.test.UsersTable.autoinc>>
+      VALUE_PARAMETER name:idSeqName index:0 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:binary visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String) returnType:org.jetbrains.exposed.sql.Column<kotlin.ByteArray> [fake_override]
+      overridden:
+        public final fun binary (name: kotlin.String): org.jetbrains.exposed.sql.Column<kotlin.ByteArray> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+    FUN FAKE_OVERRIDE name:binary visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, length:kotlin.Int) returnType:org.jetbrains.exposed.sql.Column<kotlin.ByteArray> [fake_override]
+      overridden:
+        public final fun binary (name: kotlin.String, length: kotlin.Int): org.jetbrains.exposed.sql.Column<kotlin.ByteArray> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:length index:1 type:kotlin.Int
+    FUN FAKE_OVERRIDE name:blob visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, useObjectIdentifier:kotlin.Boolean) returnType:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.sql.statements.api.ExposedBlob> [fake_override]
+      overridden:
+        public final fun blob (name: kotlin.String, useObjectIdentifier: kotlin.Boolean): org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.sql.statements.api.ExposedBlob> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:useObjectIdentifier index:1 type:kotlin.Boolean
+    FUN FAKE_OVERRIDE name:bool visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String) returnType:org.jetbrains.exposed.sql.Column<kotlin.Boolean> [fake_override]
+      overridden:
+        public final fun bool (name: kotlin.String): org.jetbrains.exposed.sql.Column<kotlin.Boolean> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+    FUN FAKE_OVERRIDE name:byte visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, checkConstraintName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<kotlin.Byte> [fake_override]
+      overridden:
+        public final fun byte (name: kotlin.String, checkConstraintName: kotlin.String?): org.jetbrains.exposed.sql.Column<kotlin.Byte> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:checkConstraintName index:1 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:char visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String) returnType:org.jetbrains.exposed.sql.Column<kotlin.Char> [fake_override]
+      overridden:
+        public final fun char (name: kotlin.String): org.jetbrains.exposed.sql.Column<kotlin.Char> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+    FUN FAKE_OVERRIDE name:char visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, length:kotlin.Int, collate:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<kotlin.String> [fake_override]
+      overridden:
+        public final fun char (name: kotlin.String, length: kotlin.Int, collate: kotlin.String?): org.jetbrains.exposed.sql.Column<kotlin.String> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:length index:1 type:kotlin.Int
+      VALUE_PARAMETER name:collate index:2 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:check visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, op:@[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>) returnType:kotlin.Unit [fake_override]
+      overridden:
+        public final fun check (name: kotlin.String, op: @[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>): kotlin.Unit declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:op index:1 type:@[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>
+    FUN FAKE_OVERRIDE name:check visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.check>, name:kotlin.String, op:@[ExtensionFunctionType] kotlin.Function2<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.check>, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.check> [fake_override]
+      overridden:
+        public final fun check <T> (name: kotlin.String, op: @[ExtensionFunctionType] kotlin.Function2<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.check>, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.check> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.check>
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:op index:1 type:@[ExtensionFunctionType] kotlin.Function2<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.check>, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>
+    FUN FAKE_OVERRIDE name:checkConstraints visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table) returnType:kotlin.collections.List<org.jetbrains.exposed.sql.CheckConstraint> [fake_override]
+      overridden:
+        public final fun checkConstraints (): kotlin.collections.List<org.jetbrains.exposed.sql.CheckConstraint> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+    FUN FAKE_OVERRIDE name:clientDefault visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.clientDefault>, defaultValue:kotlin.Function0<T of my.test.UsersTable.clientDefault>) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.clientDefault> [fake_override]
+      overridden:
+        public final fun clientDefault <T> (defaultValue: kotlin.Function0<T of org.jetbrains.exposed.dao.id.LongIdTable.clientDefault>): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.clientDefault> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.clientDefault>
+      VALUE_PARAMETER name:defaultValue index:0 type:kotlin.Function0<T of my.test.UsersTable.clientDefault>
+    FUN FAKE_OVERRIDE name:createStatement visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.sql.Table) returnType:kotlin.collections.List<kotlin.String> [fake_override]
+      overridden:
+        public open fun createStatement (): kotlin.collections.List<kotlin.String> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+    FUN FAKE_OVERRIDE name:crossJoin visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.sql.Table, otherTable:org.jetbrains.exposed.sql.ColumnSet) returnType:org.jetbrains.exposed.sql.Join [fake_override,infix]
+      overridden:
+        public open fun crossJoin (otherTable: org.jetbrains.exposed.sql.ColumnSet): org.jetbrains.exposed.sql.Join declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:otherTable index:0 type:org.jetbrains.exposed.sql.ColumnSet
+    FUN FAKE_OVERRIDE name:customEnumeration visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, sql:kotlin.String?, fromDb:kotlin.Function1<kotlin.Any, T of my.test.UsersTable.customEnumeration>, toDb:kotlin.Function1<T of my.test.UsersTable.customEnumeration, kotlin.Any>) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.customEnumeration> [fake_override]
+      overridden:
+        public final fun customEnumeration <T> (name: kotlin.String, sql: kotlin.String?, fromDb: kotlin.Function1<kotlin.Any, T of org.jetbrains.exposed.dao.id.LongIdTable.customEnumeration>, toDb: kotlin.Function1<T of org.jetbrains.exposed.dao.id.LongIdTable.customEnumeration, kotlin.Any>): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.customEnumeration> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Enum<T of my.test.UsersTable.customEnumeration>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:sql index:1 type:kotlin.String?
+      VALUE_PARAMETER name:fromDb index:2 type:kotlin.Function1<kotlin.Any, T of my.test.UsersTable.customEnumeration>
+      VALUE_PARAMETER name:toDb index:3 type:kotlin.Function1<T of my.test.UsersTable.customEnumeration, kotlin.Any>
+    FUN FAKE_OVERRIDE name:databaseGenerated visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.databaseGenerated>) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.databaseGenerated> [fake_override]
+      overridden:
+        public final fun databaseGenerated <T> (): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.databaseGenerated> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.databaseGenerated>
+    FUN FAKE_OVERRIDE name:decimal visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, precision:kotlin.Int, scale:kotlin.Int) returnType:org.jetbrains.exposed.sql.Column<java.math.BigDecimal> [fake_override]
+      overridden:
+        public final fun decimal (name: kotlin.String, precision: kotlin.Int, scale: kotlin.Int): org.jetbrains.exposed.sql.Column<java.math.BigDecimal> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:precision index:1 type:kotlin.Int
+      VALUE_PARAMETER name:scale index:2 type:kotlin.Int
+    FUN FAKE_OVERRIDE name:default visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.default>, defaultValue:T of my.test.UsersTable.default) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.default> [fake_override]
+      overridden:
+        public final fun default <T> (defaultValue: T of org.jetbrains.exposed.dao.id.LongIdTable.default): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.default> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.default>
+      VALUE_PARAMETER name:defaultValue index:0 type:T of my.test.UsersTable.default
+    FUN FAKE_OVERRIDE name:default visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.CompositeColumn<T of my.test.UsersTable.default>, defaultValue:T of my.test.UsersTable.default) returnType:org.jetbrains.exposed.sql.CompositeColumn<T of my.test.UsersTable.default> [fake_override]
+      overridden:
+        public final fun default <T> (defaultValue: T of org.jetbrains.exposed.dao.id.LongIdTable.default): org.jetbrains.exposed.sql.CompositeColumn<T of org.jetbrains.exposed.dao.id.LongIdTable.default> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.CompositeColumn<T of my.test.UsersTable.default>
+      VALUE_PARAMETER name:defaultValue index:0 type:T of my.test.UsersTable.default
+    FUN FAKE_OVERRIDE name:defaultExpression visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.defaultExpression>, defaultValue:org.jetbrains.exposed.sql.Expression<T of my.test.UsersTable.defaultExpression>) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.defaultExpression> [fake_override]
+      overridden:
+        public final fun defaultExpression <T> (defaultValue: org.jetbrains.exposed.sql.Expression<T of org.jetbrains.exposed.dao.id.LongIdTable.defaultExpression>): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.defaultExpression> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.defaultExpression>
+      VALUE_PARAMETER name:defaultValue index:0 type:org.jetbrains.exposed.sql.Expression<T of my.test.UsersTable.defaultExpression>
+    FUN FAKE_OVERRIDE name:describe visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.sql.Table, s:org.jetbrains.exposed.sql.Transaction, queryBuilder:org.jetbrains.exposed.sql.QueryBuilder) returnType:kotlin.Unit [fake_override]
+      overridden:
+        public open fun describe (s: org.jetbrains.exposed.sql.Transaction, queryBuilder: org.jetbrains.exposed.sql.QueryBuilder): kotlin.Unit declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:s index:0 type:org.jetbrains.exposed.sql.Transaction
+      VALUE_PARAMETER name:queryBuilder index:1 type:org.jetbrains.exposed.sql.QueryBuilder
+    FUN FAKE_OVERRIDE name:double visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String) returnType:org.jetbrains.exposed.sql.Column<kotlin.Double> [fake_override]
+      overridden:
+        public final fun double (name: kotlin.String): org.jetbrains.exposed.sql.Column<kotlin.Double> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+    FUN FAKE_OVERRIDE name:dropStatement visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.sql.Table) returnType:kotlin.collections.List<kotlin.String> [fake_override]
+      overridden:
+        public open fun dropStatement (): kotlin.collections.List<kotlin.String> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+    FUN FAKE_OVERRIDE name:entityId visibility:public modality:FINAL <ID> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, originalColumn:org.jetbrains.exposed.sql.Column<ID of my.test.UsersTable.entityId>) returnType:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<ID of my.test.UsersTable.entityId>> [fake_override]
+      overridden:
+        public final fun entityId <ID> (name: kotlin.String, originalColumn: org.jetbrains.exposed.sql.Column<ID of org.jetbrains.exposed.dao.id.LongIdTable.entityId>): org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<ID of org.jetbrains.exposed.dao.id.LongIdTable.entityId>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:ID index:0 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:originalColumn index:1 type:org.jetbrains.exposed.sql.Column<ID of my.test.UsersTable.entityId>
+    FUN FAKE_OVERRIDE name:entityId visibility:public modality:FINAL <ID> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, table:org.jetbrains.exposed.dao.id.IdTable<ID of my.test.UsersTable.entityId>) returnType:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<ID of my.test.UsersTable.entityId>> [fake_override]
+      overridden:
+        public final fun entityId <ID> (name: kotlin.String, table: org.jetbrains.exposed.dao.id.IdTable<ID of org.jetbrains.exposed.dao.id.LongIdTable.entityId>): org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<ID of org.jetbrains.exposed.dao.id.LongIdTable.entityId>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:ID index:0 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:table index:1 type:org.jetbrains.exposed.dao.id.IdTable<ID of my.test.UsersTable.entityId>
+    FUN FAKE_OVERRIDE name:entityId visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.entityId>) returnType:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<T of my.test.UsersTable.entityId>> [fake_override]
+      overridden:
+        public final fun entityId <T> (): org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<T of org.jetbrains.exposed.dao.id.LongIdTable.entityId>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.entityId>
+    FUN FAKE_OVERRIDE name:enumeration visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.enumeration> [inline,fake_override]
+      overridden:
+        public final fun enumeration <T> (name: kotlin.String): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.enumeration> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Enum<T of my.test.UsersTable.enumeration>] reified:true
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+    FUN FAKE_OVERRIDE name:enumeration visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, klass:kotlin.reflect.KClass<T of my.test.UsersTable.enumeration>) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.enumeration> [fake_override]
+      overridden:
+        public final fun enumeration <T> (name: kotlin.String, klass: kotlin.reflect.KClass<T of org.jetbrains.exposed.dao.id.LongIdTable.enumeration>): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.enumeration> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Enum<T of my.test.UsersTable.enumeration>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:klass index:1 type:kotlin.reflect.KClass<T of my.test.UsersTable.enumeration>
+    FUN FAKE_OVERRIDE name:enumerationByName visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, length:kotlin.Int) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.enumerationByName> [inline,fake_override]
+      overridden:
+        public final fun enumerationByName <T> (name: kotlin.String, length: kotlin.Int): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.enumerationByName> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Enum<T of my.test.UsersTable.enumerationByName>] reified:true
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:length index:1 type:kotlin.Int
+    FUN FAKE_OVERRIDE name:enumerationByName visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, length:kotlin.Int, klass:kotlin.reflect.KClass<T of my.test.UsersTable.enumerationByName>) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.enumerationByName> [fake_override]
+      overridden:
+        public final fun enumerationByName <T> (name: kotlin.String, length: kotlin.Int, klass: kotlin.reflect.KClass<T of org.jetbrains.exposed.dao.id.LongIdTable.enumerationByName>): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.enumerationByName> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Enum<T of my.test.UsersTable.enumerationByName>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:length index:1 type:kotlin.Int
+      VALUE_PARAMETER name:klass index:2 type:kotlin.reflect.KClass<T of my.test.UsersTable.enumerationByName>
+    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.sql.Table, other:kotlin.Any?) returnType:kotlin.Boolean [fake_override,operator]
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+    FUN FAKE_OVERRIDE name:float visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String) returnType:org.jetbrains.exposed.sql.Column<kotlin.Float> [fake_override]
+      overridden:
+        public final fun float (name: kotlin.String): org.jetbrains.exposed.sql.Column<kotlin.Float> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+    FUN FAKE_OVERRIDE name:foreignKey visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, from:kotlin.Array<out org.jetbrains.exposed.sql.Column<*>>, target:org.jetbrains.exposed.sql.Table.PrimaryKey, onUpdate:org.jetbrains.exposed.sql.ReferenceOption?, onDelete:org.jetbrains.exposed.sql.ReferenceOption?, name:kotlin.String?) returnType:kotlin.Unit [fake_override]
+      overridden:
+        public final fun foreignKey (vararg from: org.jetbrains.exposed.sql.Column<*>, target: org.jetbrains.exposed.sql.Table.PrimaryKey, onUpdate: org.jetbrains.exposed.sql.ReferenceOption?, onDelete: org.jetbrains.exposed.sql.ReferenceOption?, name: kotlin.String?): kotlin.Unit declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:from index:0 type:kotlin.Array<out org.jetbrains.exposed.sql.Column<*>> varargElementType:org.jetbrains.exposed.sql.Column<*> [vararg]
+      VALUE_PARAMETER name:target index:1 type:org.jetbrains.exposed.sql.Table.PrimaryKey
+      VALUE_PARAMETER name:onUpdate index:2 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:onDelete index:3 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:name index:4 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:foreignKey visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, references:kotlin.Array<out kotlin.Pair<org.jetbrains.exposed.sql.Column<*>, org.jetbrains.exposed.sql.Column<*>>>, onUpdate:org.jetbrains.exposed.sql.ReferenceOption?, onDelete:org.jetbrains.exposed.sql.ReferenceOption?, name:kotlin.String?) returnType:kotlin.Unit [fake_override]
+      overridden:
+        public final fun foreignKey (vararg references: kotlin.Pair<org.jetbrains.exposed.sql.Column<*>, org.jetbrains.exposed.sql.Column<*>>, onUpdate: org.jetbrains.exposed.sql.ReferenceOption?, onDelete: org.jetbrains.exposed.sql.ReferenceOption?, name: kotlin.String?): kotlin.Unit declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:references index:0 type:kotlin.Array<out kotlin.Pair<org.jetbrains.exposed.sql.Column<*>, org.jetbrains.exposed.sql.Column<*>>> varargElementType:kotlin.Pair<org.jetbrains.exposed.sql.Column<*>, org.jetbrains.exposed.sql.Column<*>> [vararg]
+      VALUE_PARAMETER name:onUpdate index:1 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:onDelete index:2 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:name index:3 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:fullJoin visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.sql.Table, otherTable:org.jetbrains.exposed.sql.ColumnSet) returnType:org.jetbrains.exposed.sql.Join [fake_override,infix]
+      overridden:
+        public open fun fullJoin (otherTable: org.jetbrains.exposed.sql.ColumnSet): org.jetbrains.exposed.sql.Join declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:otherTable index:0 type:org.jetbrains.exposed.sql.ColumnSet
+    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.sql.Table) returnType:kotlin.Int [fake_override]
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+    FUN FAKE_OVERRIDE name:index visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, customIndexName:kotlin.String?, isUnique:kotlin.Boolean, columns:kotlin.Array<out org.jetbrains.exposed.sql.Column<*>>, functions:kotlin.collections.List<org.jetbrains.exposed.sql.ExpressionWithColumnType<*>>?, indexType:kotlin.String?, filterCondition:@[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>?) returnType:kotlin.Unit [fake_override]
+      overridden:
+        public final fun index (customIndexName: kotlin.String?, isUnique: kotlin.Boolean, vararg columns: org.jetbrains.exposed.sql.Column<*>, functions: kotlin.collections.List<org.jetbrains.exposed.sql.ExpressionWithColumnType<*>>?, indexType: kotlin.String?, filterCondition: @[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>?): kotlin.Unit declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:customIndexName index:0 type:kotlin.String?
+      VALUE_PARAMETER name:isUnique index:1 type:kotlin.Boolean
+      VALUE_PARAMETER name:columns index:2 type:kotlin.Array<out org.jetbrains.exposed.sql.Column<*>> varargElementType:org.jetbrains.exposed.sql.Column<*> [vararg]
+      VALUE_PARAMETER name:functions index:3 type:kotlin.collections.List<org.jetbrains.exposed.sql.ExpressionWithColumnType<*>>?
+      VALUE_PARAMETER name:indexType index:4 type:kotlin.String?
+      VALUE_PARAMETER name:filterCondition index:5 type:@[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>?
+    FUN FAKE_OVERRIDE name:index visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, isUnique:kotlin.Boolean, columns:kotlin.Array<out org.jetbrains.exposed.sql.Column<*>>) returnType:kotlin.Unit [fake_override]
+      overridden:
+        public final fun index (isUnique: kotlin.Boolean, vararg columns: org.jetbrains.exposed.sql.Column<*>): kotlin.Unit declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:isUnique index:0 type:kotlin.Boolean
+      VALUE_PARAMETER name:columns index:1 type:kotlin.Array<out org.jetbrains.exposed.sql.Column<*>> varargElementType:org.jetbrains.exposed.sql.Column<*> [vararg]
+    FUN FAKE_OVERRIDE name:index visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.index>, customIndexName:kotlin.String?, isUnique:kotlin.Boolean) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.index> [fake_override]
+      overridden:
+        public final fun index <T> (customIndexName: kotlin.String?, isUnique: kotlin.Boolean): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.index> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.index>
+      VALUE_PARAMETER name:customIndexName index:0 type:kotlin.String?
+      VALUE_PARAMETER name:isUnique index:1 type:kotlin.Boolean
+    FUN FAKE_OVERRIDE name:innerJoin visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.sql.Table, otherTable:org.jetbrains.exposed.sql.ColumnSet) returnType:org.jetbrains.exposed.sql.Join [fake_override,infix]
+      overridden:
+        public open fun innerJoin (otherTable: org.jetbrains.exposed.sql.ColumnSet): org.jetbrains.exposed.sql.Join declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:otherTable index:0 type:org.jetbrains.exposed.sql.ColumnSet
+    FUN FAKE_OVERRIDE name:integer visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, checkConstraintName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<kotlin.Int> [fake_override]
+      overridden:
+        public final fun integer (name: kotlin.String, checkConstraintName: kotlin.String?): org.jetbrains.exposed.sql.Column<kotlin.Int> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:checkConstraintName index:1 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:join visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.sql.Table, otherTable:org.jetbrains.exposed.sql.ColumnSet, joinType:org.jetbrains.exposed.sql.JoinType, onColumn:org.jetbrains.exposed.sql.Expression<*>?, otherColumn:org.jetbrains.exposed.sql.Expression<*>?, lateral:kotlin.Boolean, additionalConstraint:@[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>?) returnType:org.jetbrains.exposed.sql.Join [fake_override]
+      overridden:
+        public open fun join (otherTable: org.jetbrains.exposed.sql.ColumnSet, joinType: org.jetbrains.exposed.sql.JoinType, onColumn: org.jetbrains.exposed.sql.Expression<*>?, otherColumn: org.jetbrains.exposed.sql.Expression<*>?, lateral: kotlin.Boolean, additionalConstraint: @[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>?): org.jetbrains.exposed.sql.Join declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:otherTable index:0 type:org.jetbrains.exposed.sql.ColumnSet
+      VALUE_PARAMETER name:joinType index:1 type:org.jetbrains.exposed.sql.JoinType
+      VALUE_PARAMETER name:onColumn index:2 type:org.jetbrains.exposed.sql.Expression<*>?
+      VALUE_PARAMETER name:otherColumn index:3 type:org.jetbrains.exposed.sql.Expression<*>?
+      VALUE_PARAMETER name:lateral index:4 type:kotlin.Boolean
+      VALUE_PARAMETER name:additionalConstraint index:5 type:@[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>?
+    FUN FAKE_OVERRIDE name:largeText visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, collate:kotlin.String?, eagerLoading:kotlin.Boolean) returnType:org.jetbrains.exposed.sql.Column<kotlin.String> [fake_override]
+      overridden:
+        public final fun largeText (name: kotlin.String, collate: kotlin.String?, eagerLoading: kotlin.Boolean): org.jetbrains.exposed.sql.Column<kotlin.String> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:collate index:1 type:kotlin.String?
+      VALUE_PARAMETER name:eagerLoading index:2 type:kotlin.Boolean
+    FUN FAKE_OVERRIDE name:leftJoin visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.sql.Table, otherTable:org.jetbrains.exposed.sql.ColumnSet) returnType:org.jetbrains.exposed.sql.Join [fake_override,infix]
+      overridden:
+        public open fun leftJoin (otherTable: org.jetbrains.exposed.sql.ColumnSet): org.jetbrains.exposed.sql.Join declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:otherTable index:0 type:org.jetbrains.exposed.sql.ColumnSet
+    FUN FAKE_OVERRIDE name:long visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, checkConstraintName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<kotlin.Long> [fake_override]
+      overridden:
+        public final fun long (name: kotlin.String, checkConstraintName: kotlin.String?): org.jetbrains.exposed.sql.Column<kotlin.Long> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:checkConstraintName index:1 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:mediumText visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, collate:kotlin.String?, eagerLoading:kotlin.Boolean) returnType:org.jetbrains.exposed.sql.Column<kotlin.String> [fake_override]
+      overridden:
+        public final fun mediumText (name: kotlin.String, collate: kotlin.String?, eagerLoading: kotlin.Boolean): org.jetbrains.exposed.sql.Column<kotlin.String> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:collate index:1 type:kotlin.String?
+      VALUE_PARAMETER name:eagerLoading index:2 type:kotlin.Boolean
+    FUN FAKE_OVERRIDE name:modifyStatement visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.sql.Table) returnType:kotlin.collections.List<kotlin.String> [fake_override]
+      overridden:
+        public open fun modifyStatement (): kotlin.collections.List<kotlin.String> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+    FUN FAKE_OVERRIDE name:nameInDatabaseCase visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table) returnType:kotlin.String [fake_override]
+      overridden:
+        public final fun nameInDatabaseCase (): kotlin.String declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+    FUN FAKE_OVERRIDE name:nameInDatabaseCaseUnquoted visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table) returnType:kotlin.String [fake_override]
+      overridden:
+        public final fun nameInDatabaseCaseUnquoted (): kotlin.String declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+    FUN FAKE_OVERRIDE name:nullTransform visibility:public modality:FINAL <Unwrapped, Wrapped> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<Unwrapped of my.test.UsersTable.nullTransform>, transformer:org.jetbrains.exposed.sql.ColumnTransformer<Unwrapped of my.test.UsersTable.nullTransform, Wrapped of my.test.UsersTable.nullTransform?>) returnType:org.jetbrains.exposed.sql.Column<Wrapped of my.test.UsersTable.nullTransform?> [fake_override]
+      annotations:
+        JvmName(name = "nullTransform")
+      overridden:
+        public final fun nullTransform <Unwrapped, Wrapped> (transformer: org.jetbrains.exposed.sql.ColumnTransformer<Unwrapped of org.jetbrains.exposed.dao.id.LongIdTable.nullTransform, Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.nullTransform?>): org.jetbrains.exposed.sql.Column<Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.nullTransform?> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:Unwrapped index:0 variance: superTypes:[kotlin.Any] reified:false
+      TYPE_PARAMETER name:Wrapped index:1 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<Unwrapped of my.test.UsersTable.nullTransform>
+      VALUE_PARAMETER name:transformer index:0 type:org.jetbrains.exposed.sql.ColumnTransformer<Unwrapped of my.test.UsersTable.nullTransform, Wrapped of my.test.UsersTable.nullTransform?>
+    FUN FAKE_OVERRIDE name:nullTransform visibility:public modality:FINAL <Unwrapped, Wrapped> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<Unwrapped of my.test.UsersTable.nullTransform>, wrap:kotlin.Function1<Unwrapped of my.test.UsersTable.nullTransform, Wrapped of my.test.UsersTable.nullTransform?>, unwrap:kotlin.Function1<Wrapped of my.test.UsersTable.nullTransform?, Unwrapped of my.test.UsersTable.nullTransform>) returnType:org.jetbrains.exposed.sql.Column<Wrapped of my.test.UsersTable.nullTransform?> [fake_override]
+      annotations:
+        JvmName(name = "nullTransform")
+      overridden:
+        public final fun nullTransform <Unwrapped, Wrapped> (wrap: kotlin.Function1<Unwrapped of org.jetbrains.exposed.dao.id.LongIdTable.nullTransform, Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.nullTransform?>, unwrap: kotlin.Function1<Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.nullTransform?, Unwrapped of org.jetbrains.exposed.dao.id.LongIdTable.nullTransform>): org.jetbrains.exposed.sql.Column<Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.nullTransform?> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:Unwrapped index:0 variance: superTypes:[kotlin.Any] reified:false
+      TYPE_PARAMETER name:Wrapped index:1 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<Unwrapped of my.test.UsersTable.nullTransform>
+      VALUE_PARAMETER name:wrap index:0 type:kotlin.Function1<Unwrapped of my.test.UsersTable.nullTransform, Wrapped of my.test.UsersTable.nullTransform?>
+      VALUE_PARAMETER name:unwrap index:1 type:kotlin.Function1<Wrapped of my.test.UsersTable.nullTransform?, Unwrapped of my.test.UsersTable.nullTransform>
+    FUN FAKE_OVERRIDE name:nullable visibility:public modality:FINAL <T, C> ($this:org.jetbrains.exposed.sql.Table, $receiver:C of my.test.UsersTable.nullable) returnType:org.jetbrains.exposed.sql.CompositeColumn<T of my.test.UsersTable.nullable?> [fake_override]
+      annotations:
+        LowPriorityInOverloadResolution
+      overridden:
+        public final fun nullable <T, C> (): org.jetbrains.exposed.sql.CompositeColumn<T of org.jetbrains.exposed.dao.id.LongIdTable.nullable?> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:false
+      TYPE_PARAMETER name:C index:1 variance: superTypes:[org.jetbrains.exposed.sql.CompositeColumn<T of my.test.UsersTable.nullable>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:C of my.test.UsersTable.nullable
+    FUN FAKE_OVERRIDE name:nullable visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.nullable>) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.nullable?> [fake_override]
+      overridden:
+        public final fun nullable <T> (): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.nullable?> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.nullable>
+    FUN FAKE_OVERRIDE name:optReference visibility:public modality:FINAL <T, E> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, refColumn:org.jetbrains.exposed.sql.Column<E of my.test.UsersTable.optReference>, onDelete:org.jetbrains.exposed.sql.ReferenceOption?, onUpdate:org.jetbrains.exposed.sql.ReferenceOption?, fkName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<E of my.test.UsersTable.optReference?> [fake_override]
+      annotations:
+        JvmName(name = "optReferenceByIdColumn")
+      overridden:
+        public final fun optReference <T, E> (name: kotlin.String, refColumn: org.jetbrains.exposed.sql.Column<E of org.jetbrains.exposed.dao.id.LongIdTable.optReference>, onDelete: org.jetbrains.exposed.sql.ReferenceOption?, onUpdate: org.jetbrains.exposed.sql.ReferenceOption?, fkName: kotlin.String?): org.jetbrains.exposed.sql.Column<E of org.jetbrains.exposed.dao.id.LongIdTable.optReference?> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:false
+      TYPE_PARAMETER name:E index:1 variance: superTypes:[org.jetbrains.exposed.dao.id.EntityID<T of my.test.UsersTable.optReference>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:refColumn index:1 type:org.jetbrains.exposed.sql.Column<E of my.test.UsersTable.optReference>
+      VALUE_PARAMETER name:onDelete index:2 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:onUpdate index:3 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:fkName index:4 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:optReference visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, foreign:org.jetbrains.exposed.dao.id.IdTable<T of my.test.UsersTable.optReference>, onDelete:org.jetbrains.exposed.sql.ReferenceOption?, onUpdate:org.jetbrains.exposed.sql.ReferenceOption?, fkName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<T of my.test.UsersTable.optReference>?> [fake_override]
+      overridden:
+        public final fun optReference <T> (name: kotlin.String, foreign: org.jetbrains.exposed.dao.id.IdTable<T of org.jetbrains.exposed.dao.id.LongIdTable.optReference>, onDelete: org.jetbrains.exposed.sql.ReferenceOption?, onUpdate: org.jetbrains.exposed.sql.ReferenceOption?, fkName: kotlin.String?): org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<T of org.jetbrains.exposed.dao.id.LongIdTable.optReference>?> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:foreign index:1 type:org.jetbrains.exposed.dao.id.IdTable<T of my.test.UsersTable.optReference>
+      VALUE_PARAMETER name:onDelete index:2 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:onUpdate index:3 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:fkName index:4 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:optReference visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, refColumn:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.optReference>, onDelete:org.jetbrains.exposed.sql.ReferenceOption?, onUpdate:org.jetbrains.exposed.sql.ReferenceOption?, fkName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.optReference?> [fake_override]
+      overridden:
+        public final fun optReference <T> (name: kotlin.String, refColumn: org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.optReference>, onDelete: org.jetbrains.exposed.sql.ReferenceOption?, onUpdate: org.jetbrains.exposed.sql.ReferenceOption?, fkName: kotlin.String?): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.optReference?> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:refColumn index:1 type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.optReference>
+      VALUE_PARAMETER name:onDelete index:2 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:onUpdate index:3 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:fkName index:4 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:reference visibility:public modality:FINAL <T, E> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, refColumn:org.jetbrains.exposed.sql.Column<E of my.test.UsersTable.reference>, onDelete:org.jetbrains.exposed.sql.ReferenceOption?, onUpdate:org.jetbrains.exposed.sql.ReferenceOption?, fkName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<E of my.test.UsersTable.reference> [fake_override]
+      annotations:
+        JvmName(name = "referenceByIdColumn")
+      overridden:
+        public final fun reference <T, E> (name: kotlin.String, refColumn: org.jetbrains.exposed.sql.Column<E of org.jetbrains.exposed.dao.id.LongIdTable.reference>, onDelete: org.jetbrains.exposed.sql.ReferenceOption?, onUpdate: org.jetbrains.exposed.sql.ReferenceOption?, fkName: kotlin.String?): org.jetbrains.exposed.sql.Column<E of org.jetbrains.exposed.dao.id.LongIdTable.reference> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:false
+      TYPE_PARAMETER name:E index:1 variance: superTypes:[org.jetbrains.exposed.dao.id.EntityID<T of my.test.UsersTable.reference>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:refColumn index:1 type:org.jetbrains.exposed.sql.Column<E of my.test.UsersTable.reference>
+      VALUE_PARAMETER name:onDelete index:2 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:onUpdate index:3 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:fkName index:4 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:reference visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, foreign:org.jetbrains.exposed.dao.id.IdTable<T of my.test.UsersTable.reference>, onDelete:org.jetbrains.exposed.sql.ReferenceOption?, onUpdate:org.jetbrains.exposed.sql.ReferenceOption?, fkName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<T of my.test.UsersTable.reference>> [fake_override]
+      overridden:
+        public final fun reference <T> (name: kotlin.String, foreign: org.jetbrains.exposed.dao.id.IdTable<T of org.jetbrains.exposed.dao.id.LongIdTable.reference>, onDelete: org.jetbrains.exposed.sql.ReferenceOption?, onUpdate: org.jetbrains.exposed.sql.ReferenceOption?, fkName: kotlin.String?): org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<T of org.jetbrains.exposed.dao.id.LongIdTable.reference>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:foreign index:1 type:org.jetbrains.exposed.dao.id.IdTable<T of my.test.UsersTable.reference>
+      VALUE_PARAMETER name:onDelete index:2 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:onUpdate index:3 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:fkName index:4 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:reference visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, refColumn:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.reference>, onDelete:org.jetbrains.exposed.sql.ReferenceOption?, onUpdate:org.jetbrains.exposed.sql.ReferenceOption?, fkName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.reference> [fake_override]
+      overridden:
+        public final fun reference <T> (name: kotlin.String, refColumn: org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.reference>, onDelete: org.jetbrains.exposed.sql.ReferenceOption?, onUpdate: org.jetbrains.exposed.sql.ReferenceOption?, fkName: kotlin.String?): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.reference> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:refColumn index:1 type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.reference>
+      VALUE_PARAMETER name:onDelete index:2 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:onUpdate index:3 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:fkName index:4 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:references visibility:public modality:FINAL <T, S, C> ($this:org.jetbrains.exposed.sql.Table, $receiver:C of my.test.UsersTable.references, ref:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.references>) returnType:C of my.test.UsersTable.references [fake_override,infix]
+      overridden:
+        public final fun references <T, S, C> (ref: org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.references>): C of org.jetbrains.exposed.dao.id.LongIdTable.references declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:false
+      TYPE_PARAMETER name:S index:1 variance: superTypes:[T of my.test.UsersTable.references] reified:false
+      TYPE_PARAMETER name:C index:2 variance: superTypes:[org.jetbrains.exposed.sql.Column<S of my.test.UsersTable.references>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:C of my.test.UsersTable.references
+      VALUE_PARAMETER name:ref index:0 type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.references>
+    FUN FAKE_OVERRIDE name:references visibility:public modality:FINAL <T, S, C> ($this:org.jetbrains.exposed.sql.Table, $receiver:C of my.test.UsersTable.references, ref:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.references>, onDelete:org.jetbrains.exposed.sql.ReferenceOption?, onUpdate:org.jetbrains.exposed.sql.ReferenceOption?, fkName:kotlin.String?) returnType:C of my.test.UsersTable.references [fake_override]
+      overridden:
+        public final fun references <T, S, C> (ref: org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.references>, onDelete: org.jetbrains.exposed.sql.ReferenceOption?, onUpdate: org.jetbrains.exposed.sql.ReferenceOption?, fkName: kotlin.String?): C of org.jetbrains.exposed.dao.id.LongIdTable.references declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:false
+      TYPE_PARAMETER name:S index:1 variance: superTypes:[T of my.test.UsersTable.references] reified:false
+      TYPE_PARAMETER name:C index:2 variance: superTypes:[org.jetbrains.exposed.sql.Column<S of my.test.UsersTable.references>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:C of my.test.UsersTable.references
+      VALUE_PARAMETER name:ref index:0 type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.references>
+      VALUE_PARAMETER name:onDelete index:1 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:onUpdate index:2 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:fkName index:3 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:references visibility:public modality:FINAL <T, S, C> ($this:org.jetbrains.exposed.sql.Table, $receiver:C of my.test.UsersTable.references, ref:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<T of my.test.UsersTable.references>>, onDelete:org.jetbrains.exposed.sql.ReferenceOption?, onUpdate:org.jetbrains.exposed.sql.ReferenceOption?, fkName:kotlin.String?) returnType:C of my.test.UsersTable.references [fake_override]
+      annotations:
+        JvmName(name = "referencesById")
+      overridden:
+        public final fun references <T, S, C> (ref: org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<T of org.jetbrains.exposed.dao.id.LongIdTable.references>>, onDelete: org.jetbrains.exposed.sql.ReferenceOption?, onUpdate: org.jetbrains.exposed.sql.ReferenceOption?, fkName: kotlin.String?): C of org.jetbrains.exposed.dao.id.LongIdTable.references declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any] reified:false
+      TYPE_PARAMETER name:S index:1 variance: superTypes:[T of my.test.UsersTable.references] reified:false
+      TYPE_PARAMETER name:C index:2 variance: superTypes:[org.jetbrains.exposed.sql.Column<S of my.test.UsersTable.references>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:C of my.test.UsersTable.references
+      VALUE_PARAMETER name:ref index:0 type:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<T of my.test.UsersTable.references>>
+      VALUE_PARAMETER name:onDelete index:1 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:onUpdate index:2 type:org.jetbrains.exposed.sql.ReferenceOption?
+      VALUE_PARAMETER name:fkName index:3 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:registerColumn visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, type:org.jetbrains.exposed.sql.IColumnType<{T of my.test.UsersTable.registerColumn & Any}>) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.registerColumn> [fake_override]
+      overridden:
+        public final fun registerColumn <T> (name: kotlin.String, type: org.jetbrains.exposed.sql.IColumnType<{T of org.jetbrains.exposed.dao.id.LongIdTable.registerColumn & Any}>): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.registerColumn> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:type index:1 type:org.jetbrains.exposed.sql.IColumnType<{T of my.test.UsersTable.registerColumn & Any}>
+    FUN FAKE_OVERRIDE name:registerCompositeColumn visibility:public modality:FINAL <R, T> ($this:org.jetbrains.exposed.sql.Table, column:T of my.test.UsersTable.registerCompositeColumn) returnType:T of my.test.UsersTable.registerCompositeColumn [fake_override]
+      overridden:
+        public final fun registerCompositeColumn <R, T> (column: T of org.jetbrains.exposed.dao.id.LongIdTable.registerCompositeColumn): T of org.jetbrains.exposed.dao.id.LongIdTable.registerCompositeColumn declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:R index:0 variance: superTypes:[kotlin.Any?] reified:false
+      TYPE_PARAMETER name:T index:1 variance: superTypes:[org.jetbrains.exposed.sql.CompositeColumn<R of my.test.UsersTable.registerCompositeColumn>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:column index:0 type:T of my.test.UsersTable.registerCompositeColumn
+    FUN FAKE_OVERRIDE name:replaceColumn visibility:public modality:FINAL <TColumn> ($this:org.jetbrains.exposed.sql.Table, oldColumn:org.jetbrains.exposed.sql.Column<*>, newColumn:TColumn of my.test.UsersTable.replaceColumn) returnType:TColumn of my.test.UsersTable.replaceColumn [fake_override]
+      overridden:
+        public final fun replaceColumn <TColumn> (oldColumn: org.jetbrains.exposed.sql.Column<*>, newColumn: TColumn of org.jetbrains.exposed.dao.id.LongIdTable.replaceColumn): TColumn of org.jetbrains.exposed.dao.id.LongIdTable.replaceColumn declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:TColumn index:0 variance: superTypes:[org.jetbrains.exposed.sql.Column<*>] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:oldColumn index:0 type:org.jetbrains.exposed.sql.Column<*>
+      VALUE_PARAMETER name:newColumn index:1 type:TColumn of my.test.UsersTable.replaceColumn
+    FUN FAKE_OVERRIDE name:rightJoin visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.sql.Table, otherTable:org.jetbrains.exposed.sql.ColumnSet) returnType:org.jetbrains.exposed.sql.Join [fake_override,infix]
+      overridden:
+        public open fun rightJoin (otherTable: org.jetbrains.exposed.sql.ColumnSet): org.jetbrains.exposed.sql.Join declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:otherTable index:0 type:org.jetbrains.exposed.sql.ColumnSet
+    FUN FAKE_OVERRIDE name:select visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.ColumnSet, column:org.jetbrains.exposed.sql.Expression<*>, columns:kotlin.Array<out org.jetbrains.exposed.sql.Expression<*>>) returnType:org.jetbrains.exposed.sql.Query [fake_override]
+      annotations:
+        LowPriorityInOverloadResolution
+      overridden:
+        public final fun select (column: org.jetbrains.exposed.sql.Expression<*>, vararg columns: org.jetbrains.exposed.sql.Expression<*>): org.jetbrains.exposed.sql.Query declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.ColumnSet
+      VALUE_PARAMETER name:column index:0 type:org.jetbrains.exposed.sql.Expression<*>
+      VALUE_PARAMETER name:columns index:1 type:kotlin.Array<out org.jetbrains.exposed.sql.Expression<*>> varargElementType:org.jetbrains.exposed.sql.Expression<*> [vararg]
+    FUN FAKE_OVERRIDE name:select visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.ColumnSet, columns:kotlin.collections.List<org.jetbrains.exposed.sql.Expression<*>>) returnType:org.jetbrains.exposed.sql.Query [fake_override]
+      annotations:
+        LowPriorityInOverloadResolution
+      overridden:
+        public final fun select (columns: kotlin.collections.List<org.jetbrains.exposed.sql.Expression<*>>): org.jetbrains.exposed.sql.Query declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.ColumnSet
+      VALUE_PARAMETER name:columns index:0 type:kotlin.collections.List<org.jetbrains.exposed.sql.Expression<*>>
+    FUN FAKE_OVERRIDE name:short visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, checkConstraintName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<kotlin.Short> [fake_override]
+      overridden:
+        public final fun short (name: kotlin.String, checkConstraintName: kotlin.String?): org.jetbrains.exposed.sql.Column<kotlin.Short> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:checkConstraintName index:1 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:slice visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.ColumnSet, column:org.jetbrains.exposed.sql.Expression<*>, columns:kotlin.Array<out org.jetbrains.exposed.sql.Expression<*>>) returnType:org.jetbrains.exposed.sql.FieldSet [fake_override]
+      annotations:
+        Deprecated(message = "As part of SELECT DSL design changes, this will be removed in future releases.", replaceWith = ReplaceWith(expression = "select(column, *columns)", imports = [] type=kotlin.Array<out kotlin.String> varargElementType=kotlin.String), level = GET_ENUM 'ENUM_ENTRY IR_EXTERNAL_DECLARATION_STUB name:HIDDEN' type=kotlin.DeprecationLevel)
+      overridden:
+        public final fun slice (column: org.jetbrains.exposed.sql.Expression<*>, vararg columns: org.jetbrains.exposed.sql.Expression<*>): org.jetbrains.exposed.sql.FieldSet declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.ColumnSet
+      VALUE_PARAMETER name:column index:0 type:org.jetbrains.exposed.sql.Expression<*>
+      VALUE_PARAMETER name:columns index:1 type:kotlin.Array<out org.jetbrains.exposed.sql.Expression<*>> varargElementType:org.jetbrains.exposed.sql.Expression<*> [vararg]
+    FUN FAKE_OVERRIDE name:slice visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.ColumnSet, columns:kotlin.collections.List<org.jetbrains.exposed.sql.Expression<*>>) returnType:org.jetbrains.exposed.sql.FieldSet [fake_override]
+      annotations:
+        Deprecated(message = "As part of SELECT DSL design changes, this will be removed in future releases.", replaceWith = ReplaceWith(expression = "select(columns)", imports = [] type=kotlin.Array<out kotlin.String> varargElementType=kotlin.String), level = GET_ENUM 'ENUM_ENTRY IR_EXTERNAL_DECLARATION_STUB name:HIDDEN' type=kotlin.DeprecationLevel)
+      overridden:
+        public final fun slice (columns: kotlin.collections.List<org.jetbrains.exposed.sql.Expression<*>>): org.jetbrains.exposed.sql.FieldSet declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.ColumnSet
+      VALUE_PARAMETER name:columns index:0 type:kotlin.collections.List<org.jetbrains.exposed.sql.Expression<*>>
+    FUN FAKE_OVERRIDE name:text visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, collate:kotlin.String?, eagerLoading:kotlin.Boolean) returnType:org.jetbrains.exposed.sql.Column<kotlin.String> [fake_override]
+      overridden:
+        public final fun text (name: kotlin.String, collate: kotlin.String?, eagerLoading: kotlin.Boolean): org.jetbrains.exposed.sql.Column<kotlin.String> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:collate index:1 type:kotlin.String?
+      VALUE_PARAMETER name:eagerLoading index:2 type:kotlin.Boolean
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.String [fake_override]
+      overridden:
+        public open fun toString (): kotlin.String declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+    FUN FAKE_OVERRIDE name:transform visibility:public modality:FINAL <Unwrapped, Wrapped> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<Unwrapped of my.test.UsersTable.transform>, transformer:org.jetbrains.exposed.sql.ColumnTransformer<Unwrapped of my.test.UsersTable.transform, Wrapped of my.test.UsersTable.transform>) returnType:org.jetbrains.exposed.sql.Column<Wrapped of my.test.UsersTable.transform> [fake_override]
+      overridden:
+        public final fun transform <Unwrapped, Wrapped> (transformer: org.jetbrains.exposed.sql.ColumnTransformer<Unwrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform, Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform>): org.jetbrains.exposed.sql.Column<Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:Unwrapped index:0 variance: superTypes:[kotlin.Any] reified:false
+      TYPE_PARAMETER name:Wrapped index:1 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<Unwrapped of my.test.UsersTable.transform>
+      VALUE_PARAMETER name:transformer index:0 type:org.jetbrains.exposed.sql.ColumnTransformer<Unwrapped of my.test.UsersTable.transform, Wrapped of my.test.UsersTable.transform>
+    FUN FAKE_OVERRIDE name:transform visibility:public modality:FINAL <Unwrapped, Wrapped> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<Unwrapped of my.test.UsersTable.transform>, wrap:kotlin.Function1<Unwrapped of my.test.UsersTable.transform, Wrapped of my.test.UsersTable.transform>, unwrap:kotlin.Function1<Wrapped of my.test.UsersTable.transform, Unwrapped of my.test.UsersTable.transform>) returnType:org.jetbrains.exposed.sql.Column<Wrapped of my.test.UsersTable.transform> [fake_override]
+      overridden:
+        public final fun transform <Unwrapped, Wrapped> (wrap: kotlin.Function1<Unwrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform, Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform>, unwrap: kotlin.Function1<Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform, Unwrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform>): org.jetbrains.exposed.sql.Column<Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:Unwrapped index:0 variance: superTypes:[kotlin.Any] reified:false
+      TYPE_PARAMETER name:Wrapped index:1 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<Unwrapped of my.test.UsersTable.transform>
+      VALUE_PARAMETER name:wrap index:0 type:kotlin.Function1<Unwrapped of my.test.UsersTable.transform, Wrapped of my.test.UsersTable.transform>
+      VALUE_PARAMETER name:unwrap index:1 type:kotlin.Function1<Wrapped of my.test.UsersTable.transform, Unwrapped of my.test.UsersTable.transform>
+    FUN FAKE_OVERRIDE name:transform visibility:public modality:FINAL <Unwrapped, Wrapped> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<Unwrapped of my.test.UsersTable.transform?>, transformer:org.jetbrains.exposed.sql.ColumnTransformer<Unwrapped of my.test.UsersTable.transform?, Wrapped of my.test.UsersTable.transform?>) returnType:org.jetbrains.exposed.sql.Column<Wrapped of my.test.UsersTable.transform?> [fake_override]
+      annotations:
+        JvmName(name = "transformNullable")
+      overridden:
+        public final fun transform <Unwrapped, Wrapped> (transformer: org.jetbrains.exposed.sql.ColumnTransformer<Unwrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform?, Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform?>): org.jetbrains.exposed.sql.Column<Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform?> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:Unwrapped index:0 variance: superTypes:[kotlin.Any] reified:false
+      TYPE_PARAMETER name:Wrapped index:1 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<Unwrapped of my.test.UsersTable.transform?>
+      VALUE_PARAMETER name:transformer index:0 type:org.jetbrains.exposed.sql.ColumnTransformer<Unwrapped of my.test.UsersTable.transform?, Wrapped of my.test.UsersTable.transform?>
+    FUN FAKE_OVERRIDE name:transform visibility:public modality:FINAL <Unwrapped, Wrapped> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<Unwrapped of my.test.UsersTable.transform?>, wrap:kotlin.Function1<Unwrapped of my.test.UsersTable.transform?, Wrapped of my.test.UsersTable.transform?>, unwrap:kotlin.Function1<Wrapped of my.test.UsersTable.transform?, Unwrapped of my.test.UsersTable.transform?>) returnType:org.jetbrains.exposed.sql.Column<Wrapped of my.test.UsersTable.transform?> [fake_override]
+      annotations:
+        JvmName(name = "transformNullable")
+      overridden:
+        public final fun transform <Unwrapped, Wrapped> (wrap: kotlin.Function1<Unwrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform?, Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform?>, unwrap: kotlin.Function1<Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform?, Unwrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform?>): org.jetbrains.exposed.sql.Column<Wrapped of org.jetbrains.exposed.dao.id.LongIdTable.transform?> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:Unwrapped index:0 variance: superTypes:[kotlin.Any] reified:false
+      TYPE_PARAMETER name:Wrapped index:1 variance: superTypes:[kotlin.Any] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<Unwrapped of my.test.UsersTable.transform?>
+      VALUE_PARAMETER name:wrap index:0 type:kotlin.Function1<Unwrapped of my.test.UsersTable.transform?, Wrapped of my.test.UsersTable.transform?>
+      VALUE_PARAMETER name:unwrap index:1 type:kotlin.Function1<Wrapped of my.test.UsersTable.transform?, Unwrapped of my.test.UsersTable.transform?>
+    FUN FAKE_OVERRIDE name:ubyte visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, checkConstraintName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<kotlin.UByte> [fake_override]
+      overridden:
+        public final fun ubyte (name: kotlin.String, checkConstraintName: kotlin.String?): org.jetbrains.exposed.sql.Column<kotlin.UByte> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:checkConstraintName index:1 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:uinteger visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, checkConstraintName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<kotlin.UInt> [fake_override]
+      overridden:
+        public final fun uinteger (name: kotlin.String, checkConstraintName: kotlin.String?): org.jetbrains.exposed.sql.Column<kotlin.UInt> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:checkConstraintName index:1 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:ulong visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String) returnType:org.jetbrains.exposed.sql.Column<kotlin.ULong> [fake_override]
+      overridden:
+        public final fun ulong (name: kotlin.String): org.jetbrains.exposed.sql.Column<kotlin.ULong> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+    FUN FAKE_OVERRIDE name:uniqueIndex visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, columns:kotlin.Array<out org.jetbrains.exposed.sql.Column<*>>, filterCondition:@[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>?) returnType:kotlin.Unit [fake_override]
+      overridden:
+        public final fun uniqueIndex (vararg columns: org.jetbrains.exposed.sql.Column<*>, filterCondition: @[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>?): kotlin.Unit declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:columns index:0 type:kotlin.Array<out org.jetbrains.exposed.sql.Column<*>> varargElementType:org.jetbrains.exposed.sql.Column<*> [vararg]
+      VALUE_PARAMETER name:filterCondition index:1 type:@[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>?
+    FUN FAKE_OVERRIDE name:uniqueIndex visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, customIndexName:kotlin.String?, columns:kotlin.Array<out org.jetbrains.exposed.sql.Column<*>>, functions:kotlin.collections.List<org.jetbrains.exposed.sql.ExpressionWithColumnType<*>>?, filterCondition:@[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>?) returnType:kotlin.Unit [fake_override]
+      overridden:
+        public final fun uniqueIndex (customIndexName: kotlin.String?, vararg columns: org.jetbrains.exposed.sql.Column<*>, functions: kotlin.collections.List<org.jetbrains.exposed.sql.ExpressionWithColumnType<*>>?, filterCondition: @[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>?): kotlin.Unit declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:customIndexName index:0 type:kotlin.String?
+      VALUE_PARAMETER name:columns index:1 type:kotlin.Array<out org.jetbrains.exposed.sql.Column<*>> varargElementType:org.jetbrains.exposed.sql.Column<*> [vararg]
+      VALUE_PARAMETER name:functions index:2 type:kotlin.collections.List<org.jetbrains.exposed.sql.ExpressionWithColumnType<*>>?
+      VALUE_PARAMETER name:filterCondition index:3 type:@[ExtensionFunctionType] kotlin.Function1<org.jetbrains.exposed.sql.SqlExpressionBuilder, org.jetbrains.exposed.sql.Op<kotlin.Boolean>>?
+    FUN FAKE_OVERRIDE name:uniqueIndex visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.uniqueIndex>, customIndexName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.uniqueIndex> [fake_override]
+      overridden:
+        public final fun uniqueIndex <T> (customIndexName: kotlin.String?): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.uniqueIndex> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.uniqueIndex>
+      VALUE_PARAMETER name:customIndexName index:0 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:ushort visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, checkConstraintName:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<kotlin.UShort> [fake_override]
+      overridden:
+        public final fun ushort (name: kotlin.String, checkConstraintName: kotlin.String?): org.jetbrains.exposed.sql.Column<kotlin.UShort> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:checkConstraintName index:1 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:uuid visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String) returnType:org.jetbrains.exposed.sql.Column<java.util.UUID> [fake_override]
+      overridden:
+        public final fun uuid (name: kotlin.String): org.jetbrains.exposed.sql.Column<java.util.UUID> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+    FUN FAKE_OVERRIDE name:varchar visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.sql.Table, name:kotlin.String, length:kotlin.Int, collate:kotlin.String?) returnType:org.jetbrains.exposed.sql.Column<kotlin.String> [fake_override]
+      overridden:
+        public final fun varchar (name: kotlin.String, length: kotlin.Int, collate: kotlin.String?): org.jetbrains.exposed.sql.Column<kotlin.String> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      VALUE_PARAMETER name:name index:0 type:kotlin.String
+      VALUE_PARAMETER name:length index:1 type:kotlin.Int
+      VALUE_PARAMETER name:collate index:2 type:kotlin.String?
+    FUN FAKE_OVERRIDE name:withDefinition visibility:public modality:FINAL <T> ($this:org.jetbrains.exposed.sql.Table, $receiver:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.withDefinition>, definition:kotlin.Array<out kotlin.Any>) returnType:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.withDefinition> [fake_override]
+      overridden:
+        public final fun withDefinition <T> (vararg definition: kotlin.Any): org.jetbrains.exposed.sql.Column<T of org.jetbrains.exposed.dao.id.LongIdTable.withDefinition> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+      $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Table
+      $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.sql.Column<T of my.test.UsersTable.withDefinition>
+      VALUE_PARAMETER name:definition index:0 type:kotlin.Array<out kotlin.Any> varargElementType:kotlin.Any [vararg]
+    PROPERTY FAKE_OVERRIDE name:autoIncColumn visibility:public modality:FINAL [fake_override,val]
+      overridden:
+        public final autoIncColumn: org.jetbrains.exposed.sql.Column<*>? declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-autoIncColumn> visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:org.jetbrains.exposed.sql.Column<*>? [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:autoIncColumn visibility:public modality:FINAL [fake_override,val]
+        overridden:
+          public final fun <get-autoIncColumn> (): org.jetbrains.exposed.sql.Column<*>? declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:columns visibility:public modality:OPEN [fake_override,val]
+      overridden:
+        public open columns: kotlin.collections.List<org.jetbrains.exposed.sql.Column<*>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-columns> visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:kotlin.collections.List<org.jetbrains.exposed.sql.Column<*>> [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:columns visibility:public modality:OPEN [fake_override,val]
+        overridden:
+          public open fun <get-columns> (): kotlin.collections.List<org.jetbrains.exposed.sql.Column<*>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:ddl visibility:public modality:OPEN [fake_override,val]
+      overridden:
+        public open ddl: kotlin.collections.List<kotlin.String> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-ddl> visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:kotlin.collections.List<kotlin.String> [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:ddl visibility:public modality:OPEN [fake_override,val]
+        overridden:
+          public open fun <get-ddl> (): kotlin.collections.List<kotlin.String> declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:fields visibility:public modality:OPEN [fake_override,val]
+      overridden:
+        public open fields: kotlin.collections.List<org.jetbrains.exposed.sql.Expression<*>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-fields> visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:kotlin.collections.List<org.jetbrains.exposed.sql.Expression<*>> [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:fields visibility:public modality:OPEN [fake_override,val]
+        overridden:
+          public open fun <get-fields> (): kotlin.collections.List<org.jetbrains.exposed.sql.Expression<*>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:foreignKeys visibility:public modality:FINAL [fake_override,val]
+      overridden:
+        public final foreignKeys: kotlin.collections.List<org.jetbrains.exposed.sql.ForeignKeyConstraint> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-foreignKeys> visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:kotlin.collections.List<org.jetbrains.exposed.sql.ForeignKeyConstraint> [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:foreignKeys visibility:public modality:FINAL [fake_override,val]
+        overridden:
+          public final fun <get-foreignKeys> (): kotlin.collections.List<org.jetbrains.exposed.sql.ForeignKeyConstraint> declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:id visibility:public modality:FINAL [fake_override,val]
+      overridden:
+        public final id: org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<kotlin.Long>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-id> visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<kotlin.Long>> [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:id visibility:public modality:FINAL [fake_override,val]
+        overridden:
+          public final fun <get-id> (): org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<kotlin.Long>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:idColumns visibility:public modality:FINAL [fake_override,val]
+      overridden:
+        public final idColumns: kotlin.collections.Set<org.jetbrains.exposed.sql.Column<out kotlin.Any>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-idColumns> visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:kotlin.collections.Set<org.jetbrains.exposed.sql.Column<out kotlin.Any>> [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:idColumns visibility:public modality:FINAL [fake_override,val]
+        overridden:
+          public final fun <get-idColumns> (): kotlin.collections.Set<org.jetbrains.exposed.sql.Column<out kotlin.Any>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:indices visibility:public modality:FINAL [fake_override,val]
+      overridden:
+        public final indices: kotlin.collections.List<org.jetbrains.exposed.sql.Index> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-indices> visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:kotlin.collections.List<org.jetbrains.exposed.sql.Index> [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:indices visibility:public modality:FINAL [fake_override,val]
+        overridden:
+          public final fun <get-indices> (): kotlin.collections.List<org.jetbrains.exposed.sql.Index> declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:primaryKey visibility:public modality:FINAL [fake_override,val]
+      overridden:
+        public final primaryKey: org.jetbrains.exposed.sql.Table.PrimaryKey declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-primaryKey> visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:org.jetbrains.exposed.sql.Table.PrimaryKey [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:primaryKey visibility:public modality:FINAL [fake_override,val]
+        overridden:
+          public final fun <get-primaryKey> (): org.jetbrains.exposed.sql.Table.PrimaryKey declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:realFields visibility:public modality:OPEN [fake_override,val]
+      overridden:
+        public open realFields: kotlin.collections.List<org.jetbrains.exposed.sql.Expression<*>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-realFields> visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:kotlin.collections.List<org.jetbrains.exposed.sql.Expression<*>> [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:realFields visibility:public modality:OPEN [fake_override,val]
+        overridden:
+          public open fun <get-realFields> (): kotlin.collections.List<org.jetbrains.exposed.sql.Expression<*>> declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:schemaName visibility:public modality:FINAL [fake_override,val]
+      overridden:
+        public final schemaName: kotlin.String? declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-schemaName> visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:kotlin.String? [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:schemaName visibility:public modality:FINAL [fake_override,val]
+        overridden:
+          public final fun <get-schemaName> (): kotlin.String? declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:sequences visibility:public modality:FINAL [fake_override,val]
+      overridden:
+        public final sequences: kotlin.collections.List<org.jetbrains.exposed.sql.Sequence> declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-sequences> visibility:public modality:FINAL <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:kotlin.collections.List<org.jetbrains.exposed.sql.Sequence> [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:sequences visibility:public modality:FINAL [fake_override,val]
+        overridden:
+          public final fun <get-sequences> (): kotlin.collections.List<org.jetbrains.exposed.sql.Sequence> declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:source visibility:public modality:OPEN [fake_override,val]
+      overridden:
+        public open source: org.jetbrains.exposed.sql.ColumnSet declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-source> visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:org.jetbrains.exposed.sql.ColumnSet [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:source visibility:public modality:OPEN [fake_override,val]
+        overridden:
+          public open fun <get-source> (): org.jetbrains.exposed.sql.ColumnSet declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+    PROPERTY FAKE_OVERRIDE name:tableName visibility:public modality:OPEN [fake_override,val]
+      overridden:
+        public open tableName: kotlin.String declared in org.jetbrains.exposed.dao.id.LongIdTable
+      FUN FAKE_OVERRIDE name:<get-tableName> visibility:public modality:OPEN <> ($this:org.jetbrains.exposed.dao.id.LongIdTable) returnType:kotlin.String [fake_override]
+        correspondingProperty: PROPERTY FAKE_OVERRIDE name:tableName visibility:public modality:OPEN [fake_override,val]
+        overridden:
+          public open fun <get-tableName> (): kotlin.String declared in org.jetbrains.exposed.dao.id.LongIdTable
+        $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
+  FUN name:box visibility:public modality:FINAL <> () returnType:kotlin.String
+    BLOCK_BODY
+      VAR name:row type:org.jetbrains.kotlin.compiler.plugin.template.ResultRow [val]
+        CALL 'public final fun createAndFillValues (vararg data: kotlin.Pair<org.jetbrains.exposed.sql.Expression<*>, kotlin.Any?>): org.jetbrains.kotlin.compiler.plugin.template.ResultRow declared in org.jetbrains.kotlin.compiler.plugin.template.ResultRow.Companion' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow origin=null
+          $this: GET_OBJECT 'CLASS IR_EXTERNAL_DECLARATION_STUB OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow.Companion
+          data: VARARG type=kotlin.Array<out kotlin.Pair<org.jetbrains.exposed.sql.Expression<*>, kotlin.Any?>> varargElementType=kotlin.Pair<org.jetbrains.exposed.sql.Expression<*>, kotlin.Any?>
+            CALL 'public final fun to <A, B> (that: B of kotlin.to): kotlin.Pair<A of kotlin.to, B of kotlin.to> declared in kotlin' type=kotlin.Pair<org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<kotlin.Long>>, kotlin.Int> origin=null
+              <A>: org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<kotlin.Long>>
+              <B>: kotlin.Int
+              $receiver: CALL 'public final fun <get-id> (): org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<kotlin.Long>> declared in my.test.UsersTable' type=org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<kotlin.Long>> origin=GET_PROPERTY
+                $this: GET_OBJECT 'CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.dao.id.LongIdTable]' type=my.test.UsersTable
+              that: CONST Int type=kotlin.Int value=1
+            CALL 'public final fun to <A, B> (that: B of kotlin.to): kotlin.Pair<A of kotlin.to, B of kotlin.to> declared in kotlin' type=kotlin.Pair<org.jetbrains.exposed.sql.Column<kotlin.String>, kotlin.String> origin=null
+              <A>: org.jetbrains.exposed.sql.Column<kotlin.String>
+              <B>: kotlin.String
+              $receiver: CALL 'public final fun <get-name> (): org.jetbrains.exposed.sql.Column<kotlin.String> declared in my.test.UsersTable' type=org.jetbrains.exposed.sql.Column<kotlin.String> origin=GET_PROPERTY
+                $this: GET_OBJECT 'CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.dao.id.LongIdTable]' type=my.test.UsersTable
+              that: CONST String type=kotlin.String value="John"
+            CALL 'public final fun to <A, B> (that: B of kotlin.to): kotlin.Pair<A of kotlin.to, B of kotlin.to> declared in kotlin' type=kotlin.Pair<org.jetbrains.exposed.sql.Column<kotlin.Int>, kotlin.Int> origin=null
+              <A>: org.jetbrains.exposed.sql.Column<kotlin.Int>
+              <B>: kotlin.Int
+              $receiver: CALL 'public final fun <get-age> (): org.jetbrains.exposed.sql.Column<kotlin.Int> declared in my.test.UsersTable' type=org.jetbrains.exposed.sql.Column<kotlin.Int> origin=GET_PROPERTY
+                $this: GET_OBJECT 'CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.dao.id.LongIdTable]' type=my.test.UsersTable
+              that: CONST Int type=kotlin.Int value=20
+            CALL 'public final fun to <A, B> (that: B of kotlin.to): kotlin.Pair<A of kotlin.to, B of kotlin.to> declared in kotlin' type=kotlin.Pair<org.jetbrains.exposed.sql.Column<kotlin.String?>, kotlin.String> origin=null
+              <A>: org.jetbrains.exposed.sql.Column<kotlin.String?>
+              <B>: kotlin.String
+              $receiver: CALL 'public final fun <get-email> (): org.jetbrains.exposed.sql.Column<kotlin.String?> declared in my.test.UsersTable' type=org.jetbrains.exposed.sql.Column<kotlin.String?> origin=GET_PROPERTY
+                $this: GET_OBJECT 'CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.dao.id.LongIdTable]' type=my.test.UsersTable
+              that: CONST String type=kotlin.String value="<EMAIL>"
+      VAR name:actual type:my.test.User [val]
+        CALL 'public final fun toUser (): my.test.User declared in my.test' type=my.test.User origin=null
+          $receiver: GET_VAR 'val row: org.jetbrains.kotlin.compiler.plugin.template.ResultRow declared in my.test.box' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow origin=null
+      VAR name:expected type:my.test.User [val]
+        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, age: kotlin.Int) declared in my.test.User' type=my.test.User origin=null
+          name: CONST String type=kotlin.String value="John"
+          age: CONST Int type=kotlin.Int value=20
+      RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in my.test'
+        WHEN type=kotlin.String origin=IF
+          BRANCH
+            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              arg0: GET_VAR 'val actual: my.test.User declared in my.test.box' type=my.test.User origin=null
+              arg1: GET_VAR 'val expected: my.test.User declared in my.test.box' type=my.test.User origin=null
+            then: CONST String type=kotlin.String value="OK"
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: STRING_CONCATENATION type=kotlin.String
+              CONST String type=kotlin.String value="Fail: "
+              GET_VAR 'val actual: my.test.User declared in my.test.box' type=my.test.User origin=null
+FILE fqName:my.test fileName:__GENERATED DECLARATIONS__.kt
+  FUN GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.MyCodeGenerationExtension.Key] name:toUser visibility:public modality:FINAL <> ($receiver:org.jetbrains.kotlin.compiler.plugin.template.ResultRow) returnType:my.test.User
+    $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.kotlin.compiler.plugin.template.ResultRow
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun toUser (): my.test.User declared in my.test'
+        CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, age: kotlin.Int) declared in my.test.User' type=my.test.User origin=null
+          name: CALL 'public final fun get <T> (expression: org.jetbrains.exposed.sql.Expression<T of org.jetbrains.kotlin.compiler.plugin.template.ResultRow.get>): T of org.jetbrains.kotlin.compiler.plugin.template.ResultRow.get declared in org.jetbrains.kotlin.compiler.plugin.template.ResultRow' type=T of org.jetbrains.kotlin.compiler.plugin.template.ResultRow.get origin=null
+            <T>: kotlin.String
+            $this: GET_VAR '<this>: org.jetbrains.kotlin.compiler.plugin.template.ResultRow declared in my.test.toUser' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow origin=null
+            expression: CALL 'public final fun <get-name> (): org.jetbrains.exposed.sql.Column<kotlin.String> declared in my.test.UsersTable' type=org.jetbrains.exposed.sql.Column<kotlin.String> origin=null
+              $this: GET_OBJECT 'CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.dao.id.LongIdTable]' type=my.test.UsersTable
+          age: CALL 'public final fun get <T> (expression: org.jetbrains.exposed.sql.Expression<T of org.jetbrains.kotlin.compiler.plugin.template.ResultRow.get>): T of org.jetbrains.kotlin.compiler.plugin.template.ResultRow.get declared in org.jetbrains.kotlin.compiler.plugin.template.ResultRow' type=T of org.jetbrains.kotlin.compiler.plugin.template.ResultRow.get origin=null
+            <T>: kotlin.Int
+            $this: GET_VAR '<this>: org.jetbrains.kotlin.compiler.plugin.template.ResultRow declared in my.test.toUser' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow origin=null
+            expression: CALL 'public final fun <get-age> (): org.jetbrains.exposed.sql.Column<kotlin.Int> declared in my.test.UsersTable' type=org.jetbrains.exposed.sql.Column<kotlin.Int> origin=null
+              $this: GET_OBJECT 'CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.dao.id.LongIdTable]' type=my.test.UsersTable

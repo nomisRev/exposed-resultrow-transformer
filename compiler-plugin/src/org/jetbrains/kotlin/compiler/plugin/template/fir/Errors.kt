@@ -62,7 +62,7 @@ object Errors : BaseDiagnosticRendererFactory() {
 
             put(
                 ANNOTATION_ARGUMENT_NOT_TABLE,
-                "Annotation argument should be a Exposed Table. Example: @SomeAnnotation(MyTable::class).",
+                "Required declaration must have super type org.jetbrains.exposed.sql.Table, but found {0}.",
                 TO_STRING
             )
         }

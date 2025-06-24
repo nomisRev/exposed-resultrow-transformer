@@ -36,7 +36,6 @@ class SimpleGradlePlugin : KotlinCompilerPluginSupportPlugin {
 
         return project.provider {
             val extension = project.extensions.getByType(SimpleGradleExtension::class.java)
-
             emptyList()
         }
     }

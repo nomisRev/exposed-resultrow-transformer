@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm")
-    id("com.github.gmazzo.buildconfig")
+    alias(libs.plugins.kotlinJvm)
+    alias(libs.plugins.buildconfig)
     id("java-gradle-plugin")
 }
 
@@ -16,9 +16,9 @@ sourceSets {
 }
 
 dependencies {
-    implementation(kotlin("gradle-plugin-api"))
+    implementation(libs.kotlin.gradle.plugin.api)
 
-    testImplementation(kotlin("test-junit5"))
+    testImplementation(libs.kotlin.test.junit5)
 }
 
 buildConfig {
@@ -41,11 +41,11 @@ buildConfig {
 
 gradlePlugin {
     plugins {
-        create("SimplePlugin") {
+        create("simplePlugin") {
             id = rootProject.group.toString()
             displayName = "SimplePlugin"
             description = "SimplePlugin"
-            implementationClass = "org.demiurg906.kotlin.plugin.SimpleGradlePlugin"
+            implementationClass = "org.jetbrains.kotlin.compiler.plugin.template.SimpleGradlePlugin"
         }
     }
 }

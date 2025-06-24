@@ -1,8 +1,8 @@
 plugins {
-    kotlin("multiplatform") version "2.1.20" apply false
-    kotlin("jvm") version "2.1.20" apply false
-    id("com.github.gmazzo.buildconfig") version "5.6.5"
-    id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.16.3" apply false
+    alias(libs.plugins.kotlinJvm) apply false
+    alias(libs.plugins.kotlinMultiplatform) apply false
+    alias(libs.plugins.buildconfig)
+    alias(libs.plugins.binaryCompatibilityValidator) apply false
 }
 
 allprojects {

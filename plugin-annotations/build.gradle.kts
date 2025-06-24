@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     kotlin("jvm")
-    id("org.jetbrains.kotlinx.binary-compatibility-validator")
+    id(libs.plugins.binaryCompatibilityValidator.get().pluginId)
 }
 
 kotlin {
@@ -12,5 +12,5 @@ kotlin {
 }
 
 dependencies {
-    implementation("org.jetbrains.exposed:exposed-core:0.61.0")
+    implementation(libs.exposed.core)
 }

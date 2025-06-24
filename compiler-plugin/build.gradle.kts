@@ -1,7 +1,7 @@
 plugins {
-    kotlin("jvm")
+    alias(libs.plugins.kotlinJvm)
     `java-test-fixtures`
-    id("com.github.gmazzo.buildconfig")
+    alias(libs.plugins.buildconfig)
     idea
 }
 
@@ -27,26 +27,26 @@ val annotationsRuntimeClasspath: Configuration by configurations.creating { isTr
 val testDependenciesRuntimeClasspath: Configuration by configurations.creating { }
 
 dependencies {
-    compileOnly(kotlin("compiler"))
+    compileOnly(libs.kotlin.compiler)
     compileOnly(project(":plugin-annotations"))
 
-    testFixturesApi(kotlin("test-junit5"))
-    testFixturesApi(kotlin("compiler-internal-test-framework"))
-    testFixturesApi(kotlin("compiler"))
+    testFixturesApi(libs.kotlin.test.junit5)
+    testFixturesApi(libs.kotlin.compiler.internal.test.framework)
+    testFixturesApi(libs.kotlin.compiler)
 
     annotationsRuntimeClasspath(project(":plugin-annotations"))
-    testDependenciesRuntimeClasspath("org.jetbrains.exposed:exposed-jdbc:0.61.0")
-    testDependenciesRuntimeClasspath("org.jetbrains.exposed:exposed-core:0.61.0")
-    testDependenciesRuntimeClasspath("org.testcontainers:testcontainers:1.19.3")
-    testDependenciesRuntimeClasspath("org.testcontainers:postgresql:1.19.3")
-    testDependenciesRuntimeClasspath("org.postgresql:postgresql:42.7.1")
+    testDependenciesRuntimeClasspath(libs.exposed.jdbc)
+    testDependenciesRuntimeClasspath(libs.exposed.core)
+    testDependenciesRuntimeClasspath(libs.testcontainers.core)
+    testDependenciesRuntimeClasspath(libs.testcontainers.postgresql)
+    testDependenciesRuntimeClasspath(libs.postgresql)
 
     // Dependencies required to run the internal test framework.
-    testRuntimeOnly("junit:junit:4.13.2")
-    testRuntimeOnly(kotlin("reflect"))
-    testRuntimeOnly(kotlin("test"))
-    testRuntimeOnly(kotlin("script-runtime"))
-    testRuntimeOnly(kotlin("annotations-jvm"))
+    testRuntimeOnly(libs.junit)
+    testRuntimeOnly(libs.kotlin.reflect)
+    testRuntimeOnly(libs.kotlin.test)
+    testRuntimeOnly(libs.kotlin.script.runtime)
+    testRuntimeOnly(libs.kotlin.annotations.jvm)
 }
 
 buildConfig {

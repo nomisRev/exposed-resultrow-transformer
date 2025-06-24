@@ -17,11 +17,14 @@ import org.jetbrains.kotlin.diagnostics.SourceElementPositioningStrategies
 import org.jetbrains.kotlin.diagnostics.reportOnDeclaration
 import org.jetbrains.kotlin.fir.analysis.checkers.declaration.primaryConstructorSymbol
 import org.jetbrains.kotlin.fir.expressions.FirGetClassCall
+import org.jetbrains.kotlin.fir.expressions.UnresolvedExpressionTypeAccess
 import org.jetbrains.kotlin.fir.extensions.predicate.LookupPredicate
 import org.jetbrains.kotlin.fir.extensions.predicateBasedProvider
 import org.jetbrains.kotlin.fir.plugin.createTopLevelFunction
 import org.jetbrains.kotlin.fir.resolve.toRegularClassSymbol
 import org.jetbrains.kotlin.fir.symbols.FirBasedSymbol
+import org.jetbrains.kotlin.fir.types.classId
+import org.jetbrains.kotlin.fir.types.impl.ConeClassLikeTypeImpl
 import org.jetbrains.kotlin.fir.types.resolvedType
 import org.jetbrains.kotlin.name.Name.identifier
 import org.jetbrains.kotlin.psi.KtElement
@@ -53,7 +56,7 @@ class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationE
         predicateBasedProvider.getSymbolsByPredicate(PREDICATE).filterIsInstance<FirRegularClassSymbol>()
     }
 
-    class Key(val annotated: FirRegularClassSymbol, val table: FirRegularClassSymbol) : GeneratedDeclarationKey()
+    class Key(val annotated: FirRegularClassSymbol, val tableClassId: ClassId) : GeneratedDeclarationKey()
 
     override fun FirDeclarationPredicateRegistrar.registerPredicates() {
         register(PREDICATE)
@@ -72,12 +75,12 @@ class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationE
         context: MemberGenerationContext?
     ): List<FirNamedFunctionSymbol> =
         matchedClasses.map { owner ->
-            val annotation =
-                owner.annotations.first().argumentMapping.mapping.entries.first().value as FirGetClassCall
-            val classSymbol = requireNotNull(annotation.argument.resolvedType.toRegularClassSymbol(session))
+            @OptIn(UnresolvedExpressionTypeAccess::class)
+            val tableClassId =
+                (owner.annotations.first().argumentMapping.mapping.entries.first().value as FirGetClassCall).argumentList.arguments.first().coneTypeOrNull?.classId!!
 
             @OptIn(ExperimentalTopLevelDeclarationsGenerationApi::class)
-            createTopLevelFunction(Key(owner, classSymbol), callableId, owner.defaultType()) {
+            createTopLevelFunction(Key(owner, tableClassId), callableId, owner.defaultType()) {
                 extensionReceiverType(RESULT_ROW_CLASS_ID.defaultType(emptyList()))
             }.symbol
         }

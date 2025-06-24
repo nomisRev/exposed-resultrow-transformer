@@ -14,6 +14,7 @@ import org.jetbrains.kotlin.ir.builders.irReturn
 import org.jetbrains.kotlin.ir.declarations.IrDeclarationOrigin
 import org.jetbrains.kotlin.ir.declarations.IrModuleFragment
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
+import org.jetbrains.kotlin.ir.symbols.IrClassSymbol
 import org.jetbrains.kotlin.ir.symbols.IrSymbol
 import org.jetbrains.kotlin.ir.types.classOrNull
 import org.jetbrains.kotlin.ir.util.constructors
@@ -42,7 +43,7 @@ class MyCodeIrGenerator(private val pluginContext: IrPluginContext) : IrVisitor<
         require(declaration.body == null)
         val key = origin.pluginKey as MyCodeGenerationExtension.Key
         val annotated = requireNotNull(pluginContext.referenceClass(key.annotated.classId))
-        val table = requireNotNull(pluginContext.referenceClass(key.table.classId))
+        val table: IrClassSymbol = requireNotNull(pluginContext.referenceClass(key.tableClassId))
         val constructor = annotated.constructors.first()
 
         val resultRowClass = declaration.extensionReceiverParameter!!.type.classOrNull!!.owner

@@ -26,4 +26,10 @@ public class JvmBoxTestGenerated extends AbstractJvmBoxTest {
   public void testExposed() {
     runTest("compiler-plugin/testData/box/exposed.kt");
   }
+
+  @Test
+  @TestMetadata("exposedLongIdTable.kt")
+  public void testExposedLongIdTable() {
+    runTest("compiler-plugin/testData/box/exposedLongIdTable.kt");
+  }
 }
