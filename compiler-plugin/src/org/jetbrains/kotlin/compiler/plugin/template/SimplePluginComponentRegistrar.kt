@@ -10,6 +10,7 @@ class SimplePluginComponentRegistrar: CompilerPluginRegistrar() {
     override val supportsK2: Boolean = true
 
     override fun ExtensionStorage.registerExtensions(configuration: CompilerConfiguration) {
+        val options = Options(configuration)
         FirExtensionRegistrarAdapter.registerExtension(SimplePluginRegistrar())
         IrGenerationExtension.registerExtension(MyCodeIrGenerationExtension())
     }

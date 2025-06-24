@@ -21,7 +21,7 @@ object Errors : BaseDiagnosticRendererFactory() {
     val DATA_CLASS_PROPERTY_NOT_FOUND by DiagnosticFactory3DelegateProvider<String, String, List<String>>(
         severity = Severity.ERROR,
         positioningStrategy = SourceElementPositioningStrategies.DEFAULT,
-        psiType = KtProperty::class,
+        psiType = KtParameter::class,
     )
 
     val DATA_CLASS_EXPECTED by DiagnosticFactory1DelegateProvider<ClassId>(

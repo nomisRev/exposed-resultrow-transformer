@@ -27,5 +27,6 @@ fun main() {
         Users.selectAll()
             .where { Users.id eq id }
             .toUser()
+        println("POOOP")
     }
 }

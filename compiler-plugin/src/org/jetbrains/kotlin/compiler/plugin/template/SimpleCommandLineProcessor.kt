@@ -2,6 +2,7 @@ package org.jetbrains.kotlin.compiler.plugin.template
 
 import org.jetbrains.kotlin.compiler.plugin.AbstractCliOption
 import org.jetbrains.kotlin.compiler.plugin.CliOption
+import org.jetbrains.kotlin.compiler.plugin.CliOptionProcessingException
 import org.jetbrains.kotlin.compiler.plugin.CommandLineProcessor
 import org.jetbrains.kotlin.config.CompilerConfiguration
 
@@ -11,7 +12,13 @@ class SimpleCommandLineProcessor : CommandLineProcessor {
 
     override val pluginOptions: Collection<CliOption> = emptyList()
 
+    private fun <T : Any> CompilerConfiguration.put(option: Option<T>, value: String): Unit =
+        put(option.key, option.convertValue(value))
+
     override fun processOption(option: AbstractCliOption, value: String, configuration: CompilerConfiguration) {
-        error("Unexpected config option: '${option.optionName}'")
+        when (val found = Options.entries.firstOrNull { it.name == option.optionName }) {
+            null -> throw CliOptionProcessingException("Unknown plugin option: ${option.optionName}")
+            else -> configuration.put(found, value)
+        }
     }
 }

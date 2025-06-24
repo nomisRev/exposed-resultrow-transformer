@@ -16,6 +16,7 @@ import org.jetbrains.kotlin.diagnostics.DiagnosticFactory0
 import org.jetbrains.kotlin.diagnostics.SourceElementPositioningStrategies
 import org.jetbrains.kotlin.diagnostics.reportOnDeclaration
 import org.jetbrains.kotlin.fir.analysis.checkers.declaration.primaryConstructorSymbol
+import org.jetbrains.kotlin.fir.containingClassForStaticMemberAttr
 import org.jetbrains.kotlin.fir.expressions.FirGetClassCall
 import org.jetbrains.kotlin.fir.expressions.UnresolvedExpressionTypeAccess
 import org.jetbrains.kotlin.fir.extensions.predicate.LookupPredicate
@@ -33,8 +34,10 @@ import kotlin.script.experimental.dependencies.ScriptReport
 val MY_CODE_GENERATE_ANNOTATION: AnnotationFqn
     get() = FqName("org.jetbrains.kotlin.compiler.plugin.template.SomeAnnotation")
 
+// How to parameterise for testing?
 private val RESULT_ROW_CLASS_ID = ClassId(
-    packageFqName = FqName("org.jetbrains.kotlin.compiler.plugin.template"),
+//    packageFqName = FqName("org.jetbrains.kotlin.compiler.plugin.template"),
+    packageFqName = FqName("org.jetbrains.exposed.sql"),
     relativeClassName = FqName("ResultRow"),
     isLocal = false
 )
@@ -82,6 +85,8 @@ class MyCodeGenerationExtension(session: FirSession) : FirDeclarationGenerationE
             @OptIn(ExperimentalTopLevelDeclarationsGenerationApi::class)
             createTopLevelFunction(Key(owner, tableClassId), callableId, owner.defaultType()) {
                 extensionReceiverType(RESULT_ROW_CLASS_ID.defaultType(emptyList()))
+            }.apply {
+                containingClassForStaticMemberAttr = owner.toLookupTag()
             }.symbol
         }
 }
