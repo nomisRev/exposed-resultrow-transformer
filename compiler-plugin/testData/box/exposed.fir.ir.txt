@@ -1036,7 +1036,22 @@ FILE fqName:my.test fileName:/exposed.kt
               CONST String type=kotlin.String value="Fail: "
               GET_VAR 'val actual: my.test.User declared in my.test.box' type=my.test.User origin=null
 FILE fqName:my.test fileName:__GENERATED DECLARATIONS__.kt
-  FUN GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.MyCodeGenerationExtension.Key] name:toUser visibility:public modality:FINAL <> ($receiver:org.jetbrains.kotlin.compiler.plugin.template.ResultRow) returnType:my.test.User
+  FUN GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.MyCodeGenerationExtension.IterableKey] name:toUsers visibility:public modality:FINAL <> ($receiver:kotlin.collections.Iterable<org.jetbrains.kotlin.compiler.plugin.template.ResultRow>) returnType:kotlin.collections.Iterable<my.test.User>
+    $receiver: VALUE_PARAMETER name:<this> type:kotlin.collections.Iterable<org.jetbrains.kotlin.compiler.plugin.template.ResultRow>
+    BLOCK_BODY
+      RETURN type=kotlin.Nothing from='public final fun toUsers (): kotlin.collections.Iterable<my.test.User> declared in my.test'
+        CALL 'public final fun map <T, R> (transform: kotlin.Function1<T of kotlin.collections.map, R of kotlin.collections.map>): kotlin.collections.List<R of kotlin.collections.map> declared in kotlin.collections' type=kotlin.collections.List<R of kotlin.collections.map> origin=null
+          <T>: org.jetbrains.kotlin.compiler.plugin.template.ResultRow
+          <R>: my.test.User
+          $receiver: GET_VAR '<this>: kotlin.collections.Iterable<org.jetbrains.kotlin.compiler.plugin.template.ResultRow> declared in my.test.toUsers' type=kotlin.collections.Iterable<org.jetbrains.kotlin.compiler.plugin.template.ResultRow> origin=null
+          transform: FUN_EXPR type=kotlin.Function1<org.jetbrains.kotlin.compiler.plugin.template.ResultRow, my.test.User> origin=LAMBDA
+            FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL <> (it:org.jetbrains.kotlin.compiler.plugin.template.ResultRow) returnType:my.test.User
+              VALUE_PARAMETER name:it index:0 type:org.jetbrains.kotlin.compiler.plugin.template.ResultRow
+              BLOCK_BODY
+                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: org.jetbrains.kotlin.compiler.plugin.template.ResultRow): my.test.User declared in my.test.toUsers'
+                  CALL 'public final fun toUser (): my.test.User declared in my.test' type=my.test.User origin=null
+                    $receiver: GET_VAR 'it: org.jetbrains.kotlin.compiler.plugin.template.ResultRow declared in my.test.toUsers.<anonymous>' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow origin=null
+  FUN GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.MyCodeGenerationExtension.SingleKey] name:toUser visibility:public modality:FINAL <> ($receiver:org.jetbrains.kotlin.compiler.plugin.template.ResultRow) returnType:my.test.User
     $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.kotlin.compiler.plugin.template.ResultRow
     BLOCK_BODY
       RETURN type=kotlin.Nothing from='public final fun toUser (): my.test.User declared in my.test'

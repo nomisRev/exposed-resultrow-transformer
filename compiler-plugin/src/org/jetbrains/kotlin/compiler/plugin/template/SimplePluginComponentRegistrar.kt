@@ -19,6 +19,6 @@ class SimplePluginComponentRegistrar : CompilerPluginRegistrar() {
         )
         logger.log { "SimplePluginComponentRegistrar loaded" }
         FirExtensionRegistrarAdapter.registerExtension(SimplePluginRegistrar(module))
-        IrGenerationExtension.registerExtension(MyCodeIrGenerationExtension())
+        IrGenerationExtension.registerExtension(MyCodeIrGenerationExtension(module))
     }
 }

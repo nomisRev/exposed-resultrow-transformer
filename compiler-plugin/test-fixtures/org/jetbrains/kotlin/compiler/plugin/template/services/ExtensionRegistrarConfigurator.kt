@@ -33,6 +33,6 @@ class ExtensionRegistrarConfigurator(testServices: TestServices) : EnvironmentCo
             logger = Logger(true),
         )
         FirExtensionRegistrarAdapter.registerExtension(SimplePluginRegistrar(module))
-        IrGenerationExtension.registerExtension(MyCodeIrGenerationExtension())
+        IrGenerationExtension.registerExtension(MyCodeIrGenerationExtension(module))
     }
 }

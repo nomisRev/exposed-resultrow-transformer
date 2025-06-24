@@ -18,8 +18,14 @@ import org.jetbrains.kotlin.fir.extensions.predicate.LookupPredicate
 import org.jetbrains.kotlin.fir.extensions.predicateBasedProvider
 import org.jetbrains.kotlin.fir.plugin.createTopLevelFunction
 import org.jetbrains.kotlin.fir.render
+import org.jetbrains.kotlin.fir.resolve.toRegularClassSymbol
+import org.jetbrains.kotlin.fir.resolve.toTypeParameterSymbol
+import org.jetbrains.kotlin.fir.types.ConeClassLikeType
 import org.jetbrains.kotlin.fir.types.classId
-import org.jetbrains.kotlin.name.Name.identifier
+import org.jetbrains.kotlin.fir.types.impl.ConeClassLikeTypeImpl
+import org.jetbrains.kotlin.fir.types.toLookupTag
+import org.jetbrains.kotlin.name.Name
+import org.jetbrains.kotlin.name.StandardClassIds
 
 class MyCodeGenerationExtension(
     session: FirSession,
@@ -33,37 +39,93 @@ class MyCodeGenerationExtension(
         predicateBasedProvider.getSymbolsByPredicate(PREDICATE).filterIsInstance<FirRegularClassSymbol>()
     }
 
-    class Key(val annotated: FirRegularClassSymbol, val tableClassId: ClassId) : GeneratedDeclarationKey()
+    sealed class Key(val annotated: FirRegularClassSymbol, val tableClassId: ClassId) : GeneratedDeclarationKey()
+    class SingleKey(annotated: FirRegularClassSymbol, tableClassId: ClassId) : Key(annotated, tableClassId)
+    class IterableKey(annotated: FirRegularClassSymbol, tableClassId: ClassId) : Key(annotated, tableClassId)
 
     override fun FirDeclarationPredicateRegistrar.registerPredicates() {
         register(PREDICATE)
     }
 
+    fun state(): Map<CallableId, FirRegularClassSymbol> = matchedClasses.flatMap {
+        val classId = it.classId
+        val functionName = Name.identifier("to${classId.shortClassName}")
+        val functionNames = Name.identifier("to${classId.shortClassName}s")
+        listOf(
+            Pair(CallableId(packageName = classId.packageFqName, className = null, callableName = functionName), it),
+            Pair(CallableId(packageName = classId.packageFqName, className = null, callableName = functionNames), it),
+        )
+    }.toMap()
+
     @OptIn(ExperimentalTopLevelDeclarationsGenerationApi::class)
     override fun getTopLevelCallableIds(): Set<CallableId> =
-        matchedClasses.mapTo(mutableSetOf()) {
-            val classId = it.classId
-            val functionName = identifier("to${classId.shortClassName}")
-            CallableId(packageName = classId.packageFqName, className = null, callableName = functionName)
-        }
+        state().keys
 
     override fun generateFunctions(
         callableId: CallableId,
         context: MemberGenerationContext?
-    ): List<FirNamedFunctionSymbol> =
-        matchedClasses.map { owner ->
-            @OptIn(UnresolvedExpressionTypeAccess::class)
-            val tableClassId =
-                (owner.annotations.first().argumentMapping.mapping.entries.first().value as FirGetClassCall).argumentList.arguments.first().coneTypeOrNull?.classId!!
+    ): List<FirNamedFunctionSymbol> {
+        module.logger.log { "Generating function $callableId" }
+        val state = state()
+        val owner = state[callableId]
+            ?: return emptyList<FirNamedFunctionSymbol>().also { module.logger.log { "No owner found for $callableId" } }
 
-            module.logger.log { "Found ${owner.classId} for Exposed Transformation generation with Table: $tableClassId" }
+        @OptIn(UnresolvedExpressionTypeAccess::class)
+        val tableClassId =
+            (owner.annotations.firstOrNull()?.argumentMapping?.mapping?.entries?.firstOrNull()?.value as? FirGetClassCall)
+                ?.argumentList?.arguments?.firstOrNull()?.coneTypeOrNull?.classId ?: return emptyList()
 
-            @OptIn(ExperimentalTopLevelDeclarationsGenerationApi::class)
-            createTopLevelFunction(Key(owner, tableClassId), callableId, owner.defaultType()) {
-                extensionReceiverType(module.classIds.resultRow.defaultType(emptyList()))
-            }.apply {
-                containingClassForStaticMemberAttr = owner.toLookupTag()
-                module.logger.log { "Generated FIR function ${render()} for class ${owner.classId}" }
-            }.symbol
+        return if (state.contains(callableId) && callableId.callableName.asString().endsWith("s")) {
+            listOf(resultRowIterableFunction(owner, tableClassId, callableId))
+        } else {
+            listOf(resultRowFunction(owner, tableClassId, callableId))
         }
+    }
+
+    @OptIn(ExperimentalTopLevelDeclarationsGenerationApi::class)
+    private fun MyCodeGenerationExtension.resultRowFunction(
+        owner: FirRegularClassSymbol,
+        tableClassId: ClassId,
+        callableId: CallableId
+    ): FirNamedFunctionSymbol =
+        createTopLevelFunction(SingleKey(owner, tableClassId), callableId, owner.defaultType()) {
+            extensionReceiverType(module.classIds.resultRow.defaultType(emptyList()))
+        }.apply {
+            containingClassForStaticMemberAttr = owner.toLookupTag()
+            module.logger.log { "Generated FIR function ${render()} for class ${owner.classId}" }
+        }.symbol
+
+    @OptIn(ExperimentalTopLevelDeclarationsGenerationApi::class)
+    private fun MyCodeGenerationExtension.resultRowIterableFunction(
+        owner: FirRegularClassSymbol,
+        tableClassId: ClassId,
+        callableId: CallableId
+    ): FirNamedFunctionSymbol {
+        val returnType = ConeClassLikeTypeImpl(
+            lookupTag = StandardClassIds.Iterable.toLookupTag(),
+            typeArguments = arrayOf(owner.defaultType()),
+            isMarkedNullable = false
+        )
+
+        return createTopLevelFunction(IterableKey(owner, tableClassId), callableId, returnType) {
+            extensionReceiverType(
+                ConeClassLikeTypeImpl(
+                    lookupTag = StandardClassIds.Iterable.toLookupTag(),
+                    typeArguments = arrayOf(module.classIds.resultRow.defaultType()),
+                    isMarkedNullable = false
+                )
+            )
+        }.apply {
+            containingClassForStaticMemberAttr = owner.toLookupTag()
+            module.logger.log { "Generated FIR function ${render()} for class ${owner.classId}" }
+        }.symbol
+    }
+
+
 }
+
+fun ClassId.defaultType(): ConeClassLikeType =
+    defaultType(emptyList())
+
+fun ClassId.defaultType(parameters: FirTypeParameterSymbol): ConeClassLikeType =
+    defaultType(listOf(parameters))

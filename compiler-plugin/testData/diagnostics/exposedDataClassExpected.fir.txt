@@ -38,3 +38,4 @@ FILE: __GENERATED DECLARATIONS__.kt
     package my.test
 
     public final fun R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow|.toUser(): R|my/test/User|
+    public final fun R|kotlin/collections/Iterable<org/jetbrains/kotlin/compiler/plugin/template/ResultRow>|.toUsers(): R|kotlin/collections/Iterable<my/test/User>|

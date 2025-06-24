@@ -44,7 +44,7 @@ class ConstructorToTableChecker(private val module: Module) : FirClassChecker(Mp
 
         val superTypes = annotationClass?.resolvedSuperTypes.orEmpty()
         val isTable = annotationClass?.isSubclassOf(
-            module.classIds.table.defaultType(emptyList()).lookupTag, context.session,
+            module.classIds.table.defaultType().lookupTag, context.session,
             isStrict = false,
             lookupInterfaces = false
         ) == true

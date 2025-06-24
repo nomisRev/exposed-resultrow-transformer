@@ -1,4 +1,4 @@
-FILE: exposed.kt
+FILE: exposedIterable.kt
     package my.test
 
     @R|org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation|(kClass = <getClass>(Q|my/test/UsersTable|)) public final data class User : R|kotlin/Any| {
@@ -41,9 +41,9 @@ FILE: exposed.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval row: R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow| = Q|org/jetbrains/kotlin/compiler/plugin/template/ResultRow|.R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow.Companion.createAndFillValues|(vararg(Q|my/test/UsersTable|.R|my/test/UsersTable.id|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/Int>|, R|kotlin/Int|>(Int(1)), Q|my/test/UsersTable|.R|my/test/UsersTable.name|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/String>|, R|kotlin/String|>(String(John)), Q|my/test/UsersTable|.R|my/test/UsersTable.age|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/Int>|, R|kotlin/Int|>(Int(20)), Q|my/test/UsersTable|.R|my/test/UsersTable.email|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/String?>|, R|kotlin/String|>(String(<EMAIL>))))
-        lval actual: R|my/test/User| = R|<local>/row|.R|my/test/toUser|()
-        lval expected: R|my/test/User| = R|my/test/User.User|(String(John), Int(20))
+        lval row: R|kotlin/collections/Iterable<org/jetbrains/kotlin/compiler/plugin/template/ResultRow>| = R|kotlin/collections/listOf|<R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow|>(Q|org/jetbrains/kotlin/compiler/plugin/template/ResultRow|.R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow.Companion.createAndFillValues|(vararg(Q|my/test/UsersTable|.R|my/test/UsersTable.id|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/Int>|, R|kotlin/Int|>(Int(1)), Q|my/test/UsersTable|.R|my/test/UsersTable.name|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/String>|, R|kotlin/String|>(String(John)), Q|my/test/UsersTable|.R|my/test/UsersTable.age|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/Int>|, R|kotlin/Int|>(Int(20)), Q|my/test/UsersTable|.R|my/test/UsersTable.email|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/String?>|, R|kotlin/String|>(String(<EMAIL>)))))
+        lval actual: R|kotlin/collections/Iterable<my/test/User>| = R|<local>/row|.R|my/test/toUsers|()
+        lval expected: R|kotlin/collections/List<my/test/User>| = R|kotlin/collections/listOf|<R|my/test/User|>(R|my/test/User.User|(String(John), Int(20)))
         ^box when () {
             ==(R|<local>/actual|, R|<local>/expected|) ->  {
                 String(OK)
