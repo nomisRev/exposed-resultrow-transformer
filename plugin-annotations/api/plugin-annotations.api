@@ -1,3 +1,31 @@
+public final class org/jetbrains/kotlin/compiler/plugin/template/ResultRow {
+	public static final field Companion Lorg/jetbrains/kotlin/compiler/plugin/template/ResultRow$Companion;
+	public fun <init> (Ljava/util/Map;[Ljava/lang/Object;)V
+	public synthetic fun <init> (Ljava/util/Map;[Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun get (Lorg/jetbrains/exposed/sql/Expression;)Ljava/lang/Object;
+	public final fun getFieldIndex ()Ljava/util/Map;
+	public final fun getOrNull (Lorg/jetbrains/exposed/sql/Expression;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/jetbrains/kotlin/compiler/plugin/template/ResultRow$Companion {
+	public final fun createAndFillValues (Ljava/util/Map;)Lorg/jetbrains/kotlin/compiler/plugin/template/ResultRow;
+}
+
 public abstract interface annotation class org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation : java/lang/annotation/Annotation {
+	public abstract fun kClass ()Ljava/lang/Class;
+}
+
+public final class org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotationKt {
+	public static final fun johnResultRow ()Lorg/jetbrains/kotlin/compiler/plugin/template/ResultRow;
+}
+
+public final class org/jetbrains/kotlin/compiler/plugin/template/UsersTable : org/jetbrains/exposed/sql/Table {
+	public static final field INSTANCE Lorg/jetbrains/kotlin/compiler/plugin/template/UsersTable;
+	public final fun getAge ()Lorg/jetbrains/exposed/sql/Column;
+	public final fun getEmail ()Lorg/jetbrains/exposed/sql/Column;
+	public final fun getId ()Lorg/jetbrains/exposed/sql/Column;
+	public final fun getName ()Lorg/jetbrains/exposed/sql/Column;
+	public fun getPrimaryKey ()Lorg/jetbrains/exposed/sql/Table$PrimaryKey;
 }
 
