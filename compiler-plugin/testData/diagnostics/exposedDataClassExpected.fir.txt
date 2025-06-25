@@ -22,7 +22,7 @@ FILE: exposedDataClassExpected.kt
             public get(): R|org/jetbrains/exposed/sql/Table.PrimaryKey|
 
     }
-    @R|org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation|(kClass = <getClass>(Q|my/test/UsersTable|)) public final class User : R|kotlin/Any| {
+    @R|org/jetbrains/kotlin/compiler/plugin/template/Transformer|(kClass = <getClass>(Q|my/test/UsersTable|)) public final class User : R|kotlin/Any| {
         public constructor(name: R|kotlin/String|, age: R|kotlin/Int|): R|my/test/User| {
             super<R|kotlin/Any|>()
         }

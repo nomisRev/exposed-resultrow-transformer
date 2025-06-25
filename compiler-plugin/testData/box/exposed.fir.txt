@@ -1,7 +1,7 @@
 FILE: exposed.kt
     package my.test
 
-    @R|org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation|(kClass = <getClass>(Q|my/test/UsersTable|)) public final data class User : R|kotlin/Any| {
+    @R|org/jetbrains/kotlin/compiler/plugin/template/Transformer|(kClass = <getClass>(Q|my/test/UsersTable|)) public final data class User : R|kotlin/Any| {
         public constructor(name: R|kotlin/String|, age: R|kotlin/Int|): R|my/test/User| {
             super<R|kotlin/Any|>()
         }

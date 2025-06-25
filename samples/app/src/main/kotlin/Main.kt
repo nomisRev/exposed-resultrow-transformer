@@ -4,9 +4,9 @@ import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.insertAndGetId
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
-import org.jetbrains.kotlin.compiler.plugin.template.SomeAnnotation
+import org.jetbrains.kotlin.compiler.plugin.template.Transformer
 
-@SomeAnnotation(Users::class)
+@Transformer(Users::class)
 data class User(
     val name: String,
     val age: Int,

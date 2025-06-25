@@ -12,7 +12,7 @@ class ClassIds(
             relativeClassName = FqName("ResultRow"),
             isLocal = false,
         ),
-    val annotation: AnnotationFqn = FqName("org.jetbrains.kotlin.compiler.plugin.template.SomeAnnotation"),
+    val annotation: AnnotationFqn = FqName("org.jetbrains.kotlin.compiler.plugin.template.Transformer"),
     val table: ClassId =
         ClassId(
             packageFqName = FqName("org.jetbrains.exposed.sql"),
@@ -22,7 +22,7 @@ class ClassIds(
 )
 
 val MY_CODE_GENERATE_ANNOTATION: AnnotationFqn
-    get() = FqName("org.jetbrains.kotlin.compiler.plugin.template.SomeAnnotation")
+    get() = FqName("org.jetbrains.kotlin.compiler.plugin.template.Transformer")
 
 val TABLE_CLASS_ID =
     ClassId(

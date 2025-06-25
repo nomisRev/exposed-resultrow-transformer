@@ -27,7 +27,7 @@ Extension point registration:
 ## Usage
 
 1. Apply the Gradle plugin to your project
-2. Annotate your data classes with `@SomeAnnotation(YourTable::class)`
+2. Annotate your data classes with `@Transformer(YourTable::class)`
 3. Use the generated extension functions: `resultRow.toYourDataClass()` and `resultRows.toYourDataClasss()`
 
 ## Tests

@@ -1,7 +1,7 @@
 FILE fqName:my.test fileName:/exposed.kt
   CLASS CLASS name:User modality:FINAL visibility:public [data] superTypes:[kotlin.Any]
     annotations:
-      SomeAnnotation(kClass = CLASS_REFERENCE 'CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.sql.Table]' type=kotlin.reflect.KClass<my.test.UsersTable>)
+      Transformer(kClass = CLASS_REFERENCE 'CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.sql.Table]' type=kotlin.reflect.KClass<my.test.UsersTable>)
     $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:my.test.User
     PROPERTY name:name visibility:public modality:FINAL [val]
       FIELD PROPERTY_BACKING_FIELD name:name type:kotlin.String visibility:private [final]

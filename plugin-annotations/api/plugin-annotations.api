@@ -12,7 +12,7 @@ public final class org/jetbrains/kotlin/compiler/plugin/template/ResultRow$Compa
 	public final fun createAndFillValues ([Lkotlin/Pair;)Lorg/jetbrains/kotlin/compiler/plugin/template/ResultRow;
 }
 
-public abstract interface annotation class org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation : java/lang/annotation/Annotation {
+public abstract interface annotation class org/jetbrains/kotlin/compiler/plugin/template/Transformer : java/lang/annotation/Annotation {
 	public abstract fun kClass ()Ljava/lang/Class;
 }
 

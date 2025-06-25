@@ -2,7 +2,7 @@
 
 package my.test
 
-import org.jetbrains.kotlin.compiler.plugin.template.SomeAnnotation
+import org.jetbrains.kotlin.compiler.plugin.template.Transformer
 import org.jetbrains.exposed.sql.Table
 
 public object UsersTable : Table("users") {
@@ -13,5 +13,5 @@ public object UsersTable : Table("users") {
     override val primaryKey: PrimaryKey = PrimaryKey(id)
 }
 
-<!DATA_CLASS_EXPECTED!>@SomeAnnotation(UsersTable::class)
+<!DATA_CLASS_EXPECTED!>@Transformer(UsersTable::class)
 class User(val name: String, val age: Int)<!>
