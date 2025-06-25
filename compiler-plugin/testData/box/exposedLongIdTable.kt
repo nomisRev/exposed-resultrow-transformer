@@ -2,8 +2,8 @@
 
 package my.test
 
-import org.jetbrains.kotlin.compiler.plugin.template.Transformer
-import org.jetbrains.kotlin.compiler.plugin.template.ResultRow
+import org.jetbrains.exposed.compiler.plugin.Transformer
+import org.jetbrains.exposed.compiler.plugin.ResultRow
 import org.jetbrains.exposed.dao.id.LongIdTable
 
 @Transformer(UsersTable::class)

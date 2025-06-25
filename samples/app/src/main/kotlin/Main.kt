@@ -4,7 +4,7 @@ import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.insertAndGetId
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
-import org.jetbrains.kotlin.compiler.plugin.template.Transformer
+import org.jetbrains.exposed.compiler.plugin.Transformer
 
 @Transformer(Users::class)
 data class User(

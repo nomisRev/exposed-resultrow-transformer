@@ -1,7 +1,7 @@
 FILE: exposedLongIdTable.kt
     package my.test
 
-    @R|org/jetbrains/kotlin/compiler/plugin/template/Transformer|(kClass = <getClass>(Q|my/test/UsersTable|)) public final data class User : R|kotlin/Any| {
+    @R|org/jetbrains/exposed/compiler/plugin/Transformer|(kClass = <getClass>(Q|my/test/UsersTable|)) public final data class User : R|kotlin/Any| {
         public constructor(name: R|kotlin/String|, age: R|kotlin/Int|): R|my/test/User| {
             super<R|kotlin/Any|>()
         }
@@ -35,7 +35,7 @@ FILE: exposedLongIdTable.kt
 
     }
     public final fun box(): R|kotlin/String| {
-        lval row: R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow| = Q|org/jetbrains/kotlin/compiler/plugin/template/ResultRow|.R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow.Companion.createAndFillValues|(vararg(Q|my/test/UsersTable|.R|org/jetbrains/exposed/dao/id/LongIdTable.id|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<org/jetbrains/exposed/dao/id/EntityID<kotlin/Long>>|, R|kotlin/Int|>(Int(1)), Q|my/test/UsersTable|.R|my/test/UsersTable.name|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/String>|, R|kotlin/String|>(String(John)), Q|my/test/UsersTable|.R|my/test/UsersTable.age|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/Int>|, R|kotlin/Int|>(Int(20)), Q|my/test/UsersTable|.R|my/test/UsersTable.email|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/String?>|, R|kotlin/String|>(String(<EMAIL>))))
+        lval row: R|org/jetbrains/exposed/compiler/plugin/ResultRow| = Q|org/jetbrains/exposed/compiler/plugin/ResultRow|.R|org/jetbrains/exposed/compiler/plugin/ResultRow.Companion.createAndFillValues|(vararg(Q|my/test/UsersTable|.R|org/jetbrains/exposed/dao/id/LongIdTable.id|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<org/jetbrains/exposed/dao/id/EntityID<kotlin/Long>>|, R|kotlin/Int|>(Int(1)), Q|my/test/UsersTable|.R|my/test/UsersTable.name|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/String>|, R|kotlin/String|>(String(John)), Q|my/test/UsersTable|.R|my/test/UsersTable.age|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/Int>|, R|kotlin/Int|>(Int(20)), Q|my/test/UsersTable|.R|my/test/UsersTable.email|.R|kotlin/to|<R|org/jetbrains/exposed/sql/Column<kotlin/String?>|, R|kotlin/String|>(String(<EMAIL>))))
         lval actual: R|my/test/User| = R|<local>/row|.R|my/test/toUser|()
         lval expected: R|my/test/User| = R|my/test/User.User|(String(John), Int(20))
         ^box when () {
@@ -51,5 +51,5 @@ FILE: exposedLongIdTable.kt
 FILE: __GENERATED DECLARATIONS__.kt
     package my.test
 
-    public final fun R|org/jetbrains/kotlin/compiler/plugin/template/ResultRow|.toUser(): R|my/test/User|
-    public final fun R|kotlin/collections/Iterable<org/jetbrains/kotlin/compiler/plugin/template/ResultRow>|.toUsers(): R|kotlin/collections/Iterable<my/test/User>|
+    public final fun R|org/jetbrains/exposed/compiler/plugin/ResultRow|.toUser(): R|my/test/User|
+    public final fun R|kotlin/collections/Iterable<org/jetbrains/exposed/compiler/plugin/ResultRow>|.toUsers(): R|kotlin/collections/Iterable<my/test/User>|

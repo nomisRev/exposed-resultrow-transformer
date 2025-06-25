@@ -1,5 +1,5 @@
-public final class org/jetbrains/kotlin/compiler/plugin/template/ResultRow {
-	public static final field Companion Lorg/jetbrains/kotlin/compiler/plugin/template/ResultRow$Companion;
+public final class org/jetbrains/exposed/compiler/plugin/ResultRow {
+	public static final field Companion Lorg/jetbrains/exposed/compiler/plugin/ResultRow$Companion;
 	public fun <init> (Ljava/util/Map;[Ljava/lang/Object;)V
 	public synthetic fun <init> (Ljava/util/Map;[Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun get (Lorg/jetbrains/exposed/sql/Expression;)Ljava/lang/Object;
@@ -8,11 +8,11 @@ public final class org/jetbrains/kotlin/compiler/plugin/template/ResultRow {
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class org/jetbrains/kotlin/compiler/plugin/template/ResultRow$Companion {
-	public final fun createAndFillValues ([Lkotlin/Pair;)Lorg/jetbrains/kotlin/compiler/plugin/template/ResultRow;
+public final class org/jetbrains/exposed/compiler/plugin/ResultRow$Companion {
+	public final fun createAndFillValues ([Lkotlin/Pair;)Lorg/jetbrains/exposed/compiler/plugin/ResultRow;
 }
 
-public abstract interface annotation class org/jetbrains/kotlin/compiler/plugin/template/Transformer : java/lang/annotation/Annotation {
+public abstract interface annotation class org/jetbrains/exposed/compiler/plugin/Transformer : java/lang/annotation/Annotation {
 	public abstract fun kClass ()Ljava/lang/Class;
 }
 

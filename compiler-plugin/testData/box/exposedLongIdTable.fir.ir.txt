@@ -982,9 +982,9 @@ FILE fqName:my.test fileName:/exposedLongIdTable.kt
         $this: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.dao.id.LongIdTable
   FUN name:box visibility:public modality:FINAL <> () returnType:kotlin.String
     BLOCK_BODY
-      VAR name:row type:org.jetbrains.kotlin.compiler.plugin.template.ResultRow [val]
-        CALL 'public final fun createAndFillValues (vararg data: kotlin.Pair<org.jetbrains.exposed.sql.Expression<*>, kotlin.Any?>): org.jetbrains.kotlin.compiler.plugin.template.ResultRow declared in org.jetbrains.kotlin.compiler.plugin.template.ResultRow.Companion' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow origin=null
-          $this: GET_OBJECT 'CLASS IR_EXTERNAL_DECLARATION_STUB OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow.Companion
+      VAR name:row type:org.jetbrains.exposed.compiler.plugin.ResultRow [val]
+        CALL 'public final fun createAndFillValues (vararg data: kotlin.Pair<org.jetbrains.exposed.sql.Expression<*>, kotlin.Any?>): org.jetbrains.exposed.compiler.plugin.ResultRow declared in org.jetbrains.exposed.compiler.plugin.ResultRow.Companion' type=org.jetbrains.exposed.compiler.plugin.ResultRow origin=null
+          $this: GET_OBJECT 'CLASS IR_EXTERNAL_DECLARATION_STUB OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]' type=org.jetbrains.exposed.compiler.plugin.ResultRow.Companion
           data: VARARG type=kotlin.Array<out kotlin.Pair<org.jetbrains.exposed.sql.Expression<*>, kotlin.Any?>> varargElementType=kotlin.Pair<org.jetbrains.exposed.sql.Expression<*>, kotlin.Any?>
             CALL 'public final fun to <A, B> (that: B of kotlin.to): kotlin.Pair<A of kotlin.to, B of kotlin.to> declared in kotlin' type=kotlin.Pair<org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<kotlin.Long>>, kotlin.Int> origin=null
               <A>: org.jetbrains.exposed.sql.Column<org.jetbrains.exposed.dao.id.EntityID<kotlin.Long>>
@@ -1012,7 +1012,7 @@ FILE fqName:my.test fileName:/exposedLongIdTable.kt
               that: CONST String type=kotlin.String value="<EMAIL>"
       VAR name:actual type:my.test.User [val]
         CALL 'public final fun toUser (): my.test.User declared in my.test' type=my.test.User origin=null
-          $receiver: GET_VAR 'val row: org.jetbrains.kotlin.compiler.plugin.template.ResultRow declared in my.test.box' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow origin=null
+          $receiver: GET_VAR 'val row: org.jetbrains.exposed.compiler.plugin.ResultRow declared in my.test.box' type=org.jetbrains.exposed.compiler.plugin.ResultRow origin=null
       VAR name:expected type:my.test.User [val]
         CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, age: kotlin.Int) declared in my.test.User' type=my.test.User origin=null
           name: CONST String type=kotlin.String value="John"
@@ -1030,33 +1030,33 @@ FILE fqName:my.test fileName:/exposedLongIdTable.kt
               CONST String type=kotlin.String value="Fail: "
               GET_VAR 'val actual: my.test.User declared in my.test.box' type=my.test.User origin=null
 FILE fqName:my.test fileName:__GENERATED DECLARATIONS__.kt
-  FUN GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.MyCodeGenerationExtension.IterableKey] name:toUsers visibility:public modality:FINAL <> ($receiver:kotlin.collections.Iterable<org.jetbrains.kotlin.compiler.plugin.template.ResultRow>) returnType:kotlin.collections.Iterable<my.test.User>
-    $receiver: VALUE_PARAMETER name:<this> type:kotlin.collections.Iterable<org.jetbrains.kotlin.compiler.plugin.template.ResultRow>
+  FUN GENERATED[org.jetbrains.exposed.compiler.plugin.fir.MyCodeGenerationExtension.IterableKey] name:toUsers visibility:public modality:FINAL <> ($receiver:kotlin.collections.Iterable<org.jetbrains.exposed.compiler.plugin.ResultRow>) returnType:kotlin.collections.Iterable<my.test.User>
+    $receiver: VALUE_PARAMETER name:<this> type:kotlin.collections.Iterable<org.jetbrains.exposed.compiler.plugin.ResultRow>
     BLOCK_BODY
       RETURN type=kotlin.Nothing from='public final fun toUsers (): kotlin.collections.Iterable<my.test.User> declared in my.test'
         CALL 'public final fun map <T, R> (transform: kotlin.Function1<T of kotlin.collections.map, R of kotlin.collections.map>): kotlin.collections.List<R of kotlin.collections.map> declared in kotlin.collections' type=kotlin.collections.List<R of kotlin.collections.map> origin=null
-          <T>: org.jetbrains.kotlin.compiler.plugin.template.ResultRow
+          <T>: org.jetbrains.exposed.compiler.plugin.ResultRow
           <R>: my.test.User
-          $receiver: GET_VAR '<this>: kotlin.collections.Iterable<org.jetbrains.kotlin.compiler.plugin.template.ResultRow> declared in my.test.toUsers' type=kotlin.collections.Iterable<org.jetbrains.kotlin.compiler.plugin.template.ResultRow> origin=null
-          transform: FUN_EXPR type=kotlin.Function1<org.jetbrains.kotlin.compiler.plugin.template.ResultRow, my.test.User> origin=LAMBDA
-            FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL <> (it:org.jetbrains.kotlin.compiler.plugin.template.ResultRow) returnType:my.test.User
-              VALUE_PARAMETER name:it index:0 type:org.jetbrains.kotlin.compiler.plugin.template.ResultRow
+          $receiver: GET_VAR '<this>: kotlin.collections.Iterable<org.jetbrains.exposed.compiler.plugin.ResultRow> declared in my.test.toUsers' type=kotlin.collections.Iterable<org.jetbrains.exposed.compiler.plugin.ResultRow> origin=null
+          transform: FUN_EXPR type=kotlin.Function1<org.jetbrains.exposed.compiler.plugin.ResultRow, my.test.User> origin=LAMBDA
+            FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL <> (it:org.jetbrains.exposed.compiler.plugin.ResultRow) returnType:my.test.User
+              VALUE_PARAMETER name:it index:0 type:org.jetbrains.exposed.compiler.plugin.ResultRow
               BLOCK_BODY
-                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: org.jetbrains.kotlin.compiler.plugin.template.ResultRow): my.test.User declared in my.test.toUsers'
+                RETURN type=kotlin.Nothing from='local final fun <anonymous> (it: org.jetbrains.exposed.compiler.plugin.ResultRow): my.test.User declared in my.test.toUsers'
                   CALL 'public final fun toUser (): my.test.User declared in my.test' type=my.test.User origin=null
-                    $receiver: GET_VAR 'it: org.jetbrains.kotlin.compiler.plugin.template.ResultRow declared in my.test.toUsers.<anonymous>' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow origin=null
-  FUN GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.MyCodeGenerationExtension.SingleKey] name:toUser visibility:public modality:FINAL <> ($receiver:org.jetbrains.kotlin.compiler.plugin.template.ResultRow) returnType:my.test.User
-    $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.kotlin.compiler.plugin.template.ResultRow
+                    $receiver: GET_VAR 'it: org.jetbrains.exposed.compiler.plugin.ResultRow declared in my.test.toUsers.<anonymous>' type=org.jetbrains.exposed.compiler.plugin.ResultRow origin=null
+  FUN GENERATED[org.jetbrains.exposed.compiler.plugin.fir.MyCodeGenerationExtension.SingleKey] name:toUser visibility:public modality:FINAL <> ($receiver:org.jetbrains.exposed.compiler.plugin.ResultRow) returnType:my.test.User
+    $receiver: VALUE_PARAMETER name:<this> type:org.jetbrains.exposed.compiler.plugin.ResultRow
     BLOCK_BODY
       RETURN type=kotlin.Nothing from='public final fun toUser (): my.test.User declared in my.test'
         CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, age: kotlin.Int) declared in my.test.User' type=my.test.User origin=null
-          name: CALL 'public final fun get <T> (expression: org.jetbrains.exposed.sql.Expression<T of org.jetbrains.kotlin.compiler.plugin.template.ResultRow.get>): T of org.jetbrains.kotlin.compiler.plugin.template.ResultRow.get declared in org.jetbrains.kotlin.compiler.plugin.template.ResultRow' type=T of org.jetbrains.kotlin.compiler.plugin.template.ResultRow.get origin=null
+          name: CALL 'public final fun get <T> (expression: org.jetbrains.exposed.sql.Expression<T of org.jetbrains.exposed.compiler.plugin.ResultRow.get>): T of org.jetbrains.exposed.compiler.plugin.ResultRow.get declared in org.jetbrains.exposed.compiler.plugin.ResultRow' type=T of org.jetbrains.exposed.compiler.plugin.ResultRow.get origin=null
             <T>: kotlin.String
-            $this: GET_VAR '<this>: org.jetbrains.kotlin.compiler.plugin.template.ResultRow declared in my.test.toUser' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow origin=null
+            $this: GET_VAR '<this>: org.jetbrains.exposed.compiler.plugin.ResultRow declared in my.test.toUser' type=org.jetbrains.exposed.compiler.plugin.ResultRow origin=null
             expression: CALL 'public final fun <get-name> (): org.jetbrains.exposed.sql.Column<kotlin.String> declared in my.test.UsersTable' type=org.jetbrains.exposed.sql.Column<kotlin.String> origin=null
               $this: GET_OBJECT 'CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.dao.id.LongIdTable]' type=my.test.UsersTable
-          age: CALL 'public final fun get <T> (expression: org.jetbrains.exposed.sql.Expression<T of org.jetbrains.kotlin.compiler.plugin.template.ResultRow.get>): T of org.jetbrains.kotlin.compiler.plugin.template.ResultRow.get declared in org.jetbrains.kotlin.compiler.plugin.template.ResultRow' type=T of org.jetbrains.kotlin.compiler.plugin.template.ResultRow.get origin=null
+          age: CALL 'public final fun get <T> (expression: org.jetbrains.exposed.sql.Expression<T of org.jetbrains.exposed.compiler.plugin.ResultRow.get>): T of org.jetbrains.exposed.compiler.plugin.ResultRow.get declared in org.jetbrains.exposed.compiler.plugin.ResultRow' type=T of org.jetbrains.exposed.compiler.plugin.ResultRow.get origin=null
             <T>: kotlin.Int
-            $this: GET_VAR '<this>: org.jetbrains.kotlin.compiler.plugin.template.ResultRow declared in my.test.toUser' type=org.jetbrains.kotlin.compiler.plugin.template.ResultRow origin=null
+            $this: GET_VAR '<this>: org.jetbrains.exposed.compiler.plugin.ResultRow declared in my.test.toUser' type=org.jetbrains.exposed.compiler.plugin.ResultRow origin=null
             expression: CALL 'public final fun <get-age> (): org.jetbrains.exposed.sql.Column<kotlin.Int> declared in my.test.UsersTable' type=org.jetbrains.exposed.sql.Column<kotlin.Int> origin=null
               $this: GET_OBJECT 'CLASS OBJECT name:UsersTable modality:FINAL visibility:public superTypes:[org.jetbrains.exposed.dao.id.LongIdTable]' type=my.test.UsersTable

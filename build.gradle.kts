@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.detekt)
 }
 
-project.group = "org.jetbrains.kotlin.compiler.plugin.template"
+project.group = "org.jetbrains.exposed.compiler.plugin"
 project.version = "0.0.1"
 
 spotless {

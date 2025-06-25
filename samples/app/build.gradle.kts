@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libs.plugins.kotlinJvm)
-    id("org.jetbrains.kotlin.compiler.plugin.template")
+    id("org.jetbrains.exposed.compiler.plugin")
     application
 }
 
