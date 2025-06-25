@@ -54,7 +54,7 @@ buildConfig {
         internalVisibility = true
     }
 
-    packageName(group.toString())
+    packageName(rootProject.group.toString())
     buildConfigField("String", "KOTLIN_PLUGIN_ID", "\"${rootProject.group}\"")
 }
 
@@ -89,10 +89,12 @@ kotlin {
 }
 
 val generateTests by tasks.registering(JavaExec::class) {
-    inputs.dir(layout.projectDirectory.dir("testData"))
+    inputs
+        .dir(layout.projectDirectory.dir("testData"))
         .withPropertyName("testData")
         .withPathSensitivity(PathSensitivity.RELATIVE)
-    outputs.dir(layout.projectDirectory.dir("test-gen"))
+    outputs
+        .dir(layout.projectDirectory.dir("test-gen"))
         .withPropertyName("generatedTests")
 
     classpath = sourceSets.testFixtures.get().runtimeClasspath
@@ -104,12 +106,17 @@ tasks.compileTestKotlin {
     dependsOn(generateTests)
 }
 
-fun Test.setLibraryProperty(propName: String, jarName: String) {
-    val path = project.configurations
-        .testRuntimeClasspath.get()
-        .files
-        .find { """$jarName-\d.*jar""".toRegex().matches(it.name) }
-        ?.absolutePath
-        ?: return
+fun Test.setLibraryProperty(
+    propName: String,
+    jarName: String,
+) {
+    val path =
+        project.configurations
+            .testRuntimeClasspath
+            .get()
+            .files
+            .find { """$jarName-\d.*jar""".toRegex().matches(it.name) }
+            ?.absolutePath
+            ?: return
     systemProperty(propName, path)
 }

@@ -12,10 +12,16 @@ class SimpleCommandLineProcessor : CommandLineProcessor {
 
     override val pluginOptions: Collection<CliOption> = emptyList()
 
-    private fun <T : Any> CompilerConfiguration.put(option: Option<T>, value: String): Unit =
-        put(option.key, option.convertValue(value))
+    private fun <T : Any> CompilerConfiguration.put(
+        option: Option<T>,
+        value: String,
+    ): Unit = put(option.key, option.convertValue(value))
 
-    override fun processOption(option: AbstractCliOption, value: String, configuration: CompilerConfiguration) {
+    override fun processOption(
+        option: AbstractCliOption,
+        value: String,
+        configuration: CompilerConfiguration,
+    ) {
         when (val found = Options.entries.firstOrNull { it.name == option.optionName }) {
             null -> throw CliOptionProcessingException("Unknown plugin option: ${option.optionName}")
             else -> configuration.put(found, value)

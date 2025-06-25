@@ -1,15 +1,15 @@
 package org.jetbrains.kotlin.compiler.plugin.template.services
 
+import org.jetbrains.kotlin.test.services.KotlinStandardLibrariesPathProvider
 import java.io.File
 import java.io.File.pathSeparator
 import java.io.File.separator
-import kotlin.text.get
-import org.jetbrains.kotlin.test.services.KotlinStandardLibrariesPathProvider
 import kotlin.collections.associateBy
 import kotlin.collections.dropLastWhile
 import kotlin.collections.joinToString
 import kotlin.collections.map
 import kotlin.let
+import kotlin.text.get
 import kotlin.text.isEmpty
 import kotlin.text.split
 import kotlin.text.toRegex
@@ -18,7 +18,8 @@ object ClasspathBasedStandardLibrariesPathProvider : KotlinStandardLibrariesPath
     private val SEP = "\\$separator"
 
     private val GRADLE_DEPENDENCY =
-        (".*?" +
+        (
+            ".*?" +
                 SEP +
                 "(?<name>[^$SEP]*)" +
                 SEP +
@@ -26,11 +27,12 @@ object ClasspathBasedStandardLibrariesPathProvider : KotlinStandardLibrariesPath
                 SEP +
                 "[^$SEP]*" +
                 SEP +
-                "\\1-\\2\\.jar")
-            .toRegex()
+                "\\1-\\2\\.jar"
+        ).toRegex()
 
     private val jars =
-        System.getProperty("java.class.path")
+        System
+            .getProperty("java.class.path")
             .split("\\$pathSeparator".toRegex())
             .dropLastWhile(String::isEmpty)
             .map(::File)
@@ -38,10 +40,9 @@ object ClasspathBasedStandardLibrariesPathProvider : KotlinStandardLibrariesPath
                 GRADLE_DEPENDENCY.matchEntire(it.path)?.let { it.groups["name"]!!.value } ?: it.name
             }
 
-    private fun getFile(name: String): File {
-        return jars[name]
+    private fun getFile(name: String): File =
+        jars[name]
             ?: error("Jar $name not found in classpath:\n${jars.entries.joinToString("\n")}")
-    }
 
     override fun runtimeJarForTests(): File = getFile("kotlin-stdlib")
 

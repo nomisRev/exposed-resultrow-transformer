@@ -22,7 +22,7 @@ dependencies {
 }
 
 buildConfig {
-    packageName(project.group.toString())
+    packageName(rootProject.group.toString())
 
     buildConfigField("String", "KOTLIN_PLUGIN_ID", "\"${rootProject.group}\"")
 
@@ -35,7 +35,7 @@ buildConfig {
     buildConfigField(
         type = "String",
         name = "ANNOTATIONS_LIBRARY_COORDINATES",
-        expression = "\"${annotationsProject.group}:${annotationsProject.name}:${annotationsProject.version}\""
+        expression = "\"${annotationsProject.group}:${annotationsProject.name}:${annotationsProject.version}\"",
     )
 }
 

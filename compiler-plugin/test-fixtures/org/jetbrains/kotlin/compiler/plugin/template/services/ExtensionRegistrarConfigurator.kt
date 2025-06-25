@@ -16,22 +16,27 @@ import org.jetbrains.kotlin.test.model.TestModule
 import org.jetbrains.kotlin.test.services.EnvironmentConfigurator
 import org.jetbrains.kotlin.test.services.TestServices
 
-class ExtensionRegistrarConfigurator(testServices: TestServices) : EnvironmentConfigurator(testServices) {
+class ExtensionRegistrarConfigurator(
+    testServices: TestServices,
+) : EnvironmentConfigurator(testServices) {
     override fun CompilerPluginRegistrar.ExtensionStorage.registerCompilerExtensions(
         module: TestModule,
-        configuration: CompilerConfiguration
+        configuration: CompilerConfiguration,
     ) {
-        val module = Module(
-            classIds = ClassIds(
-                resultRow = ClassId(
-                    packageFqName = FqName("org.jetbrains.kotlin.compiler.plugin.template"),
-                    relativeClassName = FqName("ResultRow"),
-                    isLocal = false,
-                )
-            ),
-            options = Options(configuration),
-            logger = Logger(true),
-        )
+        val module =
+            Module(
+                classIds =
+                    ClassIds(
+                        resultRow =
+                            ClassId(
+                                packageFqName = FqName("org.jetbrains.kotlin.compiler.plugin.template"),
+                                relativeClassName = FqName("ResultRow"),
+                                isLocal = false,
+                            ),
+                    ),
+                options = Options(configuration),
+                logger = Logger(true),
+            )
         FirExtensionRegistrarAdapter.registerExtension(SimplePluginRegistrar(module))
         IrGenerationExtension.registerExtension(MyCodeIrGenerationExtension(module))
     }

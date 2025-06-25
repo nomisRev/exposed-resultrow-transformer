@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.compiler.plugin.AbstractCliOption
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.config.CompilerConfigurationKey
 
+@Suppress("LongParameterList")
 class Option<A : Any>(
     val name: String,
     override val valueDescription: String,
@@ -18,25 +19,26 @@ class Option<A : Any>(
         inline get() = name
 
     companion object {
-        val Debug = Option(
-            name = "debug",
-            valueDescription = "<true|false>",
-            description = "Debug mode",
-            required = false,
-            allowMultipleOccurrences = false,
-            defaultValue = true,
-            convertValue = { it.toBoolean() },
-        )
+        val Debug =
+            Option(
+                name = "debug",
+                valueDescription = "<true|false>",
+                description = "Debug mode",
+                required = false,
+                allowMultipleOccurrences = false,
+                defaultValue = true,
+                convertValue = { it.toBoolean() },
+            )
     }
 }
 
+private operator fun <T : Any> CompilerConfiguration.get(option: Option<T>): T = get(option.key, option.defaultValue)
 
-private operator fun <T : Any> CompilerConfiguration.get(option: Option<T>): T =
-    get(option.key, option.defaultValue)
-
-data class Options(val debug: Boolean) {
+data class Options(
+    val debug: Boolean,
+) {
     constructor(configuration: CompilerConfiguration) : this(
-        configuration[Option.Debug]
+        configuration[Option.Debug],
     )
 
     companion object {

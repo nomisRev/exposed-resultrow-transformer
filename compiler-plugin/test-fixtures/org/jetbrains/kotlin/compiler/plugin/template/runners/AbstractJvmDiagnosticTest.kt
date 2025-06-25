@@ -1,8 +1,8 @@
 package org.jetbrains.kotlin.compiler.plugin.template.runners
 
-import org.jetbrains.kotlin.compiler.plugin.template.services.RuntimeClassPathProvider
 import org.jetbrains.kotlin.compiler.plugin.template.services.ExtensionRegistrarConfigurator
 import org.jetbrains.kotlin.compiler.plugin.template.services.PluginAnnotationsProvider
+import org.jetbrains.kotlin.compiler.plugin.template.services.RuntimeClassPathProvider
 import org.jetbrains.kotlin.test.FirParser
 import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder
 import org.jetbrains.kotlin.test.directives.CodegenTestDirectives
@@ -13,9 +13,8 @@ import org.jetbrains.kotlin.test.services.EnvironmentBasedStandardLibrariesPathP
 import org.jetbrains.kotlin.test.services.KotlinStandardLibrariesPathProvider
 
 open class AbstractJvmDiagnosticTest : AbstractFirPhasedDiagnosticTest(FirParser.LightTree) {
-    override fun createKotlinStandardLibrariesPathProvider(): KotlinStandardLibrariesPathProvider {
-        return EnvironmentBasedStandardLibrariesPathProvider
-    }
+    override fun createKotlinStandardLibrariesPathProvider(): KotlinStandardLibrariesPathProvider =
+        EnvironmentBasedStandardLibrariesPathProvider
 
     override fun configure(builder: TestConfigurationBuilder) {
         super.configure(builder)

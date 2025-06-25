@@ -13,15 +13,20 @@ import org.jetbrains.kotlin.diagnostics.rendering.RootDiagnosticRendererFactory
 import org.jetbrains.kotlin.name.ClassId
 import org.jetbrains.kotlin.psi.KtAnnotation
 import org.jetbrains.kotlin.psi.KtClass
+import org.jetbrains.kotlin.psi.KtFunction
 import org.jetbrains.kotlin.psi.KtParameter
-import org.jetbrains.kotlin.psi.KtProperty
 
 object Errors : BaseDiagnosticRendererFactory() {
-
     val DATA_CLASS_PROPERTY_NOT_FOUND by DiagnosticFactory3DelegateProvider<String, String, List<String>>(
         severity = Severity.ERROR,
         positioningStrategy = SourceElementPositioningStrategies.DEFAULT,
         psiType = KtParameter::class,
+    )
+
+    val EXPOSED_TABLE_GET by DiagnosticFactory3DelegateProvider<ClassId, String, ClassId>(
+        severity = Severity.ERROR,
+        positioningStrategy = SourceElementPositioningStrategies.DEFAULT,
+        psiType = KtFunction::class,
     )
 
     val DATA_CLASS_EXPECTED by DiagnosticFactory1DelegateProvider<ClassId>(
@@ -36,6 +41,7 @@ object Errors : BaseDiagnosticRendererFactory() {
         psiType = KtAnnotation::class,
     )
 
+    @Suppress("ktlint:standard:property-naming")
     override val MAP: KtDiagnosticFactoryToRendererMap =
         KtDiagnosticFactoryToRendererMap("ExposedPlugin").apply {
             put(
@@ -47,15 +53,23 @@ object Errors : BaseDiagnosticRendererFactory() {
             )
 
             put(
+                EXPOSED_TABLE_GET,
+                "Column getter not found in ${0} during IR lowering for parameter ${1} of ${2}",
+                CLASS_ID,
+                TO_STRING,
+                CLASS_ID,
+            )
+
+            put(
                 DATA_CLASS_EXPECTED,
                 "Required declaration must be a data class, but found {0}.",
-                CLASS_ID
+                CLASS_ID,
             )
 
             put(
                 ANNOTATION_ARGUMENT_NOT_TABLE,
                 "Required declaration must have super type org.jetbrains.exposed.sql.Table, but found {0}.",
-                TO_STRING
+                TO_STRING,
             )
         }
 

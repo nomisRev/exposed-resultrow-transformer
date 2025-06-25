@@ -12,11 +12,12 @@ class SimplePluginComponentRegistrar : CompilerPluginRegistrar() {
     override fun ExtensionStorage.registerExtensions(configuration: CompilerConfiguration) {
         val options = Options(configuration)
         val logger = Logger(options.debug)
-        val module = Module(
-            classIds = ClassIds(),
-            options = options,
-            logger = logger,
-        )
+        val module =
+            Module(
+                classIds = ClassIds(),
+                options = options,
+                logger = logger,
+            )
         logger.log { "SimplePluginComponentRegistrar loaded" }
         FirExtensionRegistrarAdapter.registerExtension(SimplePluginRegistrar(module))
         IrGenerationExtension.registerExtension(MyCodeIrGenerationExtension(module))
